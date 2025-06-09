@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Remote Computing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="3 Remote Computing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Remote Computing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Remote Computing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  
+  
+  
+
+<meta name="author" content="Michelle Greene" />
+<meta name="author" content="Sage Aronson" />
+<meta name="author" content="Hooriya Aamir" />
+<meta name="author" content="Maria Adkins" />
+<meta name="author" content="Vivian Gao" />
+<meta name="author" content="Amy Nguyen" />
+<meta name="author" content="Sundari Ruth" />
+<meta name="author" content="Skylar Stadhard" />
+<meta name="author" content="Carina Wong" />
+
+
+<meta name="date" content="2025-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="terminal_basics.html"/>
+<link rel="next" href="editors_vim.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#foundational-knowledge-of-scientific-computing"><i class="fa fa-check"></i>Foundational Knowledge of Scientific Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="file_organization.html"><a href="file_organization.html"><i class="fa fa-check"></i><b>1</b> Computer File Organization</a>
+<ul>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#operating-systems"><i class="fa fa-check"></i>Operating Systems</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#key-terms"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#unix-linux-history"><i class="fa fa-check"></i>Unix &amp; Linux History</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#hierarchical-structure"><i class="fa fa-check"></i>Hierarchical Structure</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="terminal_basics.html"><a href="terminal_basics.html"><i class="fa fa-check"></i><b>2</b> Terminal Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#key-terms-1"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#what-is-the-terminal"><i class="fa fa-check"></i>What is the Terminal?</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency"><i class="fa fa-check"></i>Importance of the Terminal &amp; Command Line Proficiency</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#accessing-the-terminal"><i class="fa fa-check"></i>Accessing the Terminal</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#linux-unix"><i class="fa fa-check"></i>Linux &amp; Unix</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#mac-1"><i class="fa fa-check"></i>Mac</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#windows-1"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#using-the-terminal-to-navigate"><i class="fa fa-check"></i>Using the Terminal to Navigate</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#checking-locationexercises-to-test-understanding"><i class="fa fa-check"></i>Checking Location/Exercises to Test Understanding</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#changing-location"><i class="fa fa-check"></i>Changing Location</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#listing-files"><i class="fa fa-check"></i>Listing Files</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#creating-and-deleting-files-directories"><i class="fa fa-check"></i>Creating and Deleting Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#moving-and-renaming-files-directories"><i class="fa fa-check"></i>Moving and Renaming Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#managing-system-processes"><i class="fa fa-check"></i>Managing System Processes</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#some-special-directories-and-shortcuts"><i class="fa fa-check"></i>Some Special Directories and Shortcuts</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#finding-files-directories"><i class="fa fa-check"></i>Finding Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#wordcount"><i class="fa fa-check"></i>Wordcount</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#other-terminal-uses"><i class="fa fa-check"></i>Other Terminal Uses</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#the-man-command"><i class="fa fa-check"></i>The Man Command</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="remote_computing.html"><a href="remote_computing.html"><i class="fa fa-check"></i><b>3</b> Remote Computing</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#computer-clusters"><i class="fa fa-check"></i>Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#key-terms-2"><i class="fa fa-check"></i>Key Terms</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#importance-of-computer-clusters"><i class="fa fa-check"></i>Importance of Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#permissions"><i class="fa fa-check"></i>Permissions</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#accessing-remote-computers"><i class="fa fa-check"></i>Accessing Remote Computers</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#transferring-files-between-local-and-remote-systems"><i class="fa fa-check"></i>Transferring Files Between Local and Remote Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="editors_vim.html"><a href="editors_vim.html"><i class="fa fa-check"></i><b>4</b> Text Editors and Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#text-editors"><i class="fa fa-check"></i>Text Editors</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim"><i class="fa fa-check"></i>Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#entering-and-exiting-vim"><i class="fa fa-check"></i>Entering and Exiting Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#modes-in-vim"><i class="fa fa-check"></i>Modes in Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim-cheat-sheet"><i class="fa fa-check"></i>Vim Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>5</b> Python Environments (Using Anaconda)</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#understanding-computing-environments-in-python"><i class="fa fa-check"></i>Understanding Computing Environments in Python</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#background-information"><i class="fa fa-check"></i>Background Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-an-environment"><i class="fa fa-check"></i>Creating an Environment</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#determining-current-environments"><i class="fa fa-check"></i>Determining Current Environments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#activating-environments"><i class="fa fa-check"></i>Activating Environments</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#downloading-python-libraries"><i class="fa fa-check"></i>Downloading Python Libraries</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-and-managing-conda-environments"><i class="fa fa-check"></i>Creating and Managing Conda Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#recommended-packages"><i class="fa fa-check"></i>Recommended Packages</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#changing-python-environments-in-spyder-ide"><i class="fa fa-check"></i>Changing Python Environments in Spyder IDE</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#additional-helpful-commands"><i class="fa fa-check"></i>Additional Helpful Commands</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#difference-between-pip-install-and-conda-install"><i class="fa fa-check"></i>Difference between Pip Install and Conda Install</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#specific-notes-for-within-spyder"><i class="fa fa-check"></i>Specific Notes for Within Spyder</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>6</b> Basic Scripting</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#programming-languages"><i class="fa fa-check"></i>Programming Languages</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#python"><i class="fa fa-check"></i>Python</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#matlab"><i class="fa fa-check"></i>MATLAB</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#integrated-development-environments-ides"><i class="fa fa-check"></i>Integrated Development Environments (IDEs)</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#defining-variables"><i class="fa fa-check"></i>Defining Variables</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#indentation"><i class="fa fa-check"></i>Indentation</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-logical-operators"><i class="fa fa-check"></i>Operators: Logical Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-arithmetic-operators"><i class="fa fa-check"></i>Operators: Arithmetic Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-comparison-operators"><i class="fa fa-check"></i>Operators: Comparison Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-types"><i class="fa fa-check"></i>Data Types</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#boolean"><i class="fa fa-check"></i>Boolean</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-structures"><i class="fa fa-check"></i>Data Structures</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array-indexing"><i class="fa fa-check"></i>Array Indexing</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#conditionals"><i class="fa fa-check"></i>Conditionals</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#loops"><i class="fa fa-check"></i>Loops</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#functions"><i class="fa fa-check"></i>Functions</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comparison-table"><i class="fa fa-check"></i>Comparison Table</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="gitVersion_control.html"><a href="gitVersion_control.html"><i class="fa fa-check"></i><b>7</b> Git and Version Control</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#introduction-to-version-control"><i class="fa fa-check"></i>Introduction to Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#local-version-control"><i class="fa fa-check"></i>Local Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#centralized-version-control-system"><i class="fa fa-check"></i>Centralized Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#distributed-version-control-system"><i class="fa fa-check"></i>Distributed Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git"><i class="fa fa-check"></i>Git</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#github"><i class="fa fa-check"></i>GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#what-is-a-repository"><i class="fa fa-check"></i>What is a Repository?</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#initializing-a-git-repository"><i class="fa fa-check"></i>Initializing a Git Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#commits"><i class="fa fa-check"></i>Commits</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#cloning-a-repository"><i class="fa fa-check"></i>Cloning a Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#branches"><i class="fa fa-check"></i>Branches</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#merging"><i class="fa fa-check"></i>Merging</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#pull-requests"><i class="fa fa-check"></i>Pull Requests</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#example-of-a-git-workflow"><i class="fa fa-check"></i>Example of a Git Workflow</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git-cheat-sheet"><i class="fa fa-check"></i>Git Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel_basics.html"><a href="excel_basics.html"><i class="fa fa-check"></i><b>8</b> Excel Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#formulas"><i class="fa fa-check"></i>Formulas</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#operator-precedence"><i class="fa fa-check"></i>Operator Precedence</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottables"><i class="fa fa-check"></i>PivotTables</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottable-fields"><i class="fa fa-check"></i>PivotTable Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="intro_eeg.html"><a href="intro_eeg.html"><i class="fa fa-check"></i><b>9</b> Introduction to EEG</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#what-is-eeg"><i class="fa fa-check"></i>What is EEG?</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#basic-methodology"><i class="fa fa-check"></i>Basic Methodology</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#electrodes-and-their-placement"><i class="fa fa-check"></i>Electrodes and their Placement</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#artifacts-and-their-origins"><i class="fa fa-check"></i>Artifacts and their Origins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-preprocessing"><i class="fa fa-check"></i>Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#referencing-and-re-referencing"><i class="fa fa-check"></i>Referencing and Re-referencing</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#filtering"><i class="fa fa-check"></i>Filtering</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#event-detection"><i class="fa fa-check"></i>Event Detection</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#epoching-and-baseline-correction"><i class="fa fa-check"></i>Epoching and Baseline Correction</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#independent-components-analysis-ica"><i class="fa fa-check"></i>Independent Components Analysis (ICA)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-analysis"><i class="fa fa-check"></i>Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#frequency"><i class="fa fa-check"></i>Frequency</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#traditional-erps"><i class="fa fa-check"></i>Traditional ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="signal_detection.html"><a href="signal_detection.html"><i class="fa fa-check"></i><b>10</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#image-detection-example"><i class="fa fa-check"></i>Image Detection Example</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#implementation-of-d-in-excel-r-and-matlab"><i class="fa fa-check"></i>Implementation of d’ in Excel, R, and Matlab</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fourier.html"><a href="fourier.html"><i class="fa fa-check"></i><b>11</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#time-domain-vs.-frequency-domain-visualization"><i class="fa fa-check"></i>Time Domain vs. Frequency Domain Visualization</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#relevance-to-eeg"><i class="fa fa-check"></i>Relevance to EEG</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#amplitude-and-phase-spectra"><i class="fa fa-check"></i>Amplitude and Phase Spectra</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="found_stats.html"><a href="found_stats.html"><i class="fa fa-check"></i><b>12</b> Foundational Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#some-key-concepts"><i class="fa fa-check"></i>Some Key Concepts</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-central-tendency"><i class="fa fa-check"></i>Measures of Central Tendency</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-variability"><i class="fa fa-check"></i>Measures of Variability</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-relatedness"><i class="fa fa-check"></i>Measures of Relatedness</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#types-of-distributions"><i class="fa fa-check"></i>Types of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#inferential-statistics"><i class="fa fa-check"></i>Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#null-hypothesis-significance-testing"><i class="fa fa-check"></i>Null-hypothesis significance testing</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#effect-size-versus-statistical-significance"><i class="fa fa-check"></i>Effect size versus statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#further-reading-11"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine_learning.html"><a href="machine_learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning and Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#machine-learning-and-cognitive-science"><i class="fa fa-check"></i>Machine Learning and Cognitive Science</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#unsupervised-learning"><i class="fa fa-check"></i>Unsupervised Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#principal-component-analysis"><i class="fa fa-check"></i>Principal Component Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#steps-for-pca"><i class="fa fa-check"></i>Steps for PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#multidimensional-scaling-mds"><i class="fa fa-check"></i>Multidimensional Scaling (MDS)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i>T-Distributed Stochastic Neighbor Embedding (T-SNE)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#clustering"><i class="fa fa-check"></i>Clustering</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#supervised-machine-learning"><i class="fa fa-check"></i>Supervised Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classification"><i class="fa fa-check"></i>Classification</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#support-vector-machines"><i class="fa fa-check"></i>Support Vector Machines</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#decoding-neural-signals"><i class="fa fa-check"></i>Decoding Neural Signals</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-what-is-decoding"><i class="fa fa-check"></i>Overview: What is decoding?</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#linear-decoding-models"><i class="fa fa-check"></i>Linear Decoding Models</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classifier-information"><i class="fa fa-check"></i>Classifier Information</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#training-and-testing"><i class="fa fa-check"></i>Training and Testing</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#cross-validation-classification-methodology"><i class="fa fa-check"></i>Cross-Validation Classification Methodology</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#leave-one-out-cross-validation"><i class="fa fa-check"></i>Leave One Out Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#k-fold-cross-validation"><i class="fa fa-check"></i>K-fold Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier"><i class="fa fa-check"></i>Evaluation and Interpretation of the Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#further-reading-12"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="image_processing.html"><a href="image_processing.html"><i class="fa fa-check"></i><b>14</b> Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#digital-cameras"><i class="fa fa-check"></i>Digital Cameras</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-values"><i class="fa fa-check"></i>Pixel Values</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-file-formats"><i class="fa fa-check"></i>Image File Formats</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#color-spaces"><i class="fa fa-check"></i>Color Spaces</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#cielab-color"><i class="fa fa-check"></i>CIELAB Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#hsv-color"><i class="fa fa-check"></i>HSV Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-luminance-and-contrast"><i class="fa fa-check"></i>Image Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#luminance"><i class="fa fa-check"></i>Luminance</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#contrast"><i class="fa fa-check"></i>Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#normalizing-luminance-and-contrast"><i class="fa fa-check"></i>Normalizing Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-coordinates"><i class="fa fa-check"></i>Pixel Coordinates</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-resolution-and-resizing"><i class="fa fa-check"></i>Image Resolution and Resizing</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#further-reading-13"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html"><i class="fa fa-check"></i><b>15</b> Advanced Image Representation</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#fourier-transforms-in-two-dimensions"><i class="fa fa-check"></i>Fourier transforms in two dimensions</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#spatial-frequencies"><i class="fa fa-check"></i>Spatial Frequencies</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#amplitude-and-phase-spectra-of-images"><i class="fa fa-check"></i>Amplitude and Phase Spectra of Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#phase-randomized-images"><i class="fa fa-check"></i>Phase Randomized Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#gabor-wavelet"><i class="fa fa-check"></i>Gabor Wavelet</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-is-a-gabor"><i class="fa fa-check"></i>What is a Gabor?</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-are-gabor-wavelets-inspired-by"><i class="fa fa-check"></i>What are Gabor wavelets inspired by?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#further-reading-14"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="remote_computing" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Remote Computing<a href="remote_computing.html#remote_computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-2" class="section level2 unnumbered hasAnchor">
+<h2>Overview<a href="remote_computing.html#overview-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<figure style="float: right; width: 40%; margin-left: 15px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/NetworkDecentral.svg" style="width: 100%;">
+<figcaption style="font-size: 80%;">
+<figcaption>
+Wikipedia contributors. (n.d.). <i>Network decentral</i>. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:NetworkDecentral.svg" class="uri">https://commons.wikimedia.org/wiki/File:NetworkDecentral.svg</a>
+</figcaption>
+</figure>
+<p>Do we <em>need</em> to be in a lab to access lab documents? What if we need to run code on a device with higher computing power than our personal computer? Enter remote computing!</p>
+<p>Remote computing is the action of accessing a computing resource that is in a different physical location from the user. It becomes an essential ability for most labs for two main reasons. First, in a lab with many members, it is essential that shared files live in a space easily accessible by everyone. A file server, such as a <a href="https://en.wikipedia.org/wiki/Network-attached_storage">network attached storage (NAS)</a>, will satisfy this need. A file server is a centralized server that provides storage for files and can be accessed by other devices when granted permission.</p>
+<p>Moreover, remote computing can allow lab members to utilize the computing ability of devices with much higher processing power (CPU, GPU, or memory) than their own device. One example of a collective computing system with higher processing power and efficiency, is a <a href="https://en.wikipedia.org/wiki/Computer_cluster">computer cluster</a>.</p>
+</div>
+<div id="computer-clusters" class="section level2 unnumbered hasAnchor">
+<h2>Computer Clusters<a href="remote_computing.html#computer-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+Computer clusters are a network of interconnected computers that function together as a unified system to perform complex tasks. Each computer doesn’t look like the computers one might typically see. Often, they are flat and stacked together in metal racks and placed in an organization’s data center. The primary purpose of a computer cluster is to divide large intricate tasks into smaller more manageable sub-tasks. Thus, allowing each computer in the cluster to process a portion of the work simultaneously.
+<figure style="float: right; width: 40%; margin-left: 15px;">
+<img src="imagesVCL/compcluster.jpg" style="width: 100%;">
+<figcaption style="font-size: 80%;">
+<figcaption>
+Wikipedia contributors. (n.d.). <i>Virginia tech xserve cluster</i>. Wikimedia Commons. svg
+</figcaption>
+</figure>
+<p>This parallel processing significantly enhances the speed and efficiency of large-scale data processing. Like an orchestra, if each musician is assigned to play a single part, two things happen: 1. They can play music richer and more complex than a single instrument can (a cluster can compute algorithms that are much more complex than a single computer). 2. Multiple different melodies can be played at the same time (multiple different lines of algorithm can be executed simultaneously, in the context of computation, this simultaneous execution can lead to higher overall computational efficiency).</p>
+<p>With the orchestra analogy in mind, let’s now explore the main components of a computer cluster.</p>
+</div>
+<div id="key-terms-2" class="section level2 unnumbered hasAnchor">
+<h2>Key Terms<a href="remote_computing.html#key-terms-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Head Node:</strong> Each computer or server in the cluster is called a node. The head node is the primary computer that serves as the main access point. When a user logs into the cluster, we will be accessing the head node. The assignment of a head node is arbitrary, appearance wise, the head node computer looks identical to the rest of the nodes. The head node typically does not have many resources, so you must never launch a script on the head node! However, what this node does is assign the execution of a script to a computing node that would be the best at executing the given command. The head node is like the conductor of the orchestra. Though, they do not play any of the instruments, they play an essential role in assigning certain bars of music to be played by musicians while maintaining the overall coherence of the group.</p></li>
+<li><p><strong>Compute Node:</strong> Compute nodes are the machines where the computing jobs are executed. Each node in the cluster has its operating system and CPU (and sometimes GPU). Nodes communicate with each other through middleware software that manages communication between them. Like you might’ve guessed, compute nodes are like the instrument players; they are instructed when and what code to carry out and form the main execution portion of an orchestra or, in this case, a cluster.</p></li>
+</ul>
+<div id="importance-of-computer-clusters" class="section level3 unnumbered hasAnchor">
+<h3>Importance of Computer Clusters<a href="remote_computing.html#importance-of-computer-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Computer clusters are crucial for labs like VCL (Viusal Cognition Lab), enabling the efficient computation of large, multidimensional data like EEG. They allow for the processing of large datasets, enhancing the lab’s ability to handle complex tasks such as decoding (discussed in later sections). Clusters also enable developers and researchers to scale data analysis by adding more nodes, increasing computational power. At times, we assign different parts of a script to separate machines, ensuring optimal processing speed. You can think of it like a team of farmers, each responsible for a row of strawberries, working together to harvest the entire field.</p>
+</div>
+<div id="permissions" class="section level3 unnumbered hasAnchor">
+<h3>Permissions<a href="remote_computing.html#permissions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that you’ve gotten a good sense of the main types of remote computing methods and the structure of a computer cluster. Let’s briefly dive into how to access a file server, a head node, or any entity requiring permission.</p>
+<p>Varying levels of computer access should be assigned based on users’ roles. This concept is called user permissions, a key aspect of access control. Assigning permissions enhances both security and system performance. Permissions can be granted to groups, users, or objects with the appropriate security identifiers in the domain. Common permissions include: read, modify, change owner, and delete. A user with “Read-Only” access will not be able to edit the file, like on Google Docs or Microsoft Word.
+Nonetheless, regardless of the level of permission granted to a user, access to a server or remote computer must be granted by a protocol. The most common protocols are SSH, and password-based authentication.</p>
+</div>
+<div id="accessing-remote-computers" class="section level3 unnumbered hasAnchor">
+<h3>Accessing Remote Computers<a href="remote_computing.html#accessing-remote-computers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+SSH allows individuals to securely access and send commands to a private network even when connected to an unsecured network, including the one at your home. SSH uses encryption to establish a secure connection between the person seeking access and the server.
+<figure style="float: right; width: 40%; margin-left: 15px;">
+<img src="imagesVCL/PublicPrivateKey.png" style="width: 100%;">
+<figcaption style="font-size: 80%;">
+<figcaption>
+(FlippyFlink, 2019)
+</figure>
+<p>During the encryption process, it will scramble up the data that is being transmitted through the connection between the server and the local machine that the user is. If a hacker attempts to access this information during the transmission, it will appear as mostly static noise, rather than meaningful information. The encryption protects all aspects of the session, including authentication credentials, commands, outputs, and files, ensuring that the data transmitted between the client and server remains private and secure.</p>
+<p>But how can the designated recipient then decrypt the message? The SSH system creates a key pair, one private and one public, when a user first sets up access. The public key, which can be shared with anyone, is used to encrypt data. The private key, which one should not share, is used to decipher the data. Now, whenever the user attempts to gain access to a remote computing system (we use a remote computer in this case, but it could be anything requiring access permission), a connection request is initiated. The server will then check if the public key attempting access is one that is already logged to the server’s system. The server then generates a random piece of data only decipherable by the private key associated with this public key. If the message can be deciphered, permission is granted!
+Another way, one that is also commonly used, is the username and password system. This system is likely familiar to you. When logging in, a user will be prompted to add a username. If the username already exists in the system, users will be prompted to enter a password. If the password matches the one logged in the database, the permission is granted!</p>
+</div>
+<div id="transferring-files-between-local-and-remote-systems" class="section level3 unnumbered hasAnchor">
+<h3>Transferring Files Between Local and Remote Systems<a href="remote_computing.html#transferring-files-between-local-and-remote-systems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How do you move things from your device on to a remote system like a file server or cluster? Intuitively, you might say drag and drop using a window manager such as Finder. Though, this answer isn’t wrong, let’s explore the underlying mechanism behind the “drag-and-drop”. The exploration can give you a more in-depth sense of navigation between local and remote system and pick up ways to quicken the process. You will deepen the terminal skills you developed in Chapter 2 here!</p>
+<p>We will cover file transferring tools such as rsync and SCP. We will explain each of these tools below.</p>
+<div id="rsync" class="section level4 unnumbered hasAnchor">
+<h4>Rsync<a href="remote_computing.html#rsync" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Rsync is a terminal utility that allows you to synchronize files between local and remote servers. <strong>Warning</strong>: It is easy to accidentally overwrite your files using rsync. Each rsync command should follow the basic format: rsync [options] [origin] [destination]. Let’s break this down: the <em>origin</em> is the directory that currently contains the file you want to transfer. The <em>destination</em> is where you want it to go. There are many options that dictate whether you keep the original time stamps and permissions on the file, how much information to show about the progress of the transfer, and more. A list of many common options are provided in the table below, but you can type <code>man rsync</code> in your terminal to read about more.</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-a</code></td>
+<td>Copy files recursively and preserve ownership of files when files are copied</td>
+</tr>
+<tr class="even">
+<td><code>--dry-run</code></td>
+<td>Runs a trial run of the command; does not make any actual changes. This is incredibly helpful if you are worried that you might overwrite files or transfer a large amount of data to the wrong place.</td>
+</tr>
+<tr class="odd">
+<td><code>--delete</code></td>
+<td>Deletes files in the destination directory if they don’t exist in the origin directory.</td>
+</tr>
+<tr class="even">
+<td><code>--exclude="*.fileType"</code></td>
+<td>Exclude all of a specific file type. Replace <code>fileType</code> with the actual file type that should be excluded. For example, <code>--exclude="*.log"</code> will exclude all <code>.log</code> files</td>
+</tr>
+<tr class="odd">
+<td><code>-h</code></td>
+<td>Produce easily readable output, not just numbers</td>
+</tr>
+<tr class="even">
+<td><code>-q</code></td>
+<td>Runs the quiet version of the command; all of the processes that are run will be in the background and will not be shown</td>
+</tr>
+<tr class="odd">
+<td><code>-v</code></td>
+<td>Runs the verbose version of the command; all of the processes that are run will be written out for the user to read and debug</td>
+</tr>
+<tr class="even">
+<td><code>-z</code></td>
+<td>Compress the data synced</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example rsync command: <code>rsync -av /home/username/experiments .</code>. Here, we recursively transfer the “experiments” folder to the current directory. You might be thinking that this seems a lot like <code>cp</code> that you learned about in Chapter 2, and you wouldn’t be wrong. While you can rsync between two local folders as we did here, it’s real power comes from working on a remote machine. Consider this example: <code>rsync -av user@my_server:/home/username/experiments .</code>. Here, we are also transferring a folder called “experiments” but from a remote server to our current local directory. The user will then be prompted for her credentials before the transfer will take place. One can also push to a remote computer in a similar way: <code>rsync -av /path/to/transfer user@my_server:/home/username/</code>.</p>
+<p>Rsync is more efficient at transferring a large number of files simultaneously than the SCP tool (discussed below and note, the SCP tool is being deprecated due to security vulnerabilities).</p>
+</div>
+<div id="scp" class="section level4 unnumbered hasAnchor">
+<h4>SCP<a href="remote_computing.html#scp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Like rsync, SCP is a tool used to securely transfer files to and from servers. SCP leverages SSH mechanisms to ensure data confidentiality and user authentication. With SCP, a user can move files between remote and local machines. SCP is a built-in command in the main operating systems discussed in this textbook: macOS, Windows, and Linux. However, compared to rsync and other file transfer tools, SCP is more limited in that it only transfers files—but it does so at a fast rate.</p>
+<p>While this is true, rsync is slower because it checks which files have already been transferred, avoiding unnecessary duplication, and ensures that all transfers are accurate and complete. This often saves time in the long run since, if SCP is interrupted it has to restart the entire transfer, whereas rsync assesses what remains and continues from there. This, combined with security vulnerabilities make rsync the better transfer protocol in nearly every case!</p>
+</div>
+</div>
+</div>
+<div id="further-reading-2" class="section level2 unnumbered hasAnchor">
+<h2>Further Reading<a href="remote_computing.html#further-reading-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend the following sources for more information on this topic:</p>
+<p><a href="https://missing.csail.mit.edu/2019/security/">Security and Privacy</a> from MIT’s “Missing Semester” course.</p>
+<p>Julia Evans, <a href="https://jvns.ca/blog/2022/07/28/toy-remote-login-server/">A Toy Remote Login Server</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="terminal_basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="editors_vim.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["official-textbook.pdf", "official-textbook.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Git and Version Control | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="7 Git and Version Control | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Git and Version Control | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Git and Version Control | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  
+  
+  
+
+<meta name="author" content="Michelle Greene" />
+<meta name="author" content="Sage Aronson" />
+<meta name="author" content="Hooriya Aamir" />
+<meta name="author" content="Maria Adkins" />
+<meta name="author" content="Vivian Gao" />
+<meta name="author" content="Amy Nguyen" />
+<meta name="author" content="Sundari Ruth" />
+<meta name="author" content="Skylar Stadhard" />
+<meta name="author" content="Carina Wong" />
+
+
+<meta name="date" content="2025-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="scripting.html"/>
+<link rel="next" href="excel_basics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#foundational-knowledge-of-scientific-computing"><i class="fa fa-check"></i>Foundational Knowledge of Scientific Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="file_organization.html"><a href="file_organization.html"><i class="fa fa-check"></i><b>1</b> Computer File Organization</a>
+<ul>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#operating-systems"><i class="fa fa-check"></i>Operating Systems</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#key-terms"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#unix-linux-history"><i class="fa fa-check"></i>Unix &amp; Linux History</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#hierarchical-structure"><i class="fa fa-check"></i>Hierarchical Structure</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="terminal_basics.html"><a href="terminal_basics.html"><i class="fa fa-check"></i><b>2</b> Terminal Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#key-terms-1"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#what-is-the-terminal"><i class="fa fa-check"></i>What is the Terminal?</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency"><i class="fa fa-check"></i>Importance of the Terminal &amp; Command Line Proficiency</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#accessing-the-terminal"><i class="fa fa-check"></i>Accessing the Terminal</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#linux-unix"><i class="fa fa-check"></i>Linux &amp; Unix</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#mac-1"><i class="fa fa-check"></i>Mac</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#windows-1"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#using-the-terminal-to-navigate"><i class="fa fa-check"></i>Using the Terminal to Navigate</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#checking-locationexercises-to-test-understanding"><i class="fa fa-check"></i>Checking Location/Exercises to Test Understanding</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#changing-location"><i class="fa fa-check"></i>Changing Location</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#listing-files"><i class="fa fa-check"></i>Listing Files</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#creating-and-deleting-files-directories"><i class="fa fa-check"></i>Creating and Deleting Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#moving-and-renaming-files-directories"><i class="fa fa-check"></i>Moving and Renaming Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#managing-system-processes"><i class="fa fa-check"></i>Managing System Processes</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#some-special-directories-and-shortcuts"><i class="fa fa-check"></i>Some Special Directories and Shortcuts</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#finding-files-directories"><i class="fa fa-check"></i>Finding Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#wordcount"><i class="fa fa-check"></i>Wordcount</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#other-terminal-uses"><i class="fa fa-check"></i>Other Terminal Uses</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#the-man-command"><i class="fa fa-check"></i>The Man Command</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="remote_computing.html"><a href="remote_computing.html"><i class="fa fa-check"></i><b>3</b> Remote Computing</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#computer-clusters"><i class="fa fa-check"></i>Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#key-terms-2"><i class="fa fa-check"></i>Key Terms</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#importance-of-computer-clusters"><i class="fa fa-check"></i>Importance of Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#permissions"><i class="fa fa-check"></i>Permissions</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#accessing-remote-computers"><i class="fa fa-check"></i>Accessing Remote Computers</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#transferring-files-between-local-and-remote-systems"><i class="fa fa-check"></i>Transferring Files Between Local and Remote Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="editors_vim.html"><a href="editors_vim.html"><i class="fa fa-check"></i><b>4</b> Text Editors and Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#text-editors"><i class="fa fa-check"></i>Text Editors</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim"><i class="fa fa-check"></i>Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#entering-and-exiting-vim"><i class="fa fa-check"></i>Entering and Exiting Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#modes-in-vim"><i class="fa fa-check"></i>Modes in Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim-cheat-sheet"><i class="fa fa-check"></i>Vim Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>5</b> Python Environments (Using Anaconda)</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#understanding-computing-environments-in-python"><i class="fa fa-check"></i>Understanding Computing Environments in Python</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#background-information"><i class="fa fa-check"></i>Background Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-an-environment"><i class="fa fa-check"></i>Creating an Environment</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#determining-current-environments"><i class="fa fa-check"></i>Determining Current Environments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#activating-environments"><i class="fa fa-check"></i>Activating Environments</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#downloading-python-libraries"><i class="fa fa-check"></i>Downloading Python Libraries</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-and-managing-conda-environments"><i class="fa fa-check"></i>Creating and Managing Conda Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#recommended-packages"><i class="fa fa-check"></i>Recommended Packages</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#changing-python-environments-in-spyder-ide"><i class="fa fa-check"></i>Changing Python Environments in Spyder IDE</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#additional-helpful-commands"><i class="fa fa-check"></i>Additional Helpful Commands</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#difference-between-pip-install-and-conda-install"><i class="fa fa-check"></i>Difference between Pip Install and Conda Install</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#specific-notes-for-within-spyder"><i class="fa fa-check"></i>Specific Notes for Within Spyder</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>6</b> Basic Scripting</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#programming-languages"><i class="fa fa-check"></i>Programming Languages</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#python"><i class="fa fa-check"></i>Python</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#matlab"><i class="fa fa-check"></i>MATLAB</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#integrated-development-environments-ides"><i class="fa fa-check"></i>Integrated Development Environments (IDEs)</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#defining-variables"><i class="fa fa-check"></i>Defining Variables</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#indentation"><i class="fa fa-check"></i>Indentation</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-logical-operators"><i class="fa fa-check"></i>Operators: Logical Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-arithmetic-operators"><i class="fa fa-check"></i>Operators: Arithmetic Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-comparison-operators"><i class="fa fa-check"></i>Operators: Comparison Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-types"><i class="fa fa-check"></i>Data Types</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#boolean"><i class="fa fa-check"></i>Boolean</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-structures"><i class="fa fa-check"></i>Data Structures</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array-indexing"><i class="fa fa-check"></i>Array Indexing</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#conditionals"><i class="fa fa-check"></i>Conditionals</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#loops"><i class="fa fa-check"></i>Loops</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#functions"><i class="fa fa-check"></i>Functions</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comparison-table"><i class="fa fa-check"></i>Comparison Table</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="gitVersion_control.html"><a href="gitVersion_control.html"><i class="fa fa-check"></i><b>7</b> Git and Version Control</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#introduction-to-version-control"><i class="fa fa-check"></i>Introduction to Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#local-version-control"><i class="fa fa-check"></i>Local Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#centralized-version-control-system"><i class="fa fa-check"></i>Centralized Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#distributed-version-control-system"><i class="fa fa-check"></i>Distributed Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git"><i class="fa fa-check"></i>Git</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#github"><i class="fa fa-check"></i>GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#what-is-a-repository"><i class="fa fa-check"></i>What is a Repository?</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#initializing-a-git-repository"><i class="fa fa-check"></i>Initializing a Git Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#commits"><i class="fa fa-check"></i>Commits</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#cloning-a-repository"><i class="fa fa-check"></i>Cloning a Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#branches"><i class="fa fa-check"></i>Branches</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#merging"><i class="fa fa-check"></i>Merging</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#pull-requests"><i class="fa fa-check"></i>Pull Requests</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#example-of-a-git-workflow"><i class="fa fa-check"></i>Example of a Git Workflow</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git-cheat-sheet"><i class="fa fa-check"></i>Git Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel_basics.html"><a href="excel_basics.html"><i class="fa fa-check"></i><b>8</b> Excel Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#formulas"><i class="fa fa-check"></i>Formulas</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#operator-precedence"><i class="fa fa-check"></i>Operator Precedence</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottables"><i class="fa fa-check"></i>PivotTables</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottable-fields"><i class="fa fa-check"></i>PivotTable Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="intro_eeg.html"><a href="intro_eeg.html"><i class="fa fa-check"></i><b>9</b> Introduction to EEG</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#what-is-eeg"><i class="fa fa-check"></i>What is EEG?</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#basic-methodology"><i class="fa fa-check"></i>Basic Methodology</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#electrodes-and-their-placement"><i class="fa fa-check"></i>Electrodes and their Placement</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#artifacts-and-their-origins"><i class="fa fa-check"></i>Artifacts and their Origins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-preprocessing"><i class="fa fa-check"></i>Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#referencing-and-re-referencing"><i class="fa fa-check"></i>Referencing and Re-referencing</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#filtering"><i class="fa fa-check"></i>Filtering</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#event-detection"><i class="fa fa-check"></i>Event Detection</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#epoching-and-baseline-correction"><i class="fa fa-check"></i>Epoching and Baseline Correction</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#independent-components-analysis-ica"><i class="fa fa-check"></i>Independent Components Analysis (ICA)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-analysis"><i class="fa fa-check"></i>Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#frequency"><i class="fa fa-check"></i>Frequency</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#traditional-erps"><i class="fa fa-check"></i>Traditional ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="signal_detection.html"><a href="signal_detection.html"><i class="fa fa-check"></i><b>10</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#image-detection-example"><i class="fa fa-check"></i>Image Detection Example</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#implementation-of-d-in-excel-r-and-matlab"><i class="fa fa-check"></i>Implementation of d’ in Excel, R, and Matlab</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fourier.html"><a href="fourier.html"><i class="fa fa-check"></i><b>11</b> Fourier Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#time-domain-vs.-frequency-domain-visualization"><i class="fa fa-check"></i>Time Domain vs. Frequency Domain Visualization</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#relevance-to-eeg"><i class="fa fa-check"></i>Relevance to EEG</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#amplitude-and-phase-spectra"><i class="fa fa-check"></i>Amplitude and Phase Spectra</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="found_stats.html"><a href="found_stats.html"><i class="fa fa-check"></i><b>12</b> Foundational Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#some-key-concepts"><i class="fa fa-check"></i>Some Key Concepts</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-central-tendency"><i class="fa fa-check"></i>Measures of Central Tendency</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-variability"><i class="fa fa-check"></i>Measures of Variability</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-relatedness"><i class="fa fa-check"></i>Measures of Relatedness</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#types-of-distributions"><i class="fa fa-check"></i>Types of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#inferential-statistics"><i class="fa fa-check"></i>Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#null-hypothesis-significance-testing"><i class="fa fa-check"></i>Null-hypothesis significance testing</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#effect-size-versus-statistical-significance"><i class="fa fa-check"></i>Effect size versus statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#further-reading-11"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine_learning.html"><a href="machine_learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning and Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#machine-learning-and-cognitive-science"><i class="fa fa-check"></i>Machine Learning and Cognitive Science</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#unsupervised-learning"><i class="fa fa-check"></i>Unsupervised Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#principal-component-analysis"><i class="fa fa-check"></i>Principal Component Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#steps-for-pca"><i class="fa fa-check"></i>Steps for PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#multidimensional-scaling-mds"><i class="fa fa-check"></i>Multidimensional Scaling (MDS)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i>T-Distributed Stochastic Neighbor Embedding (T-SNE)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#clustering"><i class="fa fa-check"></i>Clustering</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#supervised-machine-learning"><i class="fa fa-check"></i>Supervised Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classification"><i class="fa fa-check"></i>Classification</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#support-vector-machines"><i class="fa fa-check"></i>Support Vector Machines</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#decoding-neural-signals"><i class="fa fa-check"></i>Decoding Neural Signals</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-what-is-decoding"><i class="fa fa-check"></i>Overview: What is decoding?</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#linear-decoding-models"><i class="fa fa-check"></i>Linear Decoding Models</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classifier-information"><i class="fa fa-check"></i>Classifier Information</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#training-and-testing"><i class="fa fa-check"></i>Training and Testing</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#cross-validation-classification-methodology"><i class="fa fa-check"></i>Cross-Validation Classification Methodology</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#leave-one-out-cross-validation"><i class="fa fa-check"></i>Leave One Out Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#k-fold-cross-validation"><i class="fa fa-check"></i>K-fold Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier"><i class="fa fa-check"></i>Evaluation and Interpretation of the Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#further-reading-12"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="image_processing.html"><a href="image_processing.html"><i class="fa fa-check"></i><b>14</b> Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#digital-cameras"><i class="fa fa-check"></i>Digital Cameras</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-values"><i class="fa fa-check"></i>Pixel Values</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-file-formats"><i class="fa fa-check"></i>Image File Formats</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#color-spaces"><i class="fa fa-check"></i>Color Spaces</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#cielab-color"><i class="fa fa-check"></i>CIELAB Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#hsv-color"><i class="fa fa-check"></i>HSV Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-luminance-and-contrast"><i class="fa fa-check"></i>Image Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#luminance"><i class="fa fa-check"></i>Luminance</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#contrast"><i class="fa fa-check"></i>Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#normalizing-luminance-and-contrast"><i class="fa fa-check"></i>Normalizing Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-coordinates"><i class="fa fa-check"></i>Pixel Coordinates</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-resolution-and-resizing"><i class="fa fa-check"></i>Image Resolution and Resizing</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#further-reading-13"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html"><i class="fa fa-check"></i><b>15</b> Advanced Image Representation</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#fourier-transforms-in-two-dimensions"><i class="fa fa-check"></i>Fourier transforms in two dimensions</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#spatial-frequencies"><i class="fa fa-check"></i>Spatial Frequencies</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#amplitude-and-phase-spectra-of-images"><i class="fa fa-check"></i>Amplitude and Phase Spectra of Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#phase-randomized-images"><i class="fa fa-check"></i>Phase Randomized Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#gabor-wavelet"><i class="fa fa-check"></i>Gabor Wavelet</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-is-a-gabor"><i class="fa fa-check"></i>What is a Gabor?</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-are-gabor-wavelets-inspired-by"><i class="fa fa-check"></i>What are Gabor wavelets inspired by?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#further-reading-14"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gitVersion_control" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Git and Version Control<a href="gitVersion_control.html#gitVersion_control" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-to-version-control" class="section level2 unnumbered hasAnchor">
+<h2>Introduction to Version Control<a href="gitVersion_control.html#introduction-to-version-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Version control tracks changes to files over time. This becomes crucial as projects grow in size and complexity. Version control systems facilitate collaboration among team members, ensure traceability of file and data changes and support reproducibility by maintaining previous versions in case a file becomes corrupted. They are also important for individual programmers - since they keep track of the history of a project, a programmer can refer back to previous versions, comments and changes to better understand what they were thinking several months ago. Version control is not just for programmers—it is useful for any digital project that evolves over time. For instance, even when writing this open-source textbook version control is being employed under the hood.</p>
+</div>
+<div id="local-version-control" class="section level2 unnumbered hasAnchor">
+<h2>Local Version Control<a href="gitVersion_control.html#local-version-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A local version control system maintains a database of all changes to files, stored on your local computer. Every change made to a file is recorded as a patch in this database, with each patch containing details about the changes since the last version. However, because all information is stored locally on a user’s computer, this approach presents challenges: it limits collaboration, as others cannot easily access or contribute to the files, and if the local database is lost, there is no backup to recover the information.</p>
+</div>
+<div id="centralized-version-control-system" class="section level2 unnumbered hasAnchor">
+<h2>Centralized Version Control System<a href="gitVersion_control.html#centralized-version-control-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For the sake of simplicity, we will not discuss centralized version control. If you want to learn more you can refer to <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">this resource</a>.</p>
+</div>
+<div id="distributed-version-control-system" class="section level2 unnumbered hasAnchor">
+<h2>Distributed Version Control System<a href="gitVersion_control.html#distributed-version-control-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In a distributed system, each individual maintains their own complete copy of the repository, including the entire version history, unlike a centralized system where each client is dependent on being connected to a single server that holds the repository of all the code. This method is more convenient for clients as each individual can work locally and disconnect from one main server. After the client has committed the necessary changes, they can push their code back to the main repository.</p>
+</div>
+<div id="git" class="section level2 unnumbered hasAnchor">
+<h2>Git<a href="gitVersion_control.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Git is an open-source, distributed version control system. It allows multiple developers to collaborate on a project without causing conflicts between each developer’s code (assuming there are no collisions). Git also maintains a complete history of all code modifications, ensuring that changes can be tracked and reverted if necessary.</p>
+</div>
+<div id="github" class="section level2 unnumbered hasAnchor">
+<h2>GitHub<a href="gitVersion_control.html#github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://github.com/">GitHub</a> is a web-based platform that leverages the Git version control system to allow developers to manage, access, and contribute to open-source software and code. As an open-source platform, GitHub enables anyone to participate in and contribute. It allows developers to work simultaneously on different parts of a project, ensuring that all changes are tracked and saved, which is essential for maintaining the integrity and progress of complex projects. Furthermore, one’s Github profile acts as a sort of portfolio of one’s work which can be a way of advertising oneself in a professional network.</p>
+<p>We will now discuss key components, terms and actions that a user must know to effectively navigate Git.</p>
+<div id="what-is-a-repository" class="section level3 unnumbered hasAnchor">
+<h3>What is a Repository?<a href="gitVersion_control.html#what-is-a-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Git, a repository (or “repo”) is the central location where all the files and the complete history of changes for a project are stored. The repository is essential for managing and tracking all work related to the project, serving as a collection of customized code. There are two types of repositories:</p>
+<ul>
+<li><strong>Local Repository:</strong> This is stored on an individual user’s local machine, allowing them to work independently.</li>
+<li><strong>Remote Repository:</strong> This is hosted on a remote server, either online or on an off-site server, and is shared among multiple collaborators.</li>
+</ul>
+</div>
+<div id="initializing-a-git-repository" class="section level3 unnumbered hasAnchor">
+<h3>Initializing a Git Repository<a href="gitVersion_control.html#initializing-a-git-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Git Workflow</strong>
+<img src="imagesVCL/gitw.png" />
+(Lbhtw, 2011)</p>
+<p>If Git is not already installed on your computer, download and install for the appropriate operating system that corresponds to your device.</p>
+<p>To install Git on a Linux (Ubuntu/Debian), type the following into the terminal:
+<code>sudo apt install git</code></p>
+<p>To install Git on a Mac, we recommend following <a href="https://git-scm.com/downloads/mac">these instructions</a>.</p>
+<p>To install Git on a Windows computer, you can download the software <a href="https://git-scm.com/downloads/win">here</a></p>
+<p>When starting a new project, initializing a repository is the first step. Open the Terminal or Command Prompt:</p>
+<ul>
+<li>On macOS/Linux: Open the terminal.</li>
+<li>On Windows: Open the command prompt.</li>
+</ul>
+<p>Use the <code>cd</code> command to move to the directory where your project files are located.</p>
+<p>Run the command <code>git init</code>. This creates a new <code>.git</code> directory within your project folder, which contains all the necessary files for version control. By default, the <code>.git</code> directory is hidden (any file or directory starting with a dot is hidden in Unix-based systems). Therefore, running the typical ls command will not display it. To view hidden files, you need to use the <code>ls -la</code> command, which will show all files, including hidden ones, such as the <code>.git</code> directory.</p>
+<p>Use the command <code>git add</code> to add all files in the current directory to the repository. If you want to add specific files, you can specify them individually with <code>git add &lt;filename&gt;</code>. Alternatively, you can use <code>git add .</code> to stage all files in the current directory and any subdirectories for committing. Staging a file means storing it in an intermediary location before being committed to the repository.</p>
+<p>Once all the necessary files have been added, it is important to save these changes by creating a commit. Run the command: <code>git commit -m "Initial commit"</code>. The <code>-m</code> flag allows you to add a descriptive message about the commit, in this case labeling it as the “Initial commit.” When committing your own files, you would replace “Initial commit” with a message describing the changes you made (e.g., “Updated documentation” or “Added ContrastNormalizedCode.py”). It is important to include a descriptive message to make the purpose of the commit clear for yourself at a later date and other developers.</p>
+</div>
+<div id="commits" class="section level3 unnumbered hasAnchor">
+<h3>Commits<a href="gitVersion_control.html#commits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A commit is a snapshot of a user’s project at a specific point in time. It represents a set of changes that have been made to a set of files in the repository. When a user implements the commit command, Git updates the file information, saving the new changes in addition to the metadata (the author of the commit, the time of the commit, and a message describing the changes that have been made). It is a best practice to regularly submit commits to Git so that the repository is updated for yourself and fellow collaborators, just as you would hit the save button frequently in a Microsoft Word document. <strong>Remember</strong> that commiting is a two step process: first the files need to be added, then they need to be committed.</p>
+</div>
+<div id="cloning-a-repository" class="section level3 unnumbered hasAnchor">
+<h3>Cloning a Repository<a href="gitVersion_control.html#cloning-a-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In some cases, instead of initializing a new repository, you may need to clone an existing one. Cloning a repository creates a local copy of a remote repository, complete with all its history, branches, and files.</p>
+<p>To clone a repository, use the command: <code>git clone &lt;repository-url&gt;</code> Where the URL is taken from GitHub.</p>
+<p>Cloning is useful when you want to work on a project that already exists on a remote server and collaborate with other team members.</p>
+</div>
+<div id="branches" class="section level3 unnumbered hasAnchor">
+<h3>Branches<a href="gitVersion_control.html#branches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Branches are a feature of Git that enable users to break off from the main line of development and work on different aspects of the projects simultaneously. Each branch is independent of each other meaning that users can experiment with the code in each branch without conflicting with the progress of other developers. In essence a branch in Git points to a specific commit within the repository.</p>
+<p>To create a new branch enter the following code:<code>git branch &lt;branchName&gt;</code>
+To switch from one branch to another branch: <code>git checkout &lt;branchName&gt;</code></p>
+<p>There are several, more advanced ways to go about the branching process. For more information refer to <a href="https://tilburgsciencehub.com/topics/automation/version-control/advanced-git/git-branching-strategies/">this source</a>.</p>
+</div>
+<div id="merging" class="section level3 unnumbered hasAnchor">
+<h3>Merging<a href="gitVersion_control.html#merging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After completing changes on one branch, you can merge it back into another branch to integrate your work with others’. Typically, a user would merge changes back into the main branch (often called “main” or “master”), where the code is prepared for deployment.</p>
+<p>In essence, the <code>git merge</code> command allows a user to combine the changes from different branches, resulting in a unified commit history. Git usually handles the merge process automatically. However, if there are conflicting changes—such as two pieces of the same code being modified in each branch—a merge conflict occurs. In such cases, Git cannot automatically merge the branches and will require manual intervention to resolve the conflicts. Merge commits have two parent commits, reflecting the two branches that were combined. This process demonstrates Git’s version control capabilities.</p>
+<p>Before executing a merge, a user must follow a few key steps:</p>
+<ul>
+<li>Use the <code>git status</code> command to verify that you are on the intended branch. Ensure that HEAD is pointing to the correct merge-receiving branch (the branch where you intend to apply the changes). HEAD refers to the current branch or commit you are working on.</li>
+<li>Ensure that both the receiving branch and the current branch are up-to-date with their most recent changes. To do this, use the <code>git fetch</code> command to pull the latest commits into the current branch. You can also use <code>git pull</code> to ensure that the main branch is up-to-date.</li>
+<li>Once you have completed steps 1 and 2 above, you are ready to execute the <code>git merge</code>command.</li>
+</ul>
+</div>
+<div id="pull-requests" class="section level3 unnumbered hasAnchor">
+<h3>Pull Requests<a href="gitVersion_control.html#pull-requests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pull requests are a way that developers notify one another when they have completed a feature of the code. After a developer has completed their feature branch, they make a pull request which notifies all the other team members that their code is ready for review in the main branch. The pull request is simply a notification and one of the powerful collaboration tools incorporated within git.</p>
+</div>
+<div id="example-of-a-git-workflow" class="section level3 unnumbered hasAnchor">
+<h3>Example of a Git Workflow<a href="gitVersion_control.html#example-of-a-git-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a designated folder on your local computer to create your Git repository.</p>
+<ol style="list-style-type: decimal">
+<li><p>Navigate to a known space on your computer (downloads, desktop etc): use the terminal command <code>cd</code> to enter that location.
+<img src="imagesVCL/git.png" /></p></li>
+<li><p>Then use the command <code>mkdir</code> followed by the name of the folder you want to create.
+<img src="imagesVCL/mergingGit.png" /></p></li>
+<li><p>Enter <code>git init</code> to initialize an empty Git repository in that folder.</p></li>
+</ol>
+<p><img src="imagesVCL/init.png" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Create a file (e.g. in Google Docs) and download it as a <code>.txt</code> file. Move this file into your Git repository (drag it in).</p></li>
+<li><p>Enter the command git status to see the status of your Git repository. It should say “On branch main” and “No commits yet.”</p></li>
+</ol>
+<p><img src="imagesVCL/gitT.png" />
+6. Add the file to your repository with the command git add <code>&lt;filename&gt;</code>
+<img src="/Volumes/data/lab/CURRENT_PROJECTS/textbook/BookdownTextbook/imagesVCL/filegit.png" />
+Now we want to commit that file to our repository. Enter the command git commit <code>&lt;filename&gt; -m</code> followed by a short message explaining what you’re doing like “commiting a text file” in quotes.</p>
+<p><img src="imagesVCL/filename.png" />
+7. Now open your text file, make some changes, and save them.
+8. Then use the diff command to determine the differences between the files.</p>
+<p><img src="imagesVCL/diffGit.png" /></p>
+</div>
+<div id="git-cheat-sheet" class="section level3 unnumbered hasAnchor">
+<h3>Git Cheat Sheet<a href="gitVersion_control.html#git-cheat-sheet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Basic Commands</strong></p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git init</code></td>
+<td>Initializes a git repository in the current directory. Optional <code>&lt;directory&gt;</code> argument to create repository elsewhere.</td>
+</tr>
+<tr class="even">
+<td><code>git config</code></td>
+<td>Configures your settings. Using <code>git config --list</code> will display current settings.</td>
+</tr>
+<tr class="odd">
+<td><code>git status</code></td>
+<td>Lists which files are staged, unstaged, and untracked.</td>
+</tr>
+<tr class="even">
+<td><code>git log</code></td>
+<td>Display the entire commit history using the default format.</td>
+</tr>
+<tr class="odd">
+<td><code>git diff</code></td>
+<td>Shows untracked changes in your files.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Making Local Changes</strong></p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git add &lt;file&gt;</code></td>
+<td>Stage changes in <code>&lt;file&gt;</code> for the next commit. <code>&lt;file&gt;</code> can be a directory, provided it is not empty.</td>
+</tr>
+<tr class="even">
+<td><code>git commit -m "&lt;message&gt;"</code></td>
+<td>Commit the staged changes and use <code>&lt;message&gt;</code> for the commit message.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Remote Repositories</strong></p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git clone &lt;URL&gt; &lt;directory&gt;</code></td>
+<td>Clones a repository located at <code>&lt;URL&gt;</code> into the <code>&lt;localDirectory&gt;</code> of user’s machine.</td>
+</tr>
+<tr class="even">
+<td><code>git remote add origin &lt;URL&gt;</code></td>
+<td>Create a new connection to a remote repo. “origin” is a common name, but any word can be used.</td>
+</tr>
+<tr class="odd">
+<td><code>git pull origin main</code></td>
+<td>Fetch the remote repository’s copy of repo and merge it into the local copy.</td>
+</tr>
+<tr class="even">
+<td><code>git push origin main</code></td>
+<td>Push the local copy of the repo to the remote repository.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>File Structure</strong></p>
+<table>
+<colgroup>
+<col width="26%" />
+<col width="73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git rm &lt;file&gt;</code></td>
+<td>Deletes file from project and stages the removal for commit. (Opposite of add.)</td>
+</tr>
+<tr class="even">
+<td><code>git mv &lt;oldPath&gt; &lt;newPath&gt;</code></td>
+<td>Change an existing file path and stage the move.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Branch and Merge</strong></p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git branch</code></td>
+<td>Lists the branches. <code>*</code> denotes currently active branch.</td>
+</tr>
+<tr class="even">
+<td><code>git branch &lt;branchName&gt;</code></td>
+<td>Creates new branch.</td>
+</tr>
+<tr class="odd">
+<td><code>git checkout -b &lt;branchName&gt;</code></td>
+<td>Create and switch to a new branch.</td>
+</tr>
+<tr class="even">
+<td><code>git checkout &lt;branchName&gt;</code></td>
+<td>Switch to another branch.</td>
+</tr>
+<tr class="odd">
+<td><code>git merge &lt;branchName&gt;</code></td>
+<td>Merge the specified branch’s history into the current one.</td>
+</tr>
+<tr class="even">
+<td><code>git diff &lt;branchB&gt; &lt;branchA&gt;</code></td>
+<td>Shows that it is different between two branches.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Organizing a Repository</strong></p>
+<p>After initializing a repository, it’s important to organize it in a standard format to ensure clarity and ease of use. A well-structured repository typically includes the following key components: a README file, an Instructions file, and a Documentation directory.</p>
+<p><strong>README.md:</strong> This is usually the first file users encounter when accessing a repository. The README provides a concise overview of the project, outlining its purpose and guiding users on how to get started. It should clearly convey what the project is about and why it exists.</p>
+<p><strong>Instructions File:</strong> This file offers detailed guidance on how to install, set up, and contribute to the project. It serves as a practical resource for users and developers who want to work with the repository, ensuring they have all the necessary information to get started smoothly.</p>
+<p><strong>Documentation:</strong> This section or directory contains more comprehensive information than the README. It includes detailed documentation such as API references, design specifications, and other technical details that provide deeper insights into the project’s functionality and structure.</p>
+</div>
+</div>
+<div id="further-reading-6" class="section level2 unnumbered hasAnchor">
+<h2>Further Reading<a href="gitVersion_control.html#further-reading-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend the following sources for more information on this topic:</p>
+<p>Greene, M. <a href="https://qubeshub.org/community/groups/vedbsummerschool/curriculum/track1_d4">Big Data Summer School</a></p>
+<p><a href="https://swcarpentry.github.io/git-novice/">Version Control with Git</a> The Software Carpentry</p>
+<p><a href="https://missing.csail.mit.edu/2020/version-control/">Version Control (Git)</a> MIT’s “Missing Semester” course</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scripting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="excel_basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["official-textbook.pdf", "official-textbook.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

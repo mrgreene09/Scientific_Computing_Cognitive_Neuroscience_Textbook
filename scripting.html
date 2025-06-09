@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Basic Scripting | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="6 Basic Scripting | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Basic Scripting | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Basic Scripting | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  
+  
+  
+
+<meta name="author" content="Michelle Greene" />
+<meta name="author" content="Sage Aronson" />
+<meta name="author" content="Hooriya Aamir" />
+<meta name="author" content="Maria Adkins" />
+<meta name="author" content="Vivian Gao" />
+<meta name="author" content="Amy Nguyen" />
+<meta name="author" content="Sundari Ruth" />
+<meta name="author" content="Skylar Stadhard" />
+<meta name="author" content="Carina Wong" />
+
+
+<meta name="date" content="2025-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="environments.html"/>
+<link rel="next" href="gitVersion_control.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#foundational-knowledge-of-scientific-computing"><i class="fa fa-check"></i>Foundational Knowledge of Scientific Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="file_organization.html"><a href="file_organization.html"><i class="fa fa-check"></i><b>1</b> Computer File Organization</a>
+<ul>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#operating-systems"><i class="fa fa-check"></i>Operating Systems</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#key-terms"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#unix-linux-history"><i class="fa fa-check"></i>Unix &amp; Linux History</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#hierarchical-structure"><i class="fa fa-check"></i>Hierarchical Structure</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="terminal_basics.html"><a href="terminal_basics.html"><i class="fa fa-check"></i><b>2</b> Terminal Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#key-terms-1"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#what-is-the-terminal"><i class="fa fa-check"></i>What is the Terminal?</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency"><i class="fa fa-check"></i>Importance of the Terminal &amp; Command Line Proficiency</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#accessing-the-terminal"><i class="fa fa-check"></i>Accessing the Terminal</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#linux-unix"><i class="fa fa-check"></i>Linux &amp; Unix</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#mac-1"><i class="fa fa-check"></i>Mac</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#windows-1"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#using-the-terminal-to-navigate"><i class="fa fa-check"></i>Using the Terminal to Navigate</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#checking-locationexercises-to-test-understanding"><i class="fa fa-check"></i>Checking Location/Exercises to Test Understanding</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#changing-location"><i class="fa fa-check"></i>Changing Location</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#listing-files"><i class="fa fa-check"></i>Listing Files</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#creating-and-deleting-files-directories"><i class="fa fa-check"></i>Creating and Deleting Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#moving-and-renaming-files-directories"><i class="fa fa-check"></i>Moving and Renaming Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#managing-system-processes"><i class="fa fa-check"></i>Managing System Processes</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#some-special-directories-and-shortcuts"><i class="fa fa-check"></i>Some Special Directories and Shortcuts</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#finding-files-directories"><i class="fa fa-check"></i>Finding Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#wordcount"><i class="fa fa-check"></i>Wordcount</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#other-terminal-uses"><i class="fa fa-check"></i>Other Terminal Uses</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#the-man-command"><i class="fa fa-check"></i>The Man Command</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="remote_computing.html"><a href="remote_computing.html"><i class="fa fa-check"></i><b>3</b> Remote Computing</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#computer-clusters"><i class="fa fa-check"></i>Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#key-terms-2"><i class="fa fa-check"></i>Key Terms</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#importance-of-computer-clusters"><i class="fa fa-check"></i>Importance of Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#permissions"><i class="fa fa-check"></i>Permissions</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#accessing-remote-computers"><i class="fa fa-check"></i>Accessing Remote Computers</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#transferring-files-between-local-and-remote-systems"><i class="fa fa-check"></i>Transferring Files Between Local and Remote Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="editors_vim.html"><a href="editors_vim.html"><i class="fa fa-check"></i><b>4</b> Text Editors and Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#text-editors"><i class="fa fa-check"></i>Text Editors</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim"><i class="fa fa-check"></i>Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#entering-and-exiting-vim"><i class="fa fa-check"></i>Entering and Exiting Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#modes-in-vim"><i class="fa fa-check"></i>Modes in Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim-cheat-sheet"><i class="fa fa-check"></i>Vim Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>5</b> Python Environments (Using Anaconda)</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#understanding-computing-environments-in-python"><i class="fa fa-check"></i>Understanding Computing Environments in Python</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#background-information"><i class="fa fa-check"></i>Background Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-an-environment"><i class="fa fa-check"></i>Creating an Environment</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#determining-current-environments"><i class="fa fa-check"></i>Determining Current Environments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#activating-environments"><i class="fa fa-check"></i>Activating Environments</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#downloading-python-libraries"><i class="fa fa-check"></i>Downloading Python Libraries</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-and-managing-conda-environments"><i class="fa fa-check"></i>Creating and Managing Conda Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#recommended-packages"><i class="fa fa-check"></i>Recommended Packages</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#changing-python-environments-in-spyder-ide"><i class="fa fa-check"></i>Changing Python Environments in Spyder IDE</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#additional-helpful-commands"><i class="fa fa-check"></i>Additional Helpful Commands</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#difference-between-pip-install-and-conda-install"><i class="fa fa-check"></i>Difference between Pip Install and Conda Install</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#specific-notes-for-within-spyder"><i class="fa fa-check"></i>Specific Notes for Within Spyder</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>6</b> Basic Scripting</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#programming-languages"><i class="fa fa-check"></i>Programming Languages</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#python"><i class="fa fa-check"></i>Python</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#matlab"><i class="fa fa-check"></i>MATLAB</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#integrated-development-environments-ides"><i class="fa fa-check"></i>Integrated Development Environments (IDEs)</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#defining-variables"><i class="fa fa-check"></i>Defining Variables</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#indentation"><i class="fa fa-check"></i>Indentation</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-logical-operators"><i class="fa fa-check"></i>Operators: Logical Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-arithmetic-operators"><i class="fa fa-check"></i>Operators: Arithmetic Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-comparison-operators"><i class="fa fa-check"></i>Operators: Comparison Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-types"><i class="fa fa-check"></i>Data Types</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#boolean"><i class="fa fa-check"></i>Boolean</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-structures"><i class="fa fa-check"></i>Data Structures</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array-indexing"><i class="fa fa-check"></i>Array Indexing</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#conditionals"><i class="fa fa-check"></i>Conditionals</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#loops"><i class="fa fa-check"></i>Loops</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#functions"><i class="fa fa-check"></i>Functions</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comparison-table"><i class="fa fa-check"></i>Comparison Table</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="gitVersion_control.html"><a href="gitVersion_control.html"><i class="fa fa-check"></i><b>7</b> Git and Version Control</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#introduction-to-version-control"><i class="fa fa-check"></i>Introduction to Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#local-version-control"><i class="fa fa-check"></i>Local Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#centralized-version-control-system"><i class="fa fa-check"></i>Centralized Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#distributed-version-control-system"><i class="fa fa-check"></i>Distributed Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git"><i class="fa fa-check"></i>Git</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#github"><i class="fa fa-check"></i>GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#what-is-a-repository"><i class="fa fa-check"></i>What is a Repository?</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#initializing-a-git-repository"><i class="fa fa-check"></i>Initializing a Git Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#commits"><i class="fa fa-check"></i>Commits</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#cloning-a-repository"><i class="fa fa-check"></i>Cloning a Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#branches"><i class="fa fa-check"></i>Branches</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#merging"><i class="fa fa-check"></i>Merging</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#pull-requests"><i class="fa fa-check"></i>Pull Requests</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#example-of-a-git-workflow"><i class="fa fa-check"></i>Example of a Git Workflow</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git-cheat-sheet"><i class="fa fa-check"></i>Git Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel_basics.html"><a href="excel_basics.html"><i class="fa fa-check"></i><b>8</b> Excel Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#formulas"><i class="fa fa-check"></i>Formulas</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#operator-precedence"><i class="fa fa-check"></i>Operator Precedence</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottables"><i class="fa fa-check"></i>PivotTables</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottable-fields"><i class="fa fa-check"></i>PivotTable Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="intro_eeg.html"><a href="intro_eeg.html"><i class="fa fa-check"></i><b>9</b> Introduction to EEG</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#what-is-eeg"><i class="fa fa-check"></i>What is EEG?</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#basic-methodology"><i class="fa fa-check"></i>Basic Methodology</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#electrodes-and-their-placement"><i class="fa fa-check"></i>Electrodes and their Placement</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#artifacts-and-their-origins"><i class="fa fa-check"></i>Artifacts and their Origins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-preprocessing"><i class="fa fa-check"></i>Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#referencing-and-re-referencing"><i class="fa fa-check"></i>Referencing and Re-referencing</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#filtering"><i class="fa fa-check"></i>Filtering</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#event-detection"><i class="fa fa-check"></i>Event Detection</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#epoching-and-baseline-correction"><i class="fa fa-check"></i>Epoching and Baseline Correction</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#independent-components-analysis-ica"><i class="fa fa-check"></i>Independent Components Analysis (ICA)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-analysis"><i class="fa fa-check"></i>Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#frequency"><i class="fa fa-check"></i>Frequency</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#traditional-erps"><i class="fa fa-check"></i>Traditional ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="signal_detection.html"><a href="signal_detection.html"><i class="fa fa-check"></i><b>10</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#image-detection-example"><i class="fa fa-check"></i>Image Detection Example</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#implementation-of-d-in-excel-r-and-matlab"><i class="fa fa-check"></i>Implementation of d’ in Excel, R, and Matlab</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fourier.html"><a href="fourier.html"><i class="fa fa-check"></i><b>11</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#time-domain-vs.-frequency-domain-visualization"><i class="fa fa-check"></i>Time Domain vs. Frequency Domain Visualization</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#relevance-to-eeg"><i class="fa fa-check"></i>Relevance to EEG</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#amplitude-and-phase-spectra"><i class="fa fa-check"></i>Amplitude and Phase Spectra</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="found_stats.html"><a href="found_stats.html"><i class="fa fa-check"></i><b>12</b> Foundational Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#some-key-concepts"><i class="fa fa-check"></i>Some Key Concepts</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-central-tendency"><i class="fa fa-check"></i>Measures of Central Tendency</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-variability"><i class="fa fa-check"></i>Measures of Variability</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-relatedness"><i class="fa fa-check"></i>Measures of Relatedness</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#types-of-distributions"><i class="fa fa-check"></i>Types of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#inferential-statistics"><i class="fa fa-check"></i>Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#null-hypothesis-significance-testing"><i class="fa fa-check"></i>Null-hypothesis significance testing</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#effect-size-versus-statistical-significance"><i class="fa fa-check"></i>Effect size versus statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#further-reading-11"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine_learning.html"><a href="machine_learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning and Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#machine-learning-and-cognitive-science"><i class="fa fa-check"></i>Machine Learning and Cognitive Science</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#unsupervised-learning"><i class="fa fa-check"></i>Unsupervised Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#principal-component-analysis"><i class="fa fa-check"></i>Principal Component Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#steps-for-pca"><i class="fa fa-check"></i>Steps for PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#multidimensional-scaling-mds"><i class="fa fa-check"></i>Multidimensional Scaling (MDS)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i>T-Distributed Stochastic Neighbor Embedding (T-SNE)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#clustering"><i class="fa fa-check"></i>Clustering</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#supervised-machine-learning"><i class="fa fa-check"></i>Supervised Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classification"><i class="fa fa-check"></i>Classification</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#support-vector-machines"><i class="fa fa-check"></i>Support Vector Machines</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#decoding-neural-signals"><i class="fa fa-check"></i>Decoding Neural Signals</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-what-is-decoding"><i class="fa fa-check"></i>Overview: What is decoding?</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#linear-decoding-models"><i class="fa fa-check"></i>Linear Decoding Models</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classifier-information"><i class="fa fa-check"></i>Classifier Information</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#training-and-testing"><i class="fa fa-check"></i>Training and Testing</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#cross-validation-classification-methodology"><i class="fa fa-check"></i>Cross-Validation Classification Methodology</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#leave-one-out-cross-validation"><i class="fa fa-check"></i>Leave One Out Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#k-fold-cross-validation"><i class="fa fa-check"></i>K-fold Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier"><i class="fa fa-check"></i>Evaluation and Interpretation of the Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#further-reading-12"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="image_processing.html"><a href="image_processing.html"><i class="fa fa-check"></i><b>14</b> Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#digital-cameras"><i class="fa fa-check"></i>Digital Cameras</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-values"><i class="fa fa-check"></i>Pixel Values</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-file-formats"><i class="fa fa-check"></i>Image File Formats</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#color-spaces"><i class="fa fa-check"></i>Color Spaces</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#cielab-color"><i class="fa fa-check"></i>CIELAB Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#hsv-color"><i class="fa fa-check"></i>HSV Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-luminance-and-contrast"><i class="fa fa-check"></i>Image Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#luminance"><i class="fa fa-check"></i>Luminance</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#contrast"><i class="fa fa-check"></i>Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#normalizing-luminance-and-contrast"><i class="fa fa-check"></i>Normalizing Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-coordinates"><i class="fa fa-check"></i>Pixel Coordinates</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-resolution-and-resizing"><i class="fa fa-check"></i>Image Resolution and Resizing</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#further-reading-13"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html"><i class="fa fa-check"></i><b>15</b> Advanced Image Representation</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#fourier-transforms-in-two-dimensions"><i class="fa fa-check"></i>Fourier transforms in two dimensions</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#spatial-frequencies"><i class="fa fa-check"></i>Spatial Frequencies</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#amplitude-and-phase-spectra-of-images"><i class="fa fa-check"></i>Amplitude and Phase Spectra of Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#phase-randomized-images"><i class="fa fa-check"></i>Phase Randomized Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#gabor-wavelet"><i class="fa fa-check"></i>Gabor Wavelet</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-is-a-gabor"><i class="fa fa-check"></i>What is a Gabor?</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-are-gabor-wavelets-inspired-by"><i class="fa fa-check"></i>What are Gabor wavelets inspired by?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#further-reading-14"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="scripting" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Basic Scripting<a href="scripting.html#scripting" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="programming-languages" class="section level2 unnumbered hasAnchor">
+<h2>Programming Languages<a href="scripting.html#programming-languages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How do you tell a computer to do something?</p>
+<p>A programming language allows humans to write commands that instruct a computer to accomplish a task. There are both “low level” and “high level” programming languages. Generally, a “low level” language can be thought of as a programming language that gives directions directly to a computer’s hardware. Lower level programming languages aren’t as understandable or readable as higher level languages are. These languages are not used for data analysis. Instead, we as programmers, use high-level languages that are then recognized by a computer, translated into what is known as machine language (a low-level language), and interpreted by said computer to execute the command.</p>
+<p>Some of the most common high level languages used in cognitive neuroscience are Python, Matlab and R. Each of these languages are capable of doing most of the tasks required in cognitive neuroscientists workflow, and some labs specialize in one language for simplicity. Each high-level language that we mentioned above excels in certain parts of our workflow, so in our lab, we tend to use them in combination.</p>
+<div id="python" class="section level3 unnumbered hasAnchor">
+<h3>Python<a href="scripting.html#python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Python is a programming language known for its simplicity and readability. Programmers appreciate Python because it runs on an interpreter system, which allows for rapid testing and iteration without a separate compilation step. When an error occurs, Python raises an exception rather than abruptly terminating the program. If the exception is not handled, the interpreter provides a stack trace to help identify the issue, simplifying the debugging process. Python is widely used in web and software development, data analysis, machine learning, and system scripting. The libraries embedded into the system, such as <a href="https://numpy.org/">NumPy</a> for matrices and multidimensional arrays, <a href="https://scipy.org/">SciPy</a> for scientific computing, and <a href="https://matplotlib.org/">Matplotlib</a> for data visualization, are specifically helpful for scientific computing. Its syntax is designed to be intuitive, being similar to the English language, making it accessible to both beginners and experts.</p>
+</div>
+<div id="matlab" class="section level3 unnumbered hasAnchor">
+<h3>MATLAB<a href="scripting.html#matlab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <a href="https://www.mathworks.com/products/matlab.html">Matlab</a> language is a high-level language, optimized for working with matrices and arrays. EEG data is stored in matrices (EEG channels X time points), and digital images are also matrices, making Matlab an optimal tool for analyzing and performing tasks on this data. Up until around 15 years ago, Matlab was the only software that could efficiently perform operations on such matrices. With the advent of libraries like the Numpy Python library, Matlab has become less popular for doing such tasks because there is an open source alternative.</p>
+<p><img src="imagesVCL/python_matlab.png" />
+(VCL, 2025) from <a href="https://trends.google.com/trends/">Google Trends</a> data.</p>
+</div>
+<div id="r" class="section level3 unnumbered hasAnchor">
+<h3>R<a href="scripting.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://www.r-project.org/">R is a programming language</a> designed for statistical computing and data visualization. It is commonly used in research for tasks such as statistical modeling, data analysis, and numerical calculations. R is open-source and platform-independent, meaning it can be used on any operating system without licensing fees. It also supports integration with other languages, including C and C++. R’s functionality can be extended through the Comprehensive R Archive Network (CRAN), which hosts thousands of user-contributed packages.</p>
+</div>
+</div>
+<div id="integrated-development-environments-ides" class="section level2 unnumbered hasAnchor">
+<h2>Integrated Development Environments (IDEs)<a href="scripting.html#integrated-development-environments-ides" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An IDE (Integrated Development Environment) is a software platform that streamlines the coding process for programmers by providing tools to edit, build, and test software all in one place. For scientific data analysis, IDEs are also helpful for being able to interactively see code and its output, such as a scientific plot. IDEs simplify programmers’ work by offering features like syntax highlighting, automated tabulation, and debugging features. For example, if there is a syntax error in the code, the IDE will identify the mistake, similar to when Word puts a red or blue line on specific words and phrases. Some IDEs even offer varying levels of code automation where the environment automatically fills in code as the programmer types. If you imagine a programming language as analogous to the English we speak, an IDE is like Microsoft Word. It is an application, with various checkpoint features, in which we write our code. Matlab comes packaged with its own IDE. <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> is the most popular IDE for the R programming language. Python programmers have several options for IDEs. While discussions of “best Python IDE” are frequent online, our view is that the best IDE is one that you like to use. We tend to use Spyder because it is packaged with Anaconda, is easy to learn, and is similar to the IDEs of RStudio and Matlab.</p>
+</div>
+<div id="defining-variables" class="section level2 unnumbered hasAnchor">
+<h2>Defining Variables<a href="scripting.html#defining-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Variables are used to store information that a computer program can reference or modify throughout a script. Think of a variable as a storage bin. Assigning a value to your variable is akin to putting things inside that storage bin. There are also instances where you are able to
+“take out” items from that storage bin. In programming, it’s important to choose variable names deliberately so that your code is easily understood by the reader.</p>
+<p>In Python, a variable is created the second that you assign it to a value using a = sign. Unlike some other languages, like Java, variables do not need to be declared as a data type (such as int, string etc). The term int simply means the variable is an integer (i.e. a whole number), whereas str means that the variable is a string (i.e. a sequence of characters). Python allows programmers to change the type of a variable even after it has been set.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="scripting.html#cb1-1" tabindex="-1"></a>x = 5 </span>
+<span id="cb1-2"><a href="scripting.html#cb1-2" tabindex="-1"></a>x = “Hello World”</span></code></pre></div>
+<p><strong>Explanation</strong>: The first line is assigning the variable x to an int equal to 5. The second line then reassigns the variable x to a new value, Hello World. We know that Hello World is a str because we use “” to define the value.</p>
+<p>If a programmer is interested in knowing the data type of a specific variable they can call the type() function.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="scripting.html#cb2-1" tabindex="-1"></a>print(type(x))</span></code></pre></div>
+<p><strong>Explanation</strong>: Since x was most recently assigned to be a string data type, the output would be str.</p>
+<p>Note: It is important to note that variable names are case sensitive. X is different from x.</p>
+</div>
+<div id="comments" class="section level2 unnumbered hasAnchor">
+<h2>Comments<a href="scripting.html#comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Commenting is the essential practice of adding human-readable explanations to lines of code. Proper commenting is crucial for creating code that is readable to other users and developers who may work on or build upon the script. It can also just be simply nice to have for your future-self in understanding your own complex code. It explains the functionality of the code in a way that can be understood without requiring knowledge of the exact programming language syntax. Different languages require different syntax for notifying the code editor that you as the developer are making a comment, not writing a line of code to be executed by the computer. Comments can also be used to temporarily prevent certain blocks or lines of code from running, which is helpful when testing sections of code and debugging. We call this practice “commenting out”.</p>
+<p>In Python, there are two ways to add comments. The most basic method is to use the # symbol in front of the text you want to comment out. The # symbol comments out all text following it on the same line.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="scripting.html#cb3-1" tabindex="-1"></a>x = 27</span>
+<span id="cb3-2"><a href="scripting.html#cb3-2" tabindex="-1"></a>y = 9</span>
+<span id="cb3-3"><a href="scripting.html#cb3-3" tabindex="-1"></a># print(x+y)     </span>
+<span id="cb3-4"><a href="scripting.html#cb3-4" tabindex="-1"></a>print(x/y)</span></code></pre></div>
+<p>Explanation: The line with the hashtag is commented out so the act of 27+9 will NOT be executed. On the other hand, the last line if 27/9 WILL be executed because it is NOT a comment, thus the final output is “3.0”.</p>
+<p>If you want to comment out a whole block of multi-line text, you can use triple-quoted string literals ““” before and after the text you want to comment out.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="scripting.html#cb4-1" tabindex="-1"></a>pet_name_1 = “rudy”</span>
+<span id="cb4-2"><a href="scripting.html#cb4-2" tabindex="-1"></a>pet_name_2 = “jiji”</span>
+<span id="cb4-3"><a href="scripting.html#cb4-3" tabindex="-1"></a>&quot;&quot;&quot;</span>
+<span id="cb4-4"><a href="scripting.html#cb4-4" tabindex="-1"></a>print(pet_name_1)</span>
+<span id="cb4-5"><a href="scripting.html#cb4-5" tabindex="-1"></a>I want to</span>
+<span id="cb4-6"><a href="scripting.html#cb4-6" tabindex="-1"></a>comment out                     yes, even this gets commented out.</span>
+<span id="cb4-7"><a href="scripting.html#cb4-7" tabindex="-1"></a>all this code.</span>
+<span id="cb4-8"><a href="scripting.html#cb4-8" tabindex="-1"></a>&quot;&quot;&quot;</span>
+<span id="cb4-9"><a href="scripting.html#cb4-9" tabindex="-1"></a>print(pet_name_2)</span></code></pre></div>
+<p>Explanation: All the text that falls in between the ““” sandwich will become a comment. That results in only the first two lines and the very last line being executed, thus the final output will be “jiji”.</p>
+</div>
+<div id="indentation" class="section level2 unnumbered hasAnchor">
+<h2>Indentation<a href="scripting.html#indentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Indentation is important when it comes to all programming languages. It demonstrates hierarchical relationships between different code blocks and allows organization of code by visually separating different functionalities through the use of the tab button. In Python, in order to define statement blocks, indentation in the correct format consistently is required or else code will not run properly. An IDE will flag a line of code if it is improperly indented. Regardless of the programming language, proper indentation makes code more readable and easier to debug. When starting a block of code, note that indentation is not enabled on the first line in a Python script. Think of this as the main title that should stick out to the most leftist side. Additionally note that mixing tabs and whitespaces in indentation can result in errors so it is important to stay consistent.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="scripting.html#cb5-1" tabindex="-1"></a>if 5 &gt; 2:</span>
+<span id="cb5-2"><a href="scripting.html#cb5-2" tabindex="-1"></a>    print(“Five is greater than two!”</span>
+<span id="cb5-3"><a href="scripting.html#cb5-3" tabindex="-1"></a>else:</span>
+<span id="cb5-4"><a href="scripting.html#cb5-4" tabindex="-1"></a>    print(“Five is not greater than two!”)</span></code></pre></div>
+<p>Explanation: Both the print statements are indent with a tab because they each fall under their respective condition. Meaning, if the first line that is not indented is correct,then it will move on to what is indented directly underneath it. Otherwise, if the first line that is not indented is not correct, it will move to the next non-indented line, and so on.</p>
+</div>
+<div id="operators-logical-operators" class="section level2 unnumbered hasAnchor">
+<h2>Operators: Logical Operators<a href="scripting.html#operators-logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Logical operators are symbols such as and (&amp;&amp;), or (||), and not (!). They allow individual expressions to be combined into compound expressions, where the outcome depends on the logic defined by these operators. These operators combine Boolean expressions (expressions that are either true or false) to output a single Boolean answer - either true or false.</p>
+<p>There are three logical operators in Python (and in other programming languages):</p>
+<p><em>and</em>: The and operator returns True if both statements in the compound expression are true.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="scripting.html#cb6-1" tabindex="-1"></a>x = 10</span>
+<span id="cb6-2"><a href="scripting.html#cb6-2" tabindex="-1"></a>x &gt; 5 and x &gt; 6</span></code></pre></div>
+<p><strong>Explanation</strong>: If x is greater than 5 and x is greater than 6, the output is True. If at least one statement in the compound is false, it would return false. In the case of the above example, the output is “True”.</p>
+<p><em>or</em>: The or operator returns True if at least one of the statements in the compound expression is true.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="scripting.html#cb7-1" tabindex="-1"></a>x = 2</span>
+<span id="cb7-2"><a href="scripting.html#cb7-2" tabindex="-1"></a>x == 5 or x <span class="er">&lt;</span> 5</span></code></pre></div>
+<p>Explanation: If x is equal to 5 or less than 5, the output is “True”. If neither of these conditions are true it would return false. In the case of the above example, the output is True as 2 is less than five.</p>
+<p><em>not</em>: The not operator returns the reverse of the result from the conditional statement</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="scripting.html#cb8-1" tabindex="-1"></a>a = 6 </span>
+<span id="cb8-2"><a href="scripting.html#cb8-2" tabindex="-1"></a>b = 8 </span>
+<span id="cb8-3"><a href="scripting.html#cb8-3" tabindex="-1"></a>if not a <span class="er">&lt;</span> b: </span>
+<span id="cb8-4"><a href="scripting.html#cb8-4" tabindex="-1"></a>   print(&#39;b is greater than or equal to a&#39;)</span>
+<span id="cb8-5"><a href="scripting.html#cb8-5" tabindex="-1"></a>else: </span>
+<span id="cb8-6"><a href="scripting.html#cb8-6" tabindex="-1"></a>   print(&#39;a is less than b&#39;)</span></code></pre></div>
+<p><strong>Explanation</strong>: If the condition is True, the not operator makes it False. If the condition is False, the not operator makes it True. In the case of the above example, a &lt; b is True (6 is less than 8), but the not operator inverts it to False. Therefore, the else block runs and the output is “a is less than b”.</p>
+</div>
+<div id="operators-arithmetic-operators" class="section level2 unnumbered hasAnchor">
+<h2>Operators: Arithmetic Operators<a href="scripting.html#operators-arithmetic-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The basic arithmetic operators in programming languages are addition, subtraction, multiplication, division, and modulus. The modulus operator, represented by the % symbol, calculates the remainder of a division problem.</p>
+<p>Python contains the following operators: addition (+), subtraction (-), multiplication (*), division (/), exponentiation (**), modulus (%), floor division (//).</p>
+<p>Example: +</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="scripting.html#cb9-1" tabindex="-1"></a>answer = 2 + 12</span>
+<span id="cb9-2"><a href="scripting.html#cb9-2" tabindex="-1"></a>print(answer)       #Output is 14</span></code></pre></div>
+<p>Example: -</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="scripting.html#cb10-1" tabindex="-1"></a>answer = 12 - 2</span>
+<span id="cb10-2"><a href="scripting.html#cb10-2" tabindex="-1"></a>print(answer)       #Output is 10   </span></code></pre></div>
+<p>Example: *</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="scripting.html#cb11-1" tabindex="-1"></a>answer = 3 * 4</span>
+<span id="cb11-2"><a href="scripting.html#cb11-2" tabindex="-1"></a>print(answer)       #Output is 12</span></code></pre></div>
+<p>Example: /</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="scripting.html#cb12-1" tabindex="-1"></a>answer = 60 / 10</span>
+<span id="cb12-2"><a href="scripting.html#cb12-2" tabindex="-1"></a>print(answer)       #Output is 6.0</span></code></pre></div>
+<p>Example: **</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="scripting.html#cb13-1" tabindex="-1"></a>answer = 2 ** 3</span>
+<span id="cb13-2"><a href="scripting.html#cb13-2" tabindex="-1"></a>print(answer)       #Output is 8</span></code></pre></div>
+<p>Example: %</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="scripting.html#cb14-1" tabindex="-1"></a>answer = 24 % 5</span>
+<span id="cb14-2"><a href="scripting.html#cb14-2" tabindex="-1"></a>print(answer)       #Output is 4</span></code></pre></div>
+<p>Note: 24 divided by 5 gives a remainder of 4.</p>
+<p>Example: //</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="scripting.html#cb15-1" tabindex="-1"></a>answer = 10 // 3</span>
+<span id="cb15-2"><a href="scripting.html#cb15-2" tabindex="-1"></a>print(answer)       #Output is 3</span></code></pre></div>
+<p>Note: 10 divided by 3 is 3.33, but floor division rounds down to 3</p>
+</div>
+<div id="operators-comparison-operators" class="section level2 unnumbered hasAnchor">
+<h2>Operators: Comparison Operators<a href="scripting.html#operators-comparison-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Comparison operators compare values and return a Boolean expression (either true or false) depending on the outcome of the comparison. These operators are: &gt; (greater than), &lt; (less than), &gt;= (greater than or equal to), &lt;= (less than or equal to), == (equal to), and != (not equal to).</p>
+<p>Example: ==</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="scripting.html#cb16-1" tabindex="-1"></a>a = 5</span>
+<span id="cb16-2"><a href="scripting.html#cb16-2" tabindex="-1"></a>b = 5</span>
+<span id="cb16-3"><a href="scripting.html#cb16-3" tabindex="-1"></a>print(a == b)       #Output is True</span></code></pre></div>
+<p>Example: !=</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="scripting.html#cb17-1" tabindex="-1"></a>a = 5</span>
+<span id="cb17-2"><a href="scripting.html#cb17-2" tabindex="-1"></a>b = 14</span>
+<span id="cb17-3"><a href="scripting.html#cb17-3" tabindex="-1"></a>print(a != b)       #Output is True</span></code></pre></div>
+<p>Example: &gt;</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb18-1"><a href="scripting.html#cb18-1" tabindex="-1"></a>a = 4</span>
+<span id="cb18-2"><a href="scripting.html#cb18-2" tabindex="-1"></a>b = 7</span>
+<span id="cb18-3"><a href="scripting.html#cb18-3" tabindex="-1"></a>print(a &gt; b)        #Output is False</span></code></pre></div>
+<p>Example: &lt;</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb19-1"><a href="scripting.html#cb19-1" tabindex="-1"></a>a = 5</span>
+<span id="cb19-2"><a href="scripting.html#cb19-2" tabindex="-1"></a>b = 8</span>
+<span id="cb19-3"><a href="scripting.html#cb19-3" tabindex="-1"></a>print(a <span class="er">&lt;</span> b)        #Output is True</span></code></pre></div>
+<p>Example: &gt;=</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="scripting.html#cb20-1" tabindex="-1"></a>a = 3</span>
+<span id="cb20-2"><a href="scripting.html#cb20-2" tabindex="-1"></a>b = 11</span>
+<span id="cb20-3"><a href="scripting.html#cb20-3" tabindex="-1"></a>print(a &gt;= b)       #Output is False</span></code></pre></div>
+<p>Example: &lt;=</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a href="scripting.html#cb21-1" tabindex="-1"></a>a = 5</span>
+<span id="cb21-2"><a href="scripting.html#cb21-2" tabindex="-1"></a>b = 5</span>
+<span id="cb21-3"><a href="scripting.html#cb21-3" tabindex="-1"></a>print(a <span class="er">&lt;</span>= b)       #Output is True</span></code></pre></div>
+</div>
+<div id="data-types" class="section level2 unnumbered hasAnchor">
+<h2>Data Types<a href="scripting.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each variable that a programmer creates in a script has a specific data type. The data type acts as a tag that indicates to the computer’s compiler how the programmer intends to use the data defined in the variable. Each programming language supports several different data types.
+Primitive data types are the fundamental building blocks of computing, similar to atoms in chemistry—they form the foundation of all other data types. These include predefined types such as strings (text), integers (numeric values), Booleans (binary true/false values), and lists (mutable (i.e., changeable) arrays of objects). It is important to note that there are <a href="https://docs.python.org/3/library/datatypes.html">many other data types</a> beyond what is mentioned here. However, for the sake of simplicity, these are some of the most common ones that will be encountered.<br />
+Below are examples of how these data types are written in Python along with the groups that they are categorized into. Some of the data types listed below are not used as frequently as others, so mostly just pay attention to the ones that were mentioned above.</p>
+<p>The standard data types in Python are the following:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="scripting.html#cb22-1" tabindex="-1"></a>Text type: str </span>
+<span id="cb22-2"><a href="scripting.html#cb22-2" tabindex="-1"></a>Numeric  types: int, float, complex </span>
+<span id="cb22-3"><a href="scripting.html#cb22-3" tabindex="-1"></a>Sequence types: list, tuple, range </span>
+<span id="cb22-4"><a href="scripting.html#cb22-4" tabindex="-1"></a>Mapping type: dict </span>
+<span id="cb22-5"><a href="scripting.html#cb22-5" tabindex="-1"></a>Set types: set, frozenset </span>
+<span id="cb22-6"><a href="scripting.html#cb22-6" tabindex="-1"></a>Boolean type: bool </span>
+<span id="cb22-7"><a href="scripting.html#cb22-7" tabindex="-1"></a>Binary types: bytes, bytearray, memoryview</span></code></pre></div>
+<p>Examples of how these data types would appear in Python:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="scripting.html#cb23-1" tabindex="-1"></a>word_cat = “cat”</span></code></pre></div>
+<p>This is a string (str).</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="scripting.html#cb24-1" tabindex="-1"></a>num_of_apples = 15</span></code></pre></div>
+<p>This is a integer (int).</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="scripting.html#cb25-1" tabindex="-1"></a>correct = True</span></code></pre></div>
+<p>This is a Boolean.</p>
+<div id="boolean" class="section level3 unnumbered hasAnchor">
+<h3>Boolean<a href="scripting.html#boolean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Boolean is an interesting data type because it can only have one of two values: true or false. These values represent binary logic and can be compared to concepts like: an on/off switch, yes/no answers, or even true/false statements. Booleans are frequently used with logical operators as they serve as a simple way for programs to make decisions. For example, a programmer might want to run a program that helps to decide whether they should fill up a tea kettle or not. If the kettle is empty (true), the program will respond by filling it. Booleans are also commonly represented as 1 (true) and 0 (false).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="scripting.html#cb26-1" tabindex="-1"></a>kettle_empty = True </span>
+<span id="cb26-2"><a href="scripting.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="scripting.html#cb26-3" tabindex="-1"></a>if kettle_empty: </span>
+<span id="cb26-4"><a href="scripting.html#cb26-4" tabindex="-1"></a>    print(Filling up kettle with water…)</span>
+<span id="cb26-5"><a href="scripting.html#cb26-5" tabindex="-1"></a>    kettle_empty = False </span>
+<span id="cb26-6"><a href="scripting.html#cb26-6" tabindex="-1"></a>else: </span>
+<span id="cb26-7"><a href="scripting.html#cb26-7" tabindex="-1"></a>    print(The kettle already has water…)</span></code></pre></div>
+</div>
+<div id="string" class="section level3 unnumbered hasAnchor">
+<h3>String<a href="scripting.html#string" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A string is a sequence of characters that represents text. This text is typically a word, phrase, or sentence. In addition, a string can also be numbers, special characters, or spaces. In Python (and in many other programming languages) a string is established by wrapping ‘single’ or “double quotes” around the desired characters. Unlike lists or arrays, strings are <em>immutable</em>, meaning their content cannot be changed after their instantiation (creation). If one wanted to change/modify a string, they would need to create a new one. In contrast, lists and arrays are <em>mutable</em>, meaning they can be changed directly.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="scripting.html#cb27-1" tabindex="-1"></a>“Howdy World!”</span>
+<span id="cb27-2"><a href="scripting.html#cb27-2" tabindex="-1"></a>“5 % 7 !”</span>
+<span id="cb27-3"><a href="scripting.html#cb27-3" tabindex="-1"></a>“  ” </span>
+<span id="cb27-4"><a href="scripting.html#cb27-4" tabindex="-1"></a>“Red leather yellow leather :)”</span></code></pre></div>
+</div>
+</div>
+<div id="data-structures" class="section level2 unnumbered hasAnchor">
+<h2>Data Structures<a href="scripting.html#data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data structures are the foundation of computer programming. They determine how data are organized, stored, and changed within a program. The purpose of a data structure is to store data in a way that is easily accessible for the computer and programmer.</p>
+<div id="array" class="section level3 unnumbered hasAnchor">
+<h3>Array<a href="scripting.html#array" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An array is one of the most common and useful data structures that you’ll encounter in programming. It stores a collection of elements in a continuous block of memory, with each element labeled by its index (a number that denotes its location within the array). You can think of an array as a dynamic list: each element within the list can be taken out, changed, substituted, or removed.</p>
+<p>This structure allows for efficient access to elements and provides flexibility for programmers to manipulate arrays as needed. Additionally, arrays allow for arithmetic manipulation of the elements inside of the array. This makes arrays ideal for tasks involving numerical data or structured lists of items.</p>
+<p>An array can hold multiple values or items in a single variable. For example, if you wanted to create a variable called students to store the names of all the students in your class, an array would be the perfect data type for this. You can perform various operations on an array, such as iterating through it, getting its length, accessing specific items at specific indices, adding elements, and deleting elements.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="scripting.html#cb28-1" tabindex="-1"></a>students = [&quot;Ella&quot;, &quot;Jack&quot;, &quot;Simone&quot;, &quot;Pete&quot;, &quot;Sara&quot;]</span></code></pre></div>
+<p>All five of these student names are stored in one variable: students.</p>
+</div>
+<div id="array-indexing" class="section level3 unnumbered hasAnchor">
+<h3>Array Indexing<a href="scripting.html#array-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Having the skills to navigate through and manipulate large sets of data is an important skill. With EEG data, there can sometimes be 3 dimensions that are being manipulated at a time, and being able to understand what data you are manipulating becomes essential with this kind of research(or in general as this crosses many disciplines).<br />
+<u>Step 1.</u>
+One of the most important things to know in Python is that indexing or <strong>counting starts at 0, not at 1</strong>. This means that the 1st element in a list would be labeled to be at index 0. The second element would then be labeled to be at index 1 and so on. We call Python a “zero indexed” language for this reason. (Note that R and Matlab are “one indexed” languages that start counting at 1!)</p>
+<p><img src="imagesVCL/Textbook_images-1.png" />
+(VCL, 2025)</p>
+<p><u>Step 2.</u>
+To access an element from an array start by typing the name of the array and then following the name with square brackets. Let’s say I want to access the 1st element of the array (which would correspond to the 0th element in the array), inside the brackets I would put the position of that element which would be 0. If I wanted to access the 2nd element of the array I would insert 1 into the brackets.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="scripting.html#cb29-1" tabindex="-1"></a>example_array = [ “Skylar”, “3005”, “purple”]</span>
+<span id="cb29-2"><a href="scripting.html#cb29-2" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="scripting.html#cb29-3" tabindex="-1"></a>print(example_array[0])</span>
+<span id="cb29-4"><a href="scripting.html#cb29-4" tabindex="-1"></a>Output: Skylar</span>
+<span id="cb29-5"><a href="scripting.html#cb29-5" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="scripting.html#cb29-6" tabindex="-1"></a>print(example_array[1])</span>
+<span id="cb29-7"><a href="scripting.html#cb29-7" tabindex="-1"></a>Output: 3005</span></code></pre></div>
+</div>
+<div id="lists" class="section level3 unnumbered hasAnchor">
+<h3>Lists<a href="scripting.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lists are common and flexible data structures that are used to store collections of items. Lists are similar to arrays in which they store elements by index and can be iterated through. However, unlike arrays, lists don’t support element-wise arithmetic operations, meaning that you aren’t able to directly multiply, divide, add, or subtract items within the list.</p>
+<p>One of the strengths of a list is that you are able to store different kinds of data types: strings, integers, Booleans, and even other lists. This makes lists especially useful for general-purpose data storage where uniform data types aren’t required. When comparing lists to arrays, lists are more flexible but less practical for numerical computations.
+Example:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="scripting.html#cb30-1" tabindex="-1"></a>dog_list = [“borzoi” ,“schnoodle”, “pug”] </span>
+<span id="cb30-2"><a href="scripting.html#cb30-2" tabindex="-1"></a>rand_list = [3.14159, “kernel”, True, 25, dog_list] </span></code></pre></div>
+</div>
+</div>
+<div id="conditionals" class="section level2 unnumbered hasAnchor">
+<h2>Conditionals<a href="scripting.html#conditionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Conditionals are statements within a script that enable the execution of specific blocks of code based on whether certain criteria are met. They allow programs to make decisions and perform various actions depending on the state of a condition. The two main types of conditional statements are if-else statements and switch statements.
+If-else statements are the most basic form of a conditional. The ‘if’ part of the statement checks whether a specific condition is true. If it is true, the program executes a certain set of actions; otherwise, it executes a different set of actions, which are specified in the ‘else’ part of the statement. Additionally, <code>elif</code>, standing for else-if is a statement that is run after an if statement, but before the default <code>else</code> (denoting all possible other situations).
+A switch statement offers a list of possible outcomes and directs the computer to execute code based on the matching case.
+if statements, elif, and else are the keywords used in python that indicate code decision making.</p>
+<p>The if statement is used to test a condition. If the condition is true, the block of code under the if statement (indicated by proper indentation) will be executed. If the condition is false the code will not be executed.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="scripting.html#cb31-1" tabindex="-1"></a>x = 2</span>
+<span id="cb31-2"><a href="scripting.html#cb31-2" tabindex="-1"></a>y = 3 </span>
+<span id="cb31-3"><a href="scripting.html#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="scripting.html#cb31-4" tabindex="-1"></a>if x&gt;y: </span>
+<span id="cb31-5"><a href="scripting.html#cb31-5" tabindex="-1"></a>    print(“x has a greater value than y”) </span></code></pre></div>
+<p><strong>Explanation</strong>: In the example code above, x is smaller than y, so the condition is false and nothing will be printed.</p>
+<p>The <code>elif</code> statement is used in Python when the previous conditions in an if statement were false, and another condition needs to be checked. <code>elif</code> stands for “else if” and allows you to add multiple conditions to an if statement.
+Example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb32-1"><a href="scripting.html#cb32-1" tabindex="-1"></a>x = 2</span>
+<span id="cb32-2"><a href="scripting.html#cb32-2" tabindex="-1"></a>y = 3 </span>
+<span id="cb32-3"><a href="scripting.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="scripting.html#cb32-4" tabindex="-1"></a>if x&gt;y: </span>
+<span id="cb32-5"><a href="scripting.html#cb32-5" tabindex="-1"></a>    print(“x has a greater value than y”) </span>
+<span id="cb32-6"><a href="scripting.html#cb32-6" tabindex="-1"></a>elif y&gt;x:</span>
+<span id="cb32-7"><a href="scripting.html#cb32-7" tabindex="-1"></a>    print(“y has a greater value than x”) </span>
+<span id="cb32-8"><a href="scripting.html#cb32-8" tabindex="-1"></a>elif y==x: </span>
+<span id="cb32-9"><a href="scripting.html#cb32-9" tabindex="-1"></a>    print(“y and x have the same value, they are equal”) </span></code></pre></div>
+<p><strong>Explanation</strong>: In the example above, the code begins by checking if x has a greater value than y. Since that condition is false (x is smaller than y) it moves onto the next check to see if y is greater than x. It will then print y has a greater value than x and the last <code>elif</code> will not be executed because the previous <code>elif</code> condition was true.</p>
+<p>The else keyword handles any case that does not meet the preceding test conditions.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="scripting.html#cb33-1" tabindex="-1"></a>x = 2</span>
+<span id="cb33-2"><a href="scripting.html#cb33-2" tabindex="-1"></a>y = 3 </span>
+<span id="cb33-3"><a href="scripting.html#cb33-3" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="scripting.html#cb33-4" tabindex="-1"></a>if x&gt;y: </span>
+<span id="cb33-5"><a href="scripting.html#cb33-5" tabindex="-1"></a>    print(“x has a greater value than y”) </span>
+<span id="cb33-6"><a href="scripting.html#cb33-6" tabindex="-1"></a>else:</span>
+<span id="cb33-7"><a href="scripting.html#cb33-7" tabindex="-1"></a>    print(“x is not greater than y”) </span></code></pre></div>
+<p>A real-world example is:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb34-1"><a href="scripting.html#cb34-1" tabindex="-1"></a>is_raining = False </span>
+<span id="cb34-2"><a href="scripting.html#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="scripting.html#cb34-3" tabindex="-1"></a>if is_raining:</span>
+<span id="cb34-4"><a href="scripting.html#cb34-4" tabindex="-1"></a>    print(&quot;Take an umbrella&quot;)</span>
+<span id="cb34-5"><a href="scripting.html#cb34-5" tabindex="-1"></a>else:</span>
+<span id="cb34-6"><a href="scripting.html#cb34-6" tabindex="-1"></a>    print(&quot;Leave the umbrella&quot;)</span></code></pre></div>
+<p><strong>Explanation</strong>: Conditional logic in Python uses ‘if-else’ statements to help the program make choices. It checks if something is true (like “Is it raining?”) and decides what to do next (like “Take an umbrella” or “Leave it at home”)</p>
+</div>
+<div id="loops" class="section level2 unnumbered hasAnchor">
+<h2>Loops<a href="scripting.html#loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Loops are an element of programming that allow certain parts of the code to be repeated a set number of times or as long as a certain condition is true. Loops are helpful because there is often lots of repetition in programming. The use of loops can minimize the amount of code needed to execute a command and can allow for there to be greater efficiency in the code.</p>
+<p>In Python, you can create a <code>for</code> loop or <code>while</code> loop. A <code>for</code> loop is used to iterate over a sequence and execute a block of code for each item in the sequence.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb35-1"><a href="scripting.html#cb35-1" tabindex="-1"></a>ages = [10, 11, 12]</span>
+<span id="cb35-2"><a href="scripting.html#cb35-2" tabindex="-1"></a>for x in ages:</span>
+<span id="cb35-3"><a href="scripting.html#cb35-3" tabindex="-1"></a>    x = x + 1</span>
+<span id="cb35-4"><a href="scripting.html#cb35-4" tabindex="-1"></a>print(ages)</span></code></pre></div>
+<p><strong>Explanation</strong>: For each of the ages in the array called ages, the age plus one will be printed: 11, 12, 13</p>
+<p>A <code>while</code> loop is used to repeatedly execute a set of statements until a condition is satisfied. The condition’s default is true, but once it becomes false the program exits the loop.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb36-1"><a href="scripting.html#cb36-1" tabindex="-1"></a>count = 0</span>
+<span id="cb36-2"><a href="scripting.html#cb36-2" tabindex="-1"></a>while (count <span class="er">&lt;</span>5):</span>
+<span id="cb36-3"><a href="scripting.html#cb36-3" tabindex="-1"></a>    count = count +1 #alternatively you could write the syntax count += 1 </span>
+<span id="cb36-4"><a href="scripting.html#cb36-4" tabindex="-1"></a>    print(count)</span></code></pre></div>
+<p>Explanation: The output of the code will be 1, 2, 3, 4, 5 and then the code will stop.</p>
+<p><strong>Warning</strong>: Be careful with <code>while</code> loops - if they do not have a condition that would cause them to stop (such as if count was not increased in the example above), they would continue forever! This is known as the dreaded “infinite loop”.</p>
+</div>
+<div id="functions" class="section level2 unnumbered hasAnchor">
+<h2>Functions<a href="scripting.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In programming, functions are reusable blocks of code designed to perform specific tasks. Organizing code into functions is a best practice because it enables task repetition, promotes code reuse, and helps isolate variables within each function’s scope. This structure improves code readability, simplifies debugging, and makes programs easier to maintain and scale.</p>
+<p>A typical script is divided into several different functions. Each function acts as a self-contained series of lines that performs a specific action, or series of actions. Throughout a script, a function can be called at different points. When a function is called, the program temporarily exits the current area of code and begins executing the first line of the called function. Once the function has finished executing, the program returns to the point in the script where it was before the function was called.</p>
+<p>Functions help programmers break down complex tasks into smaller, more manageable sub-tasks, and test limited portions of code at a time.They also enhance efficiency in software development by allowing code reuse; instead of rewriting the same code, you can simply call the function. Similarly, instead of repeatedly explaining how to bake a cake to every chef, you just give them a recipe; the same way a function holds the instructions that can be reused whenever needed. Certain variables, known as <em>local variables</em>, only exist and are recognized by the compiler within the specific functions where they are defined.
+Example:
+Imagine you’re writing a script to process images by normalizing an image’s luminance and contrast. You might have several functions:</p>
+<ol style="list-style-type: decimal">
+<li>One function called <code>image_luminance</code> could calculate the mean luminance for each image by analyzing pixel intensity values.</li>
+<li>Another function called <code>image_contrast</code> could calculate the contrast of the image from pixel intensity values.</li>
+<li>Finally, a third function called normalize_images would adjust the luminance and contrast of each image to match the reference (you could call your previous two functions on both your experimental and reference images to reuse code!)</li>
+</ol>
+<p>This modular approach allows each function to focus on a single task, making the code easier to maintain, test, and update. Additionally, if the reference image or normalization method changes, you would only need to modify the relevant function without impacting other parts of the script.
+To define a function, use the “def” keyword, followed by the function name and parentheses.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb37-1"><a href="scripting.html#cb37-1" tabindex="-1"></a>def compute_sum(x, y, z, b):</span>
+<span id="cb37-2"><a href="scripting.html#cb37-2" tabindex="-1"></a>    result = x + y + z + b</span>
+<span id="cb37-3"><a href="scripting.html#cb37-3" tabindex="-1"></a>    return result</span></code></pre></div>
+<p><strong>Explanation</strong>:
+Function Definition (def): The keyword def starts the function definition. It tells Python that you’re defining a new function.
+- Function Name (compute_sum): The function name compute_sum is descriptive, suggesting that this function will calculate the sum of given numbers.
+- Parameters (x, y, z, b): These are the arguments passed to the function. They allow the function to receive inputs when it is called. In this case, x, y, z, and b are numbers that will be added together.
+- Computation (result = x + y + z + b): This line performs the actual operation. The function adds the values of x, y, z, and b and stores the sum in the variable result.
+- Return Statement (return result): The return statement specifies what the function will output when it is called. In this case, it returns the calculated sum stored in result. <em>It is important to note that the return statement does not print out values to the console.</em> If you want the value of result to be printed out to the console, ensure that you wrap what you want to be outputted to the console in a print statement. For example: print(result).</p>
+</div>
+<div id="comparison-table" class="section level2 unnumbered hasAnchor">
+<h2>Comparison Table<a href="scripting.html#comparison-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This table translates all the Python concepts into two other languages: MATLAB and R.</p>
+<div style="text-align: center">
+<table>
+<colgroup>
+<col width="11%" />
+<col width="27%" />
+<col width="31%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Python</th>
+<th>MATLAB</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Defining Variables</td>
+<td><code>x = 5</code></td>
+<td><code>x = 5</code></td>
+<td><code>x &lt;- 5</code></td>
+</tr>
+<tr class="even">
+<td>Comments</td>
+<td><code># Inline comment in Python</code></td>
+<td><code>% Inline comment in MATLAB</code></td>
+<td><code># Inline comment in R</code></td>
+</tr>
+<tr class="odd">
+<td>Indentation</td>
+<td><code>if x &gt; 5:</code><br><code>print("x is greater than 5")</code><br><code>else:</code><br><code>print("x is less than or equal to 5")</code></td>
+<td><code>if x &gt; 5</code><br><code>disp('x is greater than 5')</code><br><code>else</code><br><code>disp('x is less than or equal to 5')</code><br><code>end</code></td>
+<td><code>if (x &gt; 5) {</code><br><code>print("x is greater than 5")</code><br><code>} else {</code><br><code>print("x is less than or equal to 5")</code><br><code>}</code></td>
+</tr>
+<tr class="even">
+<td>Boolean</td>
+<td><code>True</code>, <code>False</code></td>
+<td><code>true</code>, <code>false</code></td>
+<td><code>TRUE</code>, <code>FALSE</code></td>
+</tr>
+<tr class="odd">
+<td>String</td>
+<td><code>'text'</code> or <code>"text"</code></td>
+<td><code>'text'</code></td>
+<td><code>'text'</code> or <code>"text"</code></td>
+</tr>
+<tr class="even">
+<td>Array</td>
+<td><code>[1 2 3]</code></td>
+<td><code>[1 2 3]</code></td>
+<td><code>c(1, 2, 3)</code></td>
+</tr>
+<tr class="odd">
+<td>List</td>
+<td><code>newList = [1, 2, 3]</code></td>
+<td><code>newList = [1 2 3]</code></td>
+<td><code>newList &lt;- list(1, 2, 3)</code></td>
+</tr>
+<tr class="even">
+<td>If Statement</td>
+<td><code>if(condition):</code></td>
+<td><code>if condition</code></td>
+<td><code>if(condition) { }</code></td>
+</tr>
+<tr class="odd">
+<td>Else If Statement</td>
+<td><code>elif condition:</code></td>
+<td><code>elseif condition</code></td>
+<td><code>else if (condition) { }</code></td>
+</tr>
+<tr class="even">
+<td>Else Statement</td>
+<td><code>else:</code></td>
+<td><code>else</code></td>
+<td><code>else { }</code></td>
+</tr>
+<tr class="odd">
+<td>For Loops</td>
+<td><code>for i in range(1,11)</code></td>
+<td><code>for i = 1:10</code></td>
+<td><code>for (i in 1:10) { }</code></td>
+</tr>
+<tr class="even">
+<td>While Loops</td>
+<td><code>while condition:</code></td>
+<td><code>while condition</code></td>
+<td><code>while(condition) { }</code></td>
+</tr>
+<tr class="odd">
+<td>Defining Function</td>
+<td><code>def example():</code></td>
+<td><code>function y = example()</code></td>
+<td><code>exampleName &lt;- function() { }</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align: center">
+<table>
+<colgroup>
+<col width="14%" />
+<col width="9%" />
+<col width="9%" />
+<col width="20%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operator Type</th>
+<th>Python</th>
+<th>MATLAB</th>
+<th>R</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AND</td>
+<td><code>and</code></td>
+<td><code>&amp;</code></td>
+<td><code>&amp;</code>, <code>&amp;&amp;</code></td>
+<td>True only if both conditions are true</td>
+</tr>
+<tr class="even">
+<td>OR</td>
+<td><code>or</code></td>
+<td><code>|</code></td>
+<td><code>|</code>, <code>||</code></td>
+<td>True if at least one condition is true</td>
+</tr>
+<tr class="odd">
+<td>NOT</td>
+<td><code>not</code></td>
+<td><code>~</code></td>
+<td><code>!</code></td>
+<td>Inverts the truth value (true ↔︎ false)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align: center">
+<table>
+<colgroup>
+<col width="29%" />
+<col width="10%" />
+<col width="24%" />
+<col width="36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Python</th>
+<th>MATLAB</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addition</td>
+<td><code>+</code></td>
+<td><code>+</code></td>
+<td><code>+</code> or <code>sum()</code></td>
+</tr>
+<tr class="even">
+<td>Subtraction</td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+</tr>
+<tr class="odd">
+<td>Multiplication</td>
+<td><code>*</code></td>
+<td><code>*</code> (matrix), <code>.*</code></td>
+<td><code>*</code></td>
+</tr>
+<tr class="even">
+<td>Division</td>
+<td><code>/</code></td>
+<td><code>/</code></td>
+<td><code>/</code></td>
+</tr>
+<tr class="odd">
+<td>Remainder (Modulo)</td>
+<td><code>%</code></td>
+<td><code>mod</code></td>
+<td><code>%%</code></td>
+</tr>
+<tr class="even">
+<td>Equal</td>
+<td><code>==</code></td>
+<td><code>==</code></td>
+<td><code>==</code></td>
+</tr>
+<tr class="odd">
+<td>Not Equal</td>
+<td><code>!=</code></td>
+<td><code>~=</code></td>
+<td><code>!=</code></td>
+</tr>
+<tr class="even">
+<td>Greater Than</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Less Than</td>
+<td><code>&lt;</code></td>
+<td><code>&lt;</code></td>
+<td><code>&lt;</code></td>
+</tr>
+<tr class="even">
+<td>Greater Than or Equal</td>
+<td><code>&gt;=</code></td>
+<td><code>&gt;=</code></td>
+<td><code>&gt;=</code></td>
+</tr>
+<tr class="odd">
+<td>Less Than or Equal</td>
+<td><code>&lt;=</code></td>
+<td><code>&lt;=</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="further-reading-5" class="section level2 unnumbered hasAnchor">
+<h2>Further Reading<a href="scripting.html#further-reading-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend the following sources for more information on this topic:</p>
+<p><a href="https://swcarpentry.github.io/python-novice-inflammation/">Programming with Python</a> The Software Carpentry</p>
+<p><a href="https://swcarpentry.github.io/python-novice-gapminder/">Plotting and Programming with Python</a> The Software Carpentry</p>
+<p><a href="https://swcarpentry.github.io/r-novice-inflammation/">Programming with R</a> The Software Carpentry</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="environments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gitVersion_control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["official-textbook.pdf", "official-textbook.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

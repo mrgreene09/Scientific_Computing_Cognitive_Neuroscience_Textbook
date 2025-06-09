@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>13 Machine Learning and Data Analysis | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="13 Machine Learning and Data Analysis | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="13 Machine Learning and Data Analysis | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="13 Machine Learning and Data Analysis | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  
+  
+  
+
+<meta name="author" content="Michelle Greene" />
+<meta name="author" content="Sage Aronson" />
+<meta name="author" content="Hooriya Aamir" />
+<meta name="author" content="Maria Adkins" />
+<meta name="author" content="Vivian Gao" />
+<meta name="author" content="Amy Nguyen" />
+<meta name="author" content="Sundari Ruth" />
+<meta name="author" content="Skylar Stadhard" />
+<meta name="author" content="Carina Wong" />
+
+
+<meta name="date" content="2025-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="found_stats.html"/>
+<link rel="next" href="image_processing.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#foundational-knowledge-of-scientific-computing"><i class="fa fa-check"></i>Foundational Knowledge of Scientific Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="file_organization.html"><a href="file_organization.html"><i class="fa fa-check"></i><b>1</b> Computer File Organization</a>
+<ul>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#operating-systems"><i class="fa fa-check"></i>Operating Systems</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#key-terms"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#unix-linux-history"><i class="fa fa-check"></i>Unix &amp; Linux History</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#hierarchical-structure"><i class="fa fa-check"></i>Hierarchical Structure</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="terminal_basics.html"><a href="terminal_basics.html"><i class="fa fa-check"></i><b>2</b> Terminal Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#key-terms-1"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#what-is-the-terminal"><i class="fa fa-check"></i>What is the Terminal?</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency"><i class="fa fa-check"></i>Importance of the Terminal &amp; Command Line Proficiency</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#accessing-the-terminal"><i class="fa fa-check"></i>Accessing the Terminal</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#linux-unix"><i class="fa fa-check"></i>Linux &amp; Unix</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#mac-1"><i class="fa fa-check"></i>Mac</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#windows-1"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#using-the-terminal-to-navigate"><i class="fa fa-check"></i>Using the Terminal to Navigate</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#checking-locationexercises-to-test-understanding"><i class="fa fa-check"></i>Checking Location/Exercises to Test Understanding</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#changing-location"><i class="fa fa-check"></i>Changing Location</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#listing-files"><i class="fa fa-check"></i>Listing Files</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#creating-and-deleting-files-directories"><i class="fa fa-check"></i>Creating and Deleting Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#moving-and-renaming-files-directories"><i class="fa fa-check"></i>Moving and Renaming Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#managing-system-processes"><i class="fa fa-check"></i>Managing System Processes</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#some-special-directories-and-shortcuts"><i class="fa fa-check"></i>Some Special Directories and Shortcuts</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#finding-files-directories"><i class="fa fa-check"></i>Finding Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#wordcount"><i class="fa fa-check"></i>Wordcount</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#other-terminal-uses"><i class="fa fa-check"></i>Other Terminal Uses</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#the-man-command"><i class="fa fa-check"></i>The Man Command</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="remote_computing.html"><a href="remote_computing.html"><i class="fa fa-check"></i><b>3</b> Remote Computing</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#computer-clusters"><i class="fa fa-check"></i>Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#key-terms-2"><i class="fa fa-check"></i>Key Terms</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#importance-of-computer-clusters"><i class="fa fa-check"></i>Importance of Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#permissions"><i class="fa fa-check"></i>Permissions</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#accessing-remote-computers"><i class="fa fa-check"></i>Accessing Remote Computers</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#transferring-files-between-local-and-remote-systems"><i class="fa fa-check"></i>Transferring Files Between Local and Remote Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="editors_vim.html"><a href="editors_vim.html"><i class="fa fa-check"></i><b>4</b> Text Editors and Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#text-editors"><i class="fa fa-check"></i>Text Editors</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim"><i class="fa fa-check"></i>Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#entering-and-exiting-vim"><i class="fa fa-check"></i>Entering and Exiting Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#modes-in-vim"><i class="fa fa-check"></i>Modes in Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim-cheat-sheet"><i class="fa fa-check"></i>Vim Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>5</b> Python Environments (Using Anaconda)</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#understanding-computing-environments-in-python"><i class="fa fa-check"></i>Understanding Computing Environments in Python</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#background-information"><i class="fa fa-check"></i>Background Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-an-environment"><i class="fa fa-check"></i>Creating an Environment</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#determining-current-environments"><i class="fa fa-check"></i>Determining Current Environments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#activating-environments"><i class="fa fa-check"></i>Activating Environments</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#downloading-python-libraries"><i class="fa fa-check"></i>Downloading Python Libraries</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-and-managing-conda-environments"><i class="fa fa-check"></i>Creating and Managing Conda Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#recommended-packages"><i class="fa fa-check"></i>Recommended Packages</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#changing-python-environments-in-spyder-ide"><i class="fa fa-check"></i>Changing Python Environments in Spyder IDE</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#additional-helpful-commands"><i class="fa fa-check"></i>Additional Helpful Commands</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#difference-between-pip-install-and-conda-install"><i class="fa fa-check"></i>Difference between Pip Install and Conda Install</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#specific-notes-for-within-spyder"><i class="fa fa-check"></i>Specific Notes for Within Spyder</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>6</b> Basic Scripting</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#programming-languages"><i class="fa fa-check"></i>Programming Languages</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#python"><i class="fa fa-check"></i>Python</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#matlab"><i class="fa fa-check"></i>MATLAB</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#integrated-development-environments-ides"><i class="fa fa-check"></i>Integrated Development Environments (IDEs)</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#defining-variables"><i class="fa fa-check"></i>Defining Variables</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#indentation"><i class="fa fa-check"></i>Indentation</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-logical-operators"><i class="fa fa-check"></i>Operators: Logical Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-arithmetic-operators"><i class="fa fa-check"></i>Operators: Arithmetic Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-comparison-operators"><i class="fa fa-check"></i>Operators: Comparison Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-types"><i class="fa fa-check"></i>Data Types</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#boolean"><i class="fa fa-check"></i>Boolean</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-structures"><i class="fa fa-check"></i>Data Structures</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array-indexing"><i class="fa fa-check"></i>Array Indexing</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#conditionals"><i class="fa fa-check"></i>Conditionals</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#loops"><i class="fa fa-check"></i>Loops</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#functions"><i class="fa fa-check"></i>Functions</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comparison-table"><i class="fa fa-check"></i>Comparison Table</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="gitVersion_control.html"><a href="gitVersion_control.html"><i class="fa fa-check"></i><b>7</b> Git and Version Control</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#introduction-to-version-control"><i class="fa fa-check"></i>Introduction to Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#local-version-control"><i class="fa fa-check"></i>Local Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#centralized-version-control-system"><i class="fa fa-check"></i>Centralized Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#distributed-version-control-system"><i class="fa fa-check"></i>Distributed Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git"><i class="fa fa-check"></i>Git</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#github"><i class="fa fa-check"></i>GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#what-is-a-repository"><i class="fa fa-check"></i>What is a Repository?</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#initializing-a-git-repository"><i class="fa fa-check"></i>Initializing a Git Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#commits"><i class="fa fa-check"></i>Commits</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#cloning-a-repository"><i class="fa fa-check"></i>Cloning a Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#branches"><i class="fa fa-check"></i>Branches</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#merging"><i class="fa fa-check"></i>Merging</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#pull-requests"><i class="fa fa-check"></i>Pull Requests</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#example-of-a-git-workflow"><i class="fa fa-check"></i>Example of a Git Workflow</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git-cheat-sheet"><i class="fa fa-check"></i>Git Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel_basics.html"><a href="excel_basics.html"><i class="fa fa-check"></i><b>8</b> Excel Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#formulas"><i class="fa fa-check"></i>Formulas</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#operator-precedence"><i class="fa fa-check"></i>Operator Precedence</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottables"><i class="fa fa-check"></i>PivotTables</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottable-fields"><i class="fa fa-check"></i>PivotTable Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="intro_eeg.html"><a href="intro_eeg.html"><i class="fa fa-check"></i><b>9</b> Introduction to EEG</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#what-is-eeg"><i class="fa fa-check"></i>What is EEG?</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#basic-methodology"><i class="fa fa-check"></i>Basic Methodology</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#electrodes-and-their-placement"><i class="fa fa-check"></i>Electrodes and their Placement</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#artifacts-and-their-origins"><i class="fa fa-check"></i>Artifacts and their Origins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-preprocessing"><i class="fa fa-check"></i>Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#referencing-and-re-referencing"><i class="fa fa-check"></i>Referencing and Re-referencing</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#filtering"><i class="fa fa-check"></i>Filtering</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#event-detection"><i class="fa fa-check"></i>Event Detection</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#epoching-and-baseline-correction"><i class="fa fa-check"></i>Epoching and Baseline Correction</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#independent-components-analysis-ica"><i class="fa fa-check"></i>Independent Components Analysis (ICA)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-analysis"><i class="fa fa-check"></i>Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#frequency"><i class="fa fa-check"></i>Frequency</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#traditional-erps"><i class="fa fa-check"></i>Traditional ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="signal_detection.html"><a href="signal_detection.html"><i class="fa fa-check"></i><b>10</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#image-detection-example"><i class="fa fa-check"></i>Image Detection Example</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#implementation-of-d-in-excel-r-and-matlab"><i class="fa fa-check"></i>Implementation of d’ in Excel, R, and Matlab</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fourier.html"><a href="fourier.html"><i class="fa fa-check"></i><b>11</b> Fourier Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#time-domain-vs.-frequency-domain-visualization"><i class="fa fa-check"></i>Time Domain vs. Frequency Domain Visualization</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#relevance-to-eeg"><i class="fa fa-check"></i>Relevance to EEG</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#amplitude-and-phase-spectra"><i class="fa fa-check"></i>Amplitude and Phase Spectra</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="found_stats.html"><a href="found_stats.html"><i class="fa fa-check"></i><b>12</b> Foundational Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#some-key-concepts"><i class="fa fa-check"></i>Some Key Concepts</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-central-tendency"><i class="fa fa-check"></i>Measures of Central Tendency</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-variability"><i class="fa fa-check"></i>Measures of Variability</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-relatedness"><i class="fa fa-check"></i>Measures of Relatedness</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#types-of-distributions"><i class="fa fa-check"></i>Types of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#inferential-statistics"><i class="fa fa-check"></i>Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#null-hypothesis-significance-testing"><i class="fa fa-check"></i>Null-hypothesis significance testing</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#effect-size-versus-statistical-significance"><i class="fa fa-check"></i>Effect size versus statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#further-reading-11"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine_learning.html"><a href="machine_learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning and Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#machine-learning-and-cognitive-science"><i class="fa fa-check"></i>Machine Learning and Cognitive Science</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#unsupervised-learning"><i class="fa fa-check"></i>Unsupervised Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#principal-component-analysis"><i class="fa fa-check"></i>Principal Component Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#steps-for-pca"><i class="fa fa-check"></i>Steps for PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#multidimensional-scaling-mds"><i class="fa fa-check"></i>Multidimensional Scaling (MDS)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i>T-Distributed Stochastic Neighbor Embedding (T-SNE)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#clustering"><i class="fa fa-check"></i>Clustering</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#supervised-machine-learning"><i class="fa fa-check"></i>Supervised Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classification"><i class="fa fa-check"></i>Classification</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#support-vector-machines"><i class="fa fa-check"></i>Support Vector Machines</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#decoding-neural-signals"><i class="fa fa-check"></i>Decoding Neural Signals</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-what-is-decoding"><i class="fa fa-check"></i>Overview: What is decoding?</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#linear-decoding-models"><i class="fa fa-check"></i>Linear Decoding Models</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classifier-information"><i class="fa fa-check"></i>Classifier Information</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#training-and-testing"><i class="fa fa-check"></i>Training and Testing</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#cross-validation-classification-methodology"><i class="fa fa-check"></i>Cross-Validation Classification Methodology</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#leave-one-out-cross-validation"><i class="fa fa-check"></i>Leave One Out Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#k-fold-cross-validation"><i class="fa fa-check"></i>K-fold Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier"><i class="fa fa-check"></i>Evaluation and Interpretation of the Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#further-reading-12"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="image_processing.html"><a href="image_processing.html"><i class="fa fa-check"></i><b>14</b> Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#digital-cameras"><i class="fa fa-check"></i>Digital Cameras</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-values"><i class="fa fa-check"></i>Pixel Values</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-file-formats"><i class="fa fa-check"></i>Image File Formats</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#color-spaces"><i class="fa fa-check"></i>Color Spaces</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#cielab-color"><i class="fa fa-check"></i>CIELAB Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#hsv-color"><i class="fa fa-check"></i>HSV Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-luminance-and-contrast"><i class="fa fa-check"></i>Image Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#luminance"><i class="fa fa-check"></i>Luminance</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#contrast"><i class="fa fa-check"></i>Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#normalizing-luminance-and-contrast"><i class="fa fa-check"></i>Normalizing Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-coordinates"><i class="fa fa-check"></i>Pixel Coordinates</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-resolution-and-resizing"><i class="fa fa-check"></i>Image Resolution and Resizing</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#further-reading-13"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html"><i class="fa fa-check"></i><b>15</b> Advanced Image Representation</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#fourier-transforms-in-two-dimensions"><i class="fa fa-check"></i>Fourier transforms in two dimensions</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#spatial-frequencies"><i class="fa fa-check"></i>Spatial Frequencies</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#amplitude-and-phase-spectra-of-images"><i class="fa fa-check"></i>Amplitude and Phase Spectra of Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#phase-randomized-images"><i class="fa fa-check"></i>Phase Randomized Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#gabor-wavelet"><i class="fa fa-check"></i>Gabor Wavelet</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-is-a-gabor"><i class="fa fa-check"></i>What is a Gabor?</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-are-gabor-wavelets-inspired-by"><i class="fa fa-check"></i>What are Gabor wavelets inspired by?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#further-reading-14"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="machine_learning" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">13</span> Machine Learning and Data Analysis<a href="machine_learning.html#machine_learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-3" class="section level2 unnumbered hasAnchor">
+<h2>Overview<a href="machine_learning.html#overview-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Machine learning is a branch of computer science that uses large datasets to train algorithms, enabling them to mimic human learning. Over time, as more data is fed into these models, the algorithms dynamically adjust, and their accuracy improves. Unlike humans, however, machine learning algorithms can process vast amounts of data at much greater speeds, allowing for faster and more scalable content generation than is possible by human effort.</p>
+</div>
+<div id="machine-learning-and-cognitive-science" class="section level2 unnumbered hasAnchor">
+<h2>Machine Learning and Cognitive Science<a href="machine_learning.html#machine-learning-and-cognitive-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A key part of many cognitive science labs involves running EEG experiments to monitor participants’ brain activity. The fascinating thing about brain waves is that their frequency and amplitude can tell us what kind of brain activity is taking place. Now, imagine if we could train a model to make these determinations automatically. For instance, could we train an algorithm to identify whether a participant is looking at a mountain or a desert purely based on their brain activity?</p>
+<div style="display: flex; justify-content: center; gap: 40px;">
+<figure style="margin: 0;">
+<img src="imagesVCL/chapter19mountain.jpg" style="height: 300px; width: auto;">
+<figcaption style="font-size: 80%; text-align: center;">
+(Andrea, 2017)
+</figcaption>
+</figure>
+<figure style="margin: 0;">
+<img src="imagesVCL/chapter19desert.webp" style="height: 300px; width: auto;">
+<figcaption style="font-size: 80%; text-align: center;">
+(Piwnicki, 2024)
+</figcaption>
+</figure>
+</div>
+<p>This is possible through classifiers—models trained on brain wave data. By training the model on this labeled data, we can predict what the participant is viewing based on their brain activity, even without knowing directly. In this way, brain waves act like a code, revealing what the participant is seeing. In the decoding section, we will discuss how classifiers can aid our data analysis in more depth.</p>
+<p>Neural data is multivariate, as it captures various aspects of brain activity simultaneously. This complex jumble of data is stored in multidimensional matrices, where each data point corresponds to an electrode, a time point, and a trial. Of course, dimensions vary depending on the number of electrodes. In the VCL, data matrices are 128 dimensions, as our EEG machine has 128 electrodes. Analyzing this data efficiently is crucial, as it would be impossible to process manually. Machine learning provides the necessary tools to handle this complexity, enabling us to extract meaningful insights from the data.</p>
+<p>There are three main types of machine learning models: unsupervised, supervised, and reinforcement. In the following sections, we will discuss the differences between these types of models and explain their primary uses.</p>
+</div>
+<div id="unsupervised-learning" class="section level2 unnumbered hasAnchor">
+<h2>Unsupervised Learning<a href="machine_learning.html#unsupervised-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Unsupervised learning involves training a model on unlabeled data, allowing it to independently identify patterns in a dataset.</p>
+<p>As mentioned earlier, the VCL often analyzes large datasets with hundreds of dimensions. While the human mind can only visualize up to three dimensions, what happens when we’re working with a matrix of 128 electrodes across 600 timepoints and 1200 trials? This is where the <em>Curse of Dimensionality</em> comes into play, referring to the challenges that arise when analyzing data in such high-dimensional spaces (general definition). Why is it so hard to analyze data in too many dimensions?</p>
+<ul>
+<li>The data is hard to visualize, comprehend, and interpret.</li>
+<li>When there are more dimensions, the data points spread out, making it harder to detect patterns.<br />
+</li>
+<li>The amount of computational power needed for an algorithm to analyze the data increases, and a tremendous amount of storage space is needed for the data.</li>
+<li>Distance metrics become skewed. As the number of dimensions increases, the relative distances between the data points decrease. The distance between a point’s nearest vs. farthest distance shrinks, essentially the data flattens, making the relative distances provide less information.</li>
+<li>As dimensions increase, models are more likely to overfit, meaning that noise and outliers will likely be incorporated into training datasets, negatively impacting the accuracy of machine learning and data analytics models.</li>
+<li>Even if our dimensionality increases, the dataset does not necessarily increase. In other words, a large number of dimensions doesn’t necessarily mean an increase in useful information.</li>
+</ul>
+<p>Below, we will explore 4 main types of unsupervised learning: Principal Component Analysis, t-SNE, Multidimensional Scaling, and Clustering.</p>
+</div>
+<div id="principal-component-analysis" class="section level2 unnumbered hasAnchor">
+<h2>Principal Component Analysis<a href="machine_learning.html#principal-component-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>PCA addresses two fundamental questions:
+- Is there a way to summarize the data by identifying its most important variables?
+- How can we quantify the amount of information in a dataset? (Hint: consider the variance – the more information, the greater the variance.)</p>
+<p>Principal Component Analysis (PCA) is a technique for reducing the dimensionality of a dataset by creating principal components—new variables, uncorrelated from each other, formed as combinations of the original variables. Graphically, PCs will be transformed into axes, just like the original set of variables, as PCs themselves are a set of variables by nature.</p>
+<p>PCA projects the data along directions of maximum variability, with most information typically captured by the first component. In essence, Principal Component Analysis is a technique that exploits dependencies (relationships) among variables to represent high-dimensional data in a lower-dimensional, more comprehensible form. Below are some FAQs regarding PCA:</p>
+<p><em>What do you mean by uncorrelated, and why do we need individual PCs to be uncorrelated from each other?</em></p>
+<p>Great question! In data analysis, it might seem counterintuitive at first to identify discorrelation. However, in PCA, it is actually essential. When we transform data that are originally correlated onto axes with new variables that don’t exhibit any correlations, we are able to see how different variables independently affect each data point without having to account for any innate relations between these variables.</p>
+<p>Simple example: Let’s say I want to see what contributes to a person’s longevity. I derived 2 principal components from a large amount of detailed health metrics and age at death taken from a large sample of people and summarized these components to be describing “height” and “happiness”. With some simple transformations of data points, I am able to conveniently visualize on one graph how height and happiness, two things that would be statistically proven as uncorrelated, individually contribute to longevity.</p>
+<p>Interesting to see how we can also use discorrelation to our advantage too!</p>
+<p><em>Why are we capturing maximum variance?</em></p>
+<p>The logic here is quite similar to what is described above. A large spread of data might indicate low precision, but it is exactly what we want, because it means that we are able to find a component, a new variable that capture the most diversity in the data we have observed, so when we are reducing the dimensionality of the data, we can also preserve some of the unique features of it.</p>
+<div id="steps-for-pca" class="section level3 unnumbered hasAnchor">
+<h3>Steps for PCA<a href="machine_learning.html#steps-for-pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Below are the overview of the steps to conducting a PCA. For further information than what is provided in this textbook, feel free to check the footnotes for more information. Additionally, it is important to note that code packages exist in many coding languages to aid in the PCA process. These computations are going to be rarely done by hand if at all, but it is important to understand the mechanism of it.</p>
+<ol style="list-style-type: decimal">
+<li><em>Standardize the Data</em>: If the variables have different units or scales, standardize them to ensure each variable contributes equally to the analysis.</li>
+<li><em>Compute the Covariance Matrix</em>: This matrix captures the relationships between variables, showing how they vary together.</li>
+<li><em>Calculate Eigenvalues and Eigenvectors</em>: The eigenvectors (principal components) indicate the directions of the new feature space, while the eigenvalues represent the variance magnitude in those directions.</li>
+<li><em>Sort Eigenvalues and Eigenvectors</em>: Arrange eigenvalues and their corresponding eigenvectors in descending order. The eigenvector with the highest eigenvalue becomes the principal component, capturing the most variance.</li>
+<li><em>Select Principal Components</em>: Choose the top k eigenvectors corresponding to the k largest eigenvalues. These selected eigenvectors form the new feature space.</li>
+<li><em>Transform the Data</em>: Project the original data onto the new feature space using the selected principal components.</li>
+</ol>
+</div>
+</div>
+<div id="multidimensional-scaling-mds" class="section level2 unnumbered hasAnchor">
+<h2>Multidimensional Scaling (MDS)<a href="machine_learning.html#multidimensional-scaling-mds" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Multidimensional Scaling (MDS) is a technique for visualization and dimensionality reduction that highlights differences between objects in a dataset. Like Principal Component Analysis (PCA), MDS represents the similarities and dissimilarities among data points but often provides a more intuitive visualization of these relationships. In MDS plots, more similar objects appear closer together, while less similar objects are positioned farther apart, based on their relative distances. The ‘scaling’ in MDS refers to its ability to reduce the number of dimensions in the dataset while preserving the original differences (or levels of similarity and dissimilarity) between data points, even in lower-dimensional spaces.</p>
+<p>MDS takes data input via a symmetric matrix, which states the relationships between data points. Based on the symmetric matrix, a graph is produced showing the distance between each of the cities.</p>
+<p>For a simple example, check out this link: <a href="https://www.statisticshowto.com/multidimensional-scaling/" class="uri">https://www.statisticshowto.com/multidimensional-scaling/</a></p>
+<p><strong>There are four basic steps for computing MDS:</strong><br />
+1. <em>Assign Initial Coordinates:</em> Place objects at arbitrary coordinates in an n-dimensional space. This initial assignment serves as a starting point for the MDS process.<br />
+2. <em>Calculate Euclidean Distances:</em> Compute the Euclidean distances between all pairs of points based on their initial coordinates. Euclidean distance represents the direct “as-the-crow-flies” distance between two points, calculated using the Pythagorean theorem. These distances form the similarity matrix and are based on the initial, arbitrary coordinate assignments from step 1.<br />
+3. <em>Compare with Original Distances:</em> Compare the calculated distances to the actual distances, the ground truth, in the original similarity matrix. This comparison uses the “stress function,” a measure of goodness of fit. Lower stress values (close to 0) indicate a better fit, while values above 0.2 are generally considered poor.<br />
+4. <em>Adjust Coordinates to Minimize Stress:</em> Based on the stress value, iteratively adjust the points’ coordinates to reduce stress, aiming to make the calculated distances align more closely with the original ground truth data.<br />
+<em>For more information, consult the links provided in the footnotes.</em></p>
+</div>
+<div id="t-distributed-stochastic-neighbor-embedding-t-sne" class="section level2 unnumbered hasAnchor">
+<h2>T-Distributed Stochastic Neighbor Embedding (T-SNE)<a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>t-SNE (t-Distributed Stochastic Neighbor Embedding) is another dimensionality reduction technique. The main difference between PCA and t-SNE is that PCA is a linear method that captures maximum variance across components, while t-SNE is a nonlinear technique designed to preserve pairwise similarities between data points in lower-dimensional spaces. Unlike PCA, which emphasizes overall data variance, t-SNE is particularly effective at revealing local clusters and relationships within complex datasets, specifically by taking into account the distances between a point and its closest neighbor (hence, the pairwise distance).</p>
+<p>After determining the similarity measure between pairs of data points in a high dimensional space, we want to represent these points in a low-dimensional space, most often a 2-D plane. The algorithm transforms different regions uniquely because it’s nonlinear, adapting to the structure of the data. Additionally, t-SNE has a parameter called perplexity, which controls the number of nearby data points considered when positioning each point in the lower-dimensional space. For a more in depth tutorial on how t-sne is applied and the mathematical procedures involved, you are welcome to check out <a href="https://www.youtube.com/watch?v=00TSeKZyeXQ">this video</a>.</p>
+<div id="here-is-an-example-of-t-sne-application-in-the-vcl" class="section level4 unnumbered hasAnchor">
+<h4>Here is an example of t-SNE application in the VCL:<a href="machine_learning.html#here-is-an-example-of-t-sne-application-in-the-vcl" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<figure style="float: right; width: 40%; margin-left: 15px;">
+<img src="imagesVCL/t-SNE_example.png" style="width: 100%;">
+<figcaption style="font-size: 80%; text-align: center;">
+(Made in house by VCL, 2025)
+</figcaption>
+</figure>
+<p>We gathered descriptions from Research Cloud for images in our large dataset. We wanted to know if the descriptions of indoor and outdoor locations are different from one another. The first thing we did was to feed the responses to these images into a Large Language Model (LLM) to turn these sentences into sentence embeddings.</p>
+<p>For brief context, an LLM is a machine learning model that aims to predict and generate language in the way a human would (ChatGPT would be a prime example). A sentence embedding is just a way to mathematically represent a sentence as a vector in a multi-dimensional space.</p>
+<p>For this language model, each sentence embedding, each vector, exists in a 768 dimensional space. Thus, each vector here represents 1. A sentence and 2. A direction for a data point’s location in a high high high dimensional space. Visualizing a 768 dimensional space is utterly beyond human ability and comprehension. Thus, t-SNE becomes a useful tool to reduce the dimensionality down to 2 for better visualization.</p>
+<p>As you can now easily see, the indoor description embedding does seem to be quite different from the outdoor ones. Big ups t-SNE!</p>
+<p>In conclusion, here is a comparison of the 3 types of data analysis mentioned so far:</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="30%" />
+<col width="28%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>t-SNE</th>
+<th>PCA</th>
+<th>MDS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Purpose</strong></td>
+<td>Visualizing high-dimensional data in lower dimensions (2 or 3).</td>
+<td>Reducing dimensionality while preserving variance.</td>
+<td>Representing high-dimensional data in lower dimensions, preserving distances or dissimilarities.</td>
+</tr>
+<tr class="even">
+<td><strong>Technique Type</strong></td>
+<td>Non-linear dimensionality reduction.</td>
+<td>Linear dimensionality reduction.</td>
+<td>Non-linear dimensionality reduction.</td>
+</tr>
+<tr class="odd">
+<td><strong>Preserved Information</strong></td>
+<td>Preserves local structure (similar points stay close).</td>
+<td>Preserves global structure (maximizes variance).</td>
+<td>Preserves global distances between points (similarity or dissimilarity).</td>
+</tr>
+<tr class="even">
+<td><strong>Interpretability</strong></td>
+<td>Difficult to interpret as it focuses on local patterns.</td>
+<td>Easy to interpret, with clear representation of variance.</td>
+<td>Can be more interpretable if the dissimilarities are meaningful.</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Distribution Assumption</strong></td>
+<td>No assumption (works with complex, non-linear data).</td>
+<td>Assumes linear relationships between variables.</td>
+<td>Assumes distances between points are meaningful and tries to preserve them.</td>
+</tr>
+<tr class="even">
+<td><strong>Computational Complexity</strong></td>
+<td>High, especially with large datasets.</td>
+<td>Relatively low (involves linear algebra operations).</td>
+<td>Moderate (uses optimization to minimize stress).</td>
+</tr>
+<tr class="odd">
+<td><strong>Usage</strong></td>
+<td>Best for visualizing clusters and local patterns.</td>
+<td>Best for understanding main directions of variance.</td>
+<td>Best for visualizing data with known dissimilarities or distances.</td>
+</tr>
+<tr class="even">
+<td><strong>Output</strong></td>
+<td>Provides low-dimensional embedding for visualization.</td>
+<td>Provides principal components capturing maximum variance.</td>
+<td>Provides a low-dimensional representation based on global distances.</td>
+</tr>
+</tbody>
+</table>
+<figure style="float: right; width: 40%; margin-left: 15px;">
+<img src="/Volumes/data/lab/CURRENT_PROJECTS/textbook/BookdownTextbook/imagesVCL/chapter19clustering.png" style="width: 100%;" alt="Clustering Diagram">
+<figcaption style="font-size: 80%;">
+(Chire, 2011)
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="clustering" class="section level2 unnumbered hasAnchor">
+<h2>Clustering<a href="machine_learning.html#clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Clustering is another type of unsupervised learning in which the model functions by detecting patterns in the unlabeled data and making boundaries around these clusters.
+Oftentimes, we want to analyze large amounts of data, but we do not know about the existing relationships within the dataset. The purpose of clustering is to take a heterogeneous dataset and form homogeneous subgroups. Similarity within a homogeneous subgroup can be measured/determined based on a variety of characteristic,s including Euclidean distance, cosine similarity, etc.</p>
+</div>
+<div id="supervised-machine-learning" class="section level2 unnumbered hasAnchor">
+<h2>Supervised Machine Learning<a href="machine_learning.html#supervised-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+In supervised learning, the model is trained on labeled data.
+<figure style="margin: 0;">
+<img src="imagesVCL/train_test.png" style="height: 300px; width: auto;">
+<figcaption style="font-size: 80%; text-align: center;">
+(EpochFail, 2015)
+</figcaption>
+</figure>
+<p>For instance, if the dataset contains an inventory of fruits in a grocery store, the labels might include categories like apple, pear, banana, and mango, and each item in the dataset would be categorized appropriately. The model learns from these labels to classify new data. There are two subtypes of supervised learning: classification and regression.</p>
+</div>
+<div id="classification" class="section level2 unnumbered hasAnchor">
+<h2>Classification<a href="machine_learning.html#classification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Classification algorithms are used to group test data into specific categories (image of a driving hazard or no hazard, image of a kitchen or no kitchen). There are also a variety of classifier shapes that can be used. For the sake of simplicity, our lab often uses a linear classifier, which means that the data will be separated by straight lines (each data point belongs in one category and is separated from the rest).</p>
+</div>
+<div id="support-vector-machines" class="section level2 unnumbered hasAnchor">
+<h2>Support Vector Machines<a href="machine_learning.html#support-vector-machines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<figure style="float: left; width: 40%; margin-left: 15px;">
+<img src="imagesVCL/svm.png" style="width: 100%;">
+<figcaption style="font-size: 80%;">
+<figcaption>
+((TseKiChun, 2021)
+</figcaption>
+</figure>
+<p>Support Vector Machines (SVMs) are a type of supervised learning model used for classification tasks and are often employed in our lab. Researchers use these algorithms to classify data into two or more categories. In its simplest form, SVMs perform binary classification, where each data point belongs to one of two classes (e.g., an apple belongs to the fruit category and a broccoli belongs to the vegetable category). To separate these classes, SVMs establish a decision boundary. In the fruit versus vegetable example, we can think of a decision boundary being the definition of what makes something a fruit and what characteristics make something a vegetable. In a two-dimensional space, this boundary is a line; in three dimensions, it’s a plane; and in higher dimensions, it is referred to as a hyperplane.</p>
+<p>In the VCL, we work with data from 128 electrodes across thousands of time points and trials, hyperplanes are particularly relevant. The SVM algorithm finds the optimal hyperplane that best separates the data. By “optimal,” we mean the hyperplane that maximizes the margin, or the distance between the hyperplane and the closest data points from each class. While multiple hyperplanes can theoretically separate the classes, the goal is to identify the one that creates the maximum margin. This maximized margin reduces the potential for classification errors by creating the greatest possible separation between the classes. Support vectors are lines drawn through the closest data points to the decision boundary. Based on where new data falls, it is classified into the appropriate category.
+After learning about different types of supervised and unsupervised learning, let’s walk through how these concepts get used, often in tandem with one another, to aid us in better understanding the neural data we, as vision scientists, gather!</p>
+</div>
+<div id="decoding-neural-signals" class="section level2 unnumbered hasAnchor">
+<h2>Decoding Neural Signals<a href="machine_learning.html#decoding-neural-signals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="overview-what-is-decoding" class="section level3 unnumbered hasAnchor">
+<h3>Overview: What is decoding?<a href="machine_learning.html#overview-what-is-decoding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Decoding is the process of interpreting neural signals to identify the stimulus or condition that elicited them. The brain can selectively filter information in behaviorally useful ways, a process known as intelligent information loss. Additionally, the brain can generalize information beyond specific conditions, representing it in a way that remains consistent regardless of the exact conditions used to build this representation—this is known as Invariant Representations. Decoding attempts to answer the question: Does there seem to be a distinct way the brain processes a certain stimulus, or does it seem to process this stimulus in the same way it processes other stimuli?</p>
+</div>
+<div id="linear-decoding-models" class="section level3 unnumbered hasAnchor">
+<h3>Linear Decoding Models<a href="machine_learning.html#linear-decoding-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In general, Linear Decoding Models aim to estimate information from neural activity under the assumption that there is a linear relationship between the neural responses that are the result of a linear combination of the various variables. If the decoding model mentioned here is aimed at discrete variables, it can be used as a classification method for supervised machine learning. Three models that are commonly employed for linear decoding are the following: Linear Discriminant Analysis, Linear Regression, and Support Vector Machines. SVM has already been described above, because it is the main model used in the VCL, but here we will briefly go through the rest.</p>
+<p><em>Linear Discriminant Analysis</em> is a type of supervised classification with the purpose of reducing dimensionality in a dataset. The purpose of LDA is to effectively separate two or more categories. There are a couple of assumptions that LDA must follow.
+1. The data must be normally distributed and the covariance matrices of each category must be equivalent.
+2. The data must be able to be separated from each other via a linear boundary. The linear boundary that is created must maximize the distance between the average of each of the two categories and minimize the variation that exists between each category. For more information regarding how to implement LDA in Python, please refer to the link in the footnote.</p>
+<p><em>Linear Regression</em> is a supervised learning model used to make predictions based on input data. In this model, labeled data is fed to the algorithm so it can learn and output predictions along an optimized linear function, which can then generalize to other datasets. Essentially, linear regression determines the relationship between one or more independent variables and one or more dependent variables. When there is only one independent variable, it’s known as simple linear regression. With multiple independent variables, it’s called multiple linear regression. If there is a single dependent variable, the model is referred to as univariate regression, whereas multiple dependent variables define multivariate linear regression.</p>
+</div>
+<div id="classifier-information" class="section level3 unnumbered hasAnchor">
+<h3>Classifier Information<a href="machine_learning.html#classifier-information" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supervised learning models employ various classification methods, three important ones being Naive Bayes, Linear Discriminants (discussed above), and k-Nearest Neighbors.</p>
+<p><em>Naive Bayes Classifiers</em> are probabilistic machine learning models used for classification tasks. They are based on Bayes’ Theorem, which calculates the probability of an event occurring given prior knowledge of related conditions. The “naive” aspect refers to the assumption that features are conditionally independent, meaning that the presence of one feature does not affect the presence of another. Despite this simplification, Naive Bayes often performs well in practice, especially in applications like text classification and spam detection.</p>
+<p><em>K-Nearest Neighbors (KNN)</em> is a non-parametric machine learning classifier that predicts classifications based on the proximity of data points to one another.</p>
+<div style="display: flex; justify-content: center; gap: 40px;">
+<figure style="margin: 0;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/KNN_decision_surface_animation.gif" style="height: 300px; width: auto;">
+<figcaption style="font-size: 80%; text-align: center;">
+(Bonfini, 2024)
+</figcaption>
+</figure>
+</div>
+<p>It operates under the assumption that similar data points will be located near each other in the feature space.</p>
+<p>The first step in KNN involves calculating the distance between the query point , typically a new data point and all other points in the dataset. Afterwards, the classifier will aim to find the k closest neighbor and assign a common label to that group of data points. The chosen distance metric plays a critical role in forming the decision boundaries. While there are various distance metrics available, Euclidean distance is the most commonly used.</p>
+</div>
+<div id="training-and-testing" class="section level3 unnumbered hasAnchor">
+<h3>Training and Testing<a href="machine_learning.html#training-and-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first step in decoding, regardless of the classifier one chooses to use, involves training and testing a classifier. To train the classifier, a model is developed using a labeled subset of data. This model is then evaluated on a separate testing subset to assess its ability to generalize accurately to new datasets.</p>
+</div>
+<div id="cross-validation-classification-methodology" class="section level3 unnumbered hasAnchor">
+<h3>Cross-Validation Classification Methodology<a href="machine_learning.html#cross-validation-classification-methodology" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cross-validation is a statistical approach used to assess and enhance a predictive model’s performance. By partitioning the original data into training and test sets, cross-validation ensures that the model generalizes effectively to unseen data, minimizing risks of overfitting and underfitting.</p>
+<p>In the VCL, we commonly use two cross-validation methods:<br />
+1. Leave-One-Out Cross-Validation (LOOCV)<br />
+2. K-Fold Cross-Validation</p>
+</div>
+<div id="leave-one-out-cross-validation" class="section level3 unnumbered hasAnchor">
+<h3>Leave One Out Cross Validation<a href="machine_learning.html#leave-one-out-cross-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Leave-One-Out Cross-Validation (LOOCV) is a method used in machine learning model evaluation that is computationally expensive, making it best suited for smaller datasets. In LOOCV, the model is trained on all observations except one, which is then used as the test set. This process is repeated for each observation in the dataset, as illustrated in the image below.</p>
+<p>We use the model to predict the value of the observation that is left out, repeating the process n times. The Mean Squared Error (MSE) is calculated for each observation, and the overall MSE for the model is computed as the average of these individual errors. Leave-One-Out Cross-Validation (LOOCV) is less biased compared to other methods because it repeatedly fits the model to n−1n−1 observations in the dataset. However, this method is both time-consuming and computationally expensive.</p>
+<div style="display: flex; justify-content: center;">
+<figure style="margin: 0;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/LOOCV.gif/960px-LOOCV.gif?20200304222121"
+         style="max-width: 60%; height: auto; display: block; margin: auto;">
+<figcaption style="font-size: 80%; text-align: center;">
+(MBanuelos22, 2020)
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="k-fold-cross-validation" class="section level3 unnumbered hasAnchor">
+<h3>K-fold Cross Validation<a href="machine_learning.html#k-fold-cross-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This method divides the dataset into multiple “folds.” Each fold alternates between serving as a training and testing group, allowing the model to iteratively learn from different subsets of data.
+A typical k-fold setup involves training on 80% of the data and testing on the remaining 20%, as shown in the following visual.</p>
+<figure style="float: left; width: 40%; margin-right: 25px; margin-bottom: 10px; margin-top: 35px">
+<img src="imagesVCL/k_fold.png" style="width: 100%;">
+<figcaption style="font-size: 80%; text-align: center;">
+(Gufosowa, 2019)
+</figcaption>
+</figure>
+<p>In visual cognition testing and modeling, researchers commonly use either a 5-fold or 10-fold cross-validation approach. In a 5-fold model, the data is divided into five subsets: four are used for training, and one is used for testing in each iteration. The model cycles through each fold, ensuring that every data point is included in both training and testing exactly once across all iterations. Through multiple iterations, the model improves its accuracy and minimizes the risk of overfitting (previously described).</p>
+<p>A couple of things to note when using a K–fold cross validation model:</p>
+<ul>
+<li><p>The number of folds, denoted as ‘K’ in K-Fold Cross-Validation, impacts both the granularity of the validation process and the computational effort required. Increasing the number of folds provides more detailed validation but demands greater computational resources. Conversely, using fewer folds may yield less reliable results, as each fold represents a larger portion of the dataset, reducing the robustness of the evaluation.</p></li>
+<li><p>It is important to shuffle the data in the k-fold cross-validation to increase validity of the model. By shuffling, you ensure no inherent ordering of the data which can cause bias. However, in cases where the ordering of the data is important, it is crucial that you do not employ shuffling.</p></li>
+</ul>
+</div>
+<div id="regression" class="section level3 unnumbered hasAnchor">
+<h3>Regression<a href="machine_learning.html#regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We’ve previously mentioned linear regression models. However, regression can be used to fit a model that isn’t linear as well.</p>
+<p>Regression is another type of supervised learning, where the goal is to predict an output given an input. In other words, regression algorithms estimate how one variable impacts and influences another in a continuous manner. Two key metrics to consider when evaluating a regression machine learning model are variance and bias.</p>
+<p><strong>Variance</strong> measures how much the model’s predictions would change if it were trained on different data. Ideally, you want the variance to be low, as high variance increases the likelihood of the model making inaccurate predictions.</p>
+<p><strong>Bias</strong>, on the other hand, occurs when the model is consistently trained on inaccurate or incomplete data. A low bias level is desirable, as high bias can lead to systematic errors in predictions. Factors that contribute to high bias include missing data or errors in the training set.
+However, there is a bias-variance tradeoff, meaning these two metrics are inversely related—reducing one often increases the other. Balancing this tradeoff is essential for creating effective models.
+Moreover, <em>accuracy</em> and <em>error</em> are also crucial factors to consider when building and testing a regression model. Error measures the difference between the predicted outcome and the actual result, while accuracy reflects the percentage of correct predictions the model makes. Ideally, a model should have high accuracy, low error, and low bias.</p>
+<p>To minimize bias and error, it’s essential to train the model on a diverse dataset. If the model memorizes a limited set of inputs and outputs, it may overfit, leading to a high error rate and low accuracy due to very high variance; the model is not able to generalize beyond the data it was trained on. On the other hand, if the model has not been trained sufficiently and cannot accurately capture the relationship between variables, it is too generalized, a situation known as underfitting. For more information on regressions, consult the footnote.</p>
+<figure style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 10px;">
+<img src="imagesVCL/underfitting.png" style="width: 45%;">
+<img src="imagesVCL/overfitting.png" style="width: 45%;">
+<figcaption style="font-size: 80%; text-align: center; width: 100%; margin-top: 5px;">
+(Leomaurodesenv, 2021).
+</figcaption>
+</figure>
+</div>
+<div id="evaluation-and-interpretation-of-the-classifier" class="section level3 unnumbered hasAnchor">
+<h3>Evaluation and Interpretation of the Classifier<a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Classification accuracy indicates the overall effectiveness of a machine learning model in making correct predictions. In simple terms, it measures how frequently the model accurately predicts the target outcome. This is calculated by dividing the total number of correct predictions by the total number of predictions made.</p>
+<figure style="float: left; width: 40%; margin-right: 25px; margin-bottom: 10px; margin-top: 20px">
+<img src="imagesVCL/confusion_matrix.png" style="width: 100%;">
+<figcaption style="font-size: 80%; text-align: center;">
+(Oritnk, 2004)
+</figcaption>
+</figure>
+<p>A confusion matrix is a table used to evaluate the performance of a classifier by showing the actual versus predicted classifications. The confusion matrix tells us the number of correct and incorrect predictions when a known set of test data is used. There are four possible outcomes:</p>
+<p>True positives represent the number of instances where the classifier correctly predicts the positive class. True negatives occur when the model accurately identifies the negative class, such as correctly determining that an image does not show signs of disease. False positives happen when the classifier incorrectly predicts the positive class—for instance, labeling an image as cancerous when it is not. False negatives occur when the classifier fails to identify the positive class, such as when an image depicts a cancerous cell, but the model incorrectly predicts that it does not.</p>
+</div>
+</div>
+<div id="further-reading-12" class="section level2 unnumbered hasAnchor">
+<h2>Further Reading<a href="machine_learning.html#further-reading-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend the following sources for more information on this topic:</p>
+<p>Aston Zhang et al. <a href="https://d2l.ai/">Dive into Deep Learning</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="found_stats.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="image_processing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["official-textbook.pdf", "official-textbook.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

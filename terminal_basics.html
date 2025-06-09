@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Terminal Basics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="2 Terminal Basics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Terminal Basics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Terminal Basics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  
+  
+  
+
+<meta name="author" content="Michelle Greene" />
+<meta name="author" content="Sage Aronson" />
+<meta name="author" content="Hooriya Aamir" />
+<meta name="author" content="Maria Adkins" />
+<meta name="author" content="Vivian Gao" />
+<meta name="author" content="Amy Nguyen" />
+<meta name="author" content="Sundari Ruth" />
+<meta name="author" content="Skylar Stadhard" />
+<meta name="author" content="Carina Wong" />
+
+
+<meta name="date" content="2025-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="file_organization.html"/>
+<link rel="next" href="remote_computing.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#foundational-knowledge-of-scientific-computing"><i class="fa fa-check"></i>Foundational Knowledge of Scientific Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="file_organization.html"><a href="file_organization.html"><i class="fa fa-check"></i><b>1</b> Computer File Organization</a>
+<ul>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#operating-systems"><i class="fa fa-check"></i>Operating Systems</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#key-terms"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#unix-linux-history"><i class="fa fa-check"></i>Unix &amp; Linux History</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#hierarchical-structure"><i class="fa fa-check"></i>Hierarchical Structure</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="terminal_basics.html"><a href="terminal_basics.html"><i class="fa fa-check"></i><b>2</b> Terminal Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#key-terms-1"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#what-is-the-terminal"><i class="fa fa-check"></i>What is the Terminal?</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency"><i class="fa fa-check"></i>Importance of the Terminal &amp; Command Line Proficiency</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#accessing-the-terminal"><i class="fa fa-check"></i>Accessing the Terminal</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#linux-unix"><i class="fa fa-check"></i>Linux &amp; Unix</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#mac-1"><i class="fa fa-check"></i>Mac</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#windows-1"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#using-the-terminal-to-navigate"><i class="fa fa-check"></i>Using the Terminal to Navigate</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#checking-locationexercises-to-test-understanding"><i class="fa fa-check"></i>Checking Location/Exercises to Test Understanding</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#changing-location"><i class="fa fa-check"></i>Changing Location</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#listing-files"><i class="fa fa-check"></i>Listing Files</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#creating-and-deleting-files-directories"><i class="fa fa-check"></i>Creating and Deleting Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#moving-and-renaming-files-directories"><i class="fa fa-check"></i>Moving and Renaming Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#managing-system-processes"><i class="fa fa-check"></i>Managing System Processes</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#some-special-directories-and-shortcuts"><i class="fa fa-check"></i>Some Special Directories and Shortcuts</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#finding-files-directories"><i class="fa fa-check"></i>Finding Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#wordcount"><i class="fa fa-check"></i>Wordcount</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#other-terminal-uses"><i class="fa fa-check"></i>Other Terminal Uses</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#the-man-command"><i class="fa fa-check"></i>The Man Command</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="remote_computing.html"><a href="remote_computing.html"><i class="fa fa-check"></i><b>3</b> Remote Computing</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#computer-clusters"><i class="fa fa-check"></i>Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#key-terms-2"><i class="fa fa-check"></i>Key Terms</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#importance-of-computer-clusters"><i class="fa fa-check"></i>Importance of Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#permissions"><i class="fa fa-check"></i>Permissions</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#accessing-remote-computers"><i class="fa fa-check"></i>Accessing Remote Computers</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#transferring-files-between-local-and-remote-systems"><i class="fa fa-check"></i>Transferring Files Between Local and Remote Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="editors_vim.html"><a href="editors_vim.html"><i class="fa fa-check"></i><b>4</b> Text Editors and Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#text-editors"><i class="fa fa-check"></i>Text Editors</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim"><i class="fa fa-check"></i>Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#entering-and-exiting-vim"><i class="fa fa-check"></i>Entering and Exiting Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#modes-in-vim"><i class="fa fa-check"></i>Modes in Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim-cheat-sheet"><i class="fa fa-check"></i>Vim Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>5</b> Python Environments (Using Anaconda)</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#understanding-computing-environments-in-python"><i class="fa fa-check"></i>Understanding Computing Environments in Python</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#background-information"><i class="fa fa-check"></i>Background Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-an-environment"><i class="fa fa-check"></i>Creating an Environment</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#determining-current-environments"><i class="fa fa-check"></i>Determining Current Environments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#activating-environments"><i class="fa fa-check"></i>Activating Environments</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#downloading-python-libraries"><i class="fa fa-check"></i>Downloading Python Libraries</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-and-managing-conda-environments"><i class="fa fa-check"></i>Creating and Managing Conda Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#recommended-packages"><i class="fa fa-check"></i>Recommended Packages</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#changing-python-environments-in-spyder-ide"><i class="fa fa-check"></i>Changing Python Environments in Spyder IDE</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#additional-helpful-commands"><i class="fa fa-check"></i>Additional Helpful Commands</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#difference-between-pip-install-and-conda-install"><i class="fa fa-check"></i>Difference between Pip Install and Conda Install</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#specific-notes-for-within-spyder"><i class="fa fa-check"></i>Specific Notes for Within Spyder</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>6</b> Basic Scripting</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#programming-languages"><i class="fa fa-check"></i>Programming Languages</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#python"><i class="fa fa-check"></i>Python</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#matlab"><i class="fa fa-check"></i>MATLAB</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#integrated-development-environments-ides"><i class="fa fa-check"></i>Integrated Development Environments (IDEs)</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#defining-variables"><i class="fa fa-check"></i>Defining Variables</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#indentation"><i class="fa fa-check"></i>Indentation</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-logical-operators"><i class="fa fa-check"></i>Operators: Logical Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-arithmetic-operators"><i class="fa fa-check"></i>Operators: Arithmetic Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-comparison-operators"><i class="fa fa-check"></i>Operators: Comparison Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-types"><i class="fa fa-check"></i>Data Types</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#boolean"><i class="fa fa-check"></i>Boolean</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-structures"><i class="fa fa-check"></i>Data Structures</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array-indexing"><i class="fa fa-check"></i>Array Indexing</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#conditionals"><i class="fa fa-check"></i>Conditionals</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#loops"><i class="fa fa-check"></i>Loops</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#functions"><i class="fa fa-check"></i>Functions</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comparison-table"><i class="fa fa-check"></i>Comparison Table</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="gitVersion_control.html"><a href="gitVersion_control.html"><i class="fa fa-check"></i><b>7</b> Git and Version Control</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#introduction-to-version-control"><i class="fa fa-check"></i>Introduction to Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#local-version-control"><i class="fa fa-check"></i>Local Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#centralized-version-control-system"><i class="fa fa-check"></i>Centralized Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#distributed-version-control-system"><i class="fa fa-check"></i>Distributed Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git"><i class="fa fa-check"></i>Git</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#github"><i class="fa fa-check"></i>GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#what-is-a-repository"><i class="fa fa-check"></i>What is a Repository?</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#initializing-a-git-repository"><i class="fa fa-check"></i>Initializing a Git Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#commits"><i class="fa fa-check"></i>Commits</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#cloning-a-repository"><i class="fa fa-check"></i>Cloning a Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#branches"><i class="fa fa-check"></i>Branches</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#merging"><i class="fa fa-check"></i>Merging</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#pull-requests"><i class="fa fa-check"></i>Pull Requests</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#example-of-a-git-workflow"><i class="fa fa-check"></i>Example of a Git Workflow</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git-cheat-sheet"><i class="fa fa-check"></i>Git Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel_basics.html"><a href="excel_basics.html"><i class="fa fa-check"></i><b>8</b> Excel Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#formulas"><i class="fa fa-check"></i>Formulas</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#operator-precedence"><i class="fa fa-check"></i>Operator Precedence</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottables"><i class="fa fa-check"></i>PivotTables</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottable-fields"><i class="fa fa-check"></i>PivotTable Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="intro_eeg.html"><a href="intro_eeg.html"><i class="fa fa-check"></i><b>9</b> Introduction to EEG</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#what-is-eeg"><i class="fa fa-check"></i>What is EEG?</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#basic-methodology"><i class="fa fa-check"></i>Basic Methodology</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#electrodes-and-their-placement"><i class="fa fa-check"></i>Electrodes and their Placement</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#artifacts-and-their-origins"><i class="fa fa-check"></i>Artifacts and their Origins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-preprocessing"><i class="fa fa-check"></i>Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#referencing-and-re-referencing"><i class="fa fa-check"></i>Referencing and Re-referencing</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#filtering"><i class="fa fa-check"></i>Filtering</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#event-detection"><i class="fa fa-check"></i>Event Detection</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#epoching-and-baseline-correction"><i class="fa fa-check"></i>Epoching and Baseline Correction</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#independent-components-analysis-ica"><i class="fa fa-check"></i>Independent Components Analysis (ICA)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-analysis"><i class="fa fa-check"></i>Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#frequency"><i class="fa fa-check"></i>Frequency</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#traditional-erps"><i class="fa fa-check"></i>Traditional ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="signal_detection.html"><a href="signal_detection.html"><i class="fa fa-check"></i><b>10</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#image-detection-example"><i class="fa fa-check"></i>Image Detection Example</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#implementation-of-d-in-excel-r-and-matlab"><i class="fa fa-check"></i>Implementation of d’ in Excel, R, and Matlab</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fourier.html"><a href="fourier.html"><i class="fa fa-check"></i><b>11</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#time-domain-vs.-frequency-domain-visualization"><i class="fa fa-check"></i>Time Domain vs. Frequency Domain Visualization</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#relevance-to-eeg"><i class="fa fa-check"></i>Relevance to EEG</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#amplitude-and-phase-spectra"><i class="fa fa-check"></i>Amplitude and Phase Spectra</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="found_stats.html"><a href="found_stats.html"><i class="fa fa-check"></i><b>12</b> Foundational Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#some-key-concepts"><i class="fa fa-check"></i>Some Key Concepts</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-central-tendency"><i class="fa fa-check"></i>Measures of Central Tendency</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-variability"><i class="fa fa-check"></i>Measures of Variability</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-relatedness"><i class="fa fa-check"></i>Measures of Relatedness</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#types-of-distributions"><i class="fa fa-check"></i>Types of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#inferential-statistics"><i class="fa fa-check"></i>Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#null-hypothesis-significance-testing"><i class="fa fa-check"></i>Null-hypothesis significance testing</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#effect-size-versus-statistical-significance"><i class="fa fa-check"></i>Effect size versus statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#further-reading-11"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine_learning.html"><a href="machine_learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning and Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#machine-learning-and-cognitive-science"><i class="fa fa-check"></i>Machine Learning and Cognitive Science</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#unsupervised-learning"><i class="fa fa-check"></i>Unsupervised Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#principal-component-analysis"><i class="fa fa-check"></i>Principal Component Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#steps-for-pca"><i class="fa fa-check"></i>Steps for PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#multidimensional-scaling-mds"><i class="fa fa-check"></i>Multidimensional Scaling (MDS)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i>T-Distributed Stochastic Neighbor Embedding (T-SNE)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#clustering"><i class="fa fa-check"></i>Clustering</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#supervised-machine-learning"><i class="fa fa-check"></i>Supervised Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classification"><i class="fa fa-check"></i>Classification</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#support-vector-machines"><i class="fa fa-check"></i>Support Vector Machines</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#decoding-neural-signals"><i class="fa fa-check"></i>Decoding Neural Signals</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-what-is-decoding"><i class="fa fa-check"></i>Overview: What is decoding?</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#linear-decoding-models"><i class="fa fa-check"></i>Linear Decoding Models</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classifier-information"><i class="fa fa-check"></i>Classifier Information</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#training-and-testing"><i class="fa fa-check"></i>Training and Testing</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#cross-validation-classification-methodology"><i class="fa fa-check"></i>Cross-Validation Classification Methodology</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#leave-one-out-cross-validation"><i class="fa fa-check"></i>Leave One Out Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#k-fold-cross-validation"><i class="fa fa-check"></i>K-fold Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier"><i class="fa fa-check"></i>Evaluation and Interpretation of the Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#further-reading-12"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="image_processing.html"><a href="image_processing.html"><i class="fa fa-check"></i><b>14</b> Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#digital-cameras"><i class="fa fa-check"></i>Digital Cameras</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-values"><i class="fa fa-check"></i>Pixel Values</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-file-formats"><i class="fa fa-check"></i>Image File Formats</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#color-spaces"><i class="fa fa-check"></i>Color Spaces</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#cielab-color"><i class="fa fa-check"></i>CIELAB Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#hsv-color"><i class="fa fa-check"></i>HSV Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-luminance-and-contrast"><i class="fa fa-check"></i>Image Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#luminance"><i class="fa fa-check"></i>Luminance</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#contrast"><i class="fa fa-check"></i>Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#normalizing-luminance-and-contrast"><i class="fa fa-check"></i>Normalizing Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-coordinates"><i class="fa fa-check"></i>Pixel Coordinates</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-resolution-and-resizing"><i class="fa fa-check"></i>Image Resolution and Resizing</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#further-reading-13"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html"><i class="fa fa-check"></i><b>15</b> Advanced Image Representation</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#fourier-transforms-in-two-dimensions"><i class="fa fa-check"></i>Fourier transforms in two dimensions</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#spatial-frequencies"><i class="fa fa-check"></i>Spatial Frequencies</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#amplitude-and-phase-spectra-of-images"><i class="fa fa-check"></i>Amplitude and Phase Spectra of Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#phase-randomized-images"><i class="fa fa-check"></i>Phase Randomized Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#gabor-wavelet"><i class="fa fa-check"></i>Gabor Wavelet</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-is-a-gabor"><i class="fa fa-check"></i>What is a Gabor?</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-are-gabor-wavelets-inspired-by"><i class="fa fa-check"></i>What are Gabor wavelets inspired by?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#further-reading-14"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="terminal_basics" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Terminal Basics<a href="terminal_basics.html#terminal_basics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="key-terms-1" class="section level2 unnumbered hasAnchor">
+<h2>Key Terms<a href="terminal_basics.html#key-terms-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Terminal:</strong> An environment that allows a user to interact with a computer by using interactive text, rather than a graphical window.</p></li>
+<li><p><strong>Command Line Interface (CLI):</strong> The Command Line Interface (CLI) is a text-based environment on your computer where users input commands. These commands are then processed by the command line which will execute specific tasks.</p></li>
+<li><p><strong>Shell:</strong> A shell is a program that interprets the user’s input to the terminal and processes it into meaningful, and actionable information for the computer. In many Linux Operating Systems, Bash is the default shell. In newer Macs (built post-2021), the Zshell is the default shell and on the Windows operating system, PowerShell is the default shell.</p></li>
+</ul>
+<p><strong>Note</strong>: For clarity, we will use “terminal” to indicate terminal emulators and CLIs.</p>
+</div>
+<div id="what-is-the-terminal" class="section level2 unnumbered hasAnchor">
+<h2>What is the Terminal?<a href="terminal_basics.html#what-is-the-terminal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The terminal provides an accessible interface for users to interact with their computer, enabling them to input commands and receive direct output. As an integrated human interface device, the terminal functions similarly to a more primitive version of window managers such as Finder (Mac), Explorer (Windows), and Nautilus (Linux). While window managers allow users to navigate folders, move files, and perform other tasks through GUI (graphical user interface), the terminal achieves the same actions through text-based instructions. In the terminal, instead of clicking and dragging, users can efficiently manage files and directories, log into remote computers, launch applications and more using typed commands. Though it may seem more intuitive to manually navigate through a window manager, the terminal can achieve all of this functionality and more. Note that in cases where users are logged into a computer remotely, this is often the only way one can interact with the remote computer.</p>
+<div style="float: left; margin: 0 0 1em 1em; width: 230px;">
+<p><img src="imagesVCL/vclTerminal.png" style="width: 100%;">
+(VCL, 2025)</p>
+</div>
+<p>The terminal interacts with the file system through the <strong>Command Line Interface (CLI)</strong>, which allows users to navigate between folders, and manipulate specific files. The users type commands into the CLI and the terminal operates accordingly depending on what operating system is used.</p>
+<p><strong>Note</strong>: Command-line syntax varies by operating system. For example, to check your current working directory, Mac and Linux users can use the <code>pwd</code> command. In Windows, entering <code>cd</code> without arguments will display the current directory, though this usage is less standard. Alternatively, Windows users can install the <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux (WSL)</a> to run a full Linux environment directly within Windows, enabling access to Linux-style commands like pwd.</p>
+<p>Navigating the terminal can be more efficient than using a window manager by adapting to command shortcuts. The up arrow shortcut allows users to scroll through previous commands. The tab command auto-completes directories, file names, etc. For example, if one needs to run a command that was already used, by simply clicking the up arrow the terminal will start “flipping” through the past commands. In cases where the file path is long (such as <code>my_totally_awesome_secret_file.py</code>), using the tab button after typing the first few characters of the file name can save the user’s time while reducing human error in typos. If you used a command a long time ago, typing the <code>history</code> command will show a log of all past commands.</p>
+</div>
+<div id="importance-of-the-terminal-command-line-proficiency" class="section level2 unnumbered hasAnchor">
+<h2>Importance of the Terminal &amp; Command Line Proficiency<a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By gaining terminal proficiency, you can efficiently manage files, navigate and manipulate large datasets, and automate repetitive tasks. When accessing a remote computer (see <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(#remote_computing)), one often only has access to that computer via a Command Line Interface. With a little practice, you might come to favor the terminal for its ability to speed up tasks like traversing folders and reducing human error, particularly when handling large volumes of files across different locations.</p>
+<p>It is important to understand the types of commands you will encounter: internal and external. Internal commands are built into the computer’s shell, whereas external commands are stored and executed from the computer’s disk.</p>
+</div>
+<div id="accessing-the-terminal" class="section level2 unnumbered hasAnchor">
+<h2>Accessing the Terminal<a href="terminal_basics.html#accessing-the-terminal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we’ve introduced the terminal, let’s look at how to access it. The process varies by operating system, each of which provides its own tools for terminal access. We’ll cover how to open the terminal on Mac, Linux, and Windows after a brief overview of these systems.</p>
+<div id="linux-unix" class="section level3 unnumbered hasAnchor">
+<h3>Linux &amp; Unix<a href="terminal_basics.html#linux-unix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two main ways to open a Terminal while using a Linux OS:</p>
+<ol style="list-style-type: decimal">
+<li>Press the buttons CTRL + ALT + T at the same time.</li>
+<li>In the Dash Bar open Show Application and find the Terminal application.</li>
+</ol>
+</div>
+<div id="mac-1" class="section level3 unnumbered hasAnchor">
+<h3>Mac<a href="terminal_basics.html#mac-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On a Mac, you can access the terminal one of two ways:</p>
+<ol style="list-style-type: decimal">
+<li>Look up Terminal in the launchpad.</li>
+<li>Navigate in Finder. Click on Finder → Applications → Utilities → Terminal in Finder.</li>
+</ol>
+</div>
+<div id="windows-1" class="section level3 unnumbered hasAnchor">
+<h3>Windows<a href="terminal_basics.html#windows-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Terminal access in Windows is a bit more complicated as compared to macOS and Linux, because Windows does not have a UNIX backbone like the other operating systems. There are three methods for accessing the Terminal application on your Windows computer.</p>
+<p>-Method 1. Every Windows computer comes with a pre-installed Command Prompt, for the default terminal. You can access the Command Prompt by searching for <code>cmd</code> in the Start menu.</p>
+<p><strong>Note</strong> That The Command Prompt does not contain all of the functions that will be discussed in this book.</p>
+<p>-Method 2. If you want to follow <strong>all</strong> of the functions described in this book, you will need a more advanced terminal. This terminal is pre-installed on Windows computers called a PowerShell. You can access the PowerShell by searching for <code>PowerShell</code> in the Start menu.</p>
+<p>Refer to the <a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/09-functions?view=powershell-7.4">official Microsoft documentation</a> for more information about the functionality of PowerShell.</p>
+<p>-Method 3. The <a href="https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&amp;gl=US">Windows Terminal</a> is a new application that is more powerful and can run both the <code>cmd</code>, the PowerShell and other types of terminals. The Windows Terminal does not come pre-installed in all versions of Windows. You can download it from the Microsoft Store, if it is not pre-installed on your device.</p>
+</div>
+</div>
+<div id="using-the-terminal-to-navigate" class="section level2 unnumbered hasAnchor">
+<h2>Using the Terminal to Navigate<a href="terminal_basics.html#using-the-terminal-to-navigate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="checking-locationexercises-to-test-understanding" class="section level3 unnumbered hasAnchor">
+<h3>Checking Location/Exercises to Test Understanding<a href="terminal_basics.html#checking-locationexercises-to-test-understanding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If a user wants to know what directory they are currently in, they can utilize the <code>pwd</code> (print working directory) command. The <code>pwd</code> command is useful when working in a complex environment, since it’s easy to lose track of where you are within the file system. Before running a command that modifies a large directory, make sure that you are in the correct directory that you intend to modify. Additionally, when working on a remote server or shared system, using the <strong><code>pwd</code></strong> command ensures that you are operating in the appropriate directory (either your own or one that is shared)</p>
+<p>Example syntax: type <code>pwd</code> into the CLI.</p>
+<p><img src="imagesVCL/pwd.png" alt="After typing pwd into the terminal, the directory that you are currently in appears on the next line. In this case, user saronson is in Downloads." />
+(VCL, 2025)</p>
+<p><strong>Checking Your Location – Where Are You?</strong></p>
+<p>Goal 1 : Before embarking on your journey, it’s essential to check your current position. Think of this as marking your starting point on a map.</p>
+<p>Input 1 : Use the command <code>pwd</code> (Print Working Directory) to display your current location within the computer’s file system.</p>
+<p><strong>Listing Files – What’s Around You?</strong></p>
+<p>Goal 2 : Explore your surroundings! There might be useful files nearby.</p>
+<p>Input 2 : Use <code>ls</code> to list the contents of your current directory and see what’s around you.</p>
+<p><strong>Navigating to Your Home Directory – Returning to Base</strong></p>
+<p>Goal 3 : Ensure you’re back at your home base before continuing your exploration.</p>
+<p>Input 3 : Use <code>cd ~</code> or simply <code>cd</code> to return to your home directory.</p>
+<p><strong>Changing Directories – Exploring New Paths</strong></p>
+<p>Goal 4 : Venture into different folders within your home directory, such as Documents or Downloads.</p>
+<p>Input 4 : Use <code>cd</code> followed by the folder name to move into that directory.</p>
+<p>Example:</p>
+<p><strong><code>cd Documents</code></strong></p>
+<p>This command will take you to the Documents folder.</p>
+<p>💡 Hint: If you’re unsure where to go, refer back to Input 1 (<code>pwd</code>) to check your current location and Input 2 (<code>ls</code>) to see available folders.</p>
+</div>
+<div id="changing-location" class="section level3 unnumbered hasAnchor">
+<h3>Changing Location<a href="terminal_basics.html#changing-location" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>cd</code> command takes in an argument and the name of the folder or directory, that the user wants to navigate to. The user uses this command by typing <code>cd</code> followed by the folder path in the <strong>CLI</strong>.</p>
+<p><img src="/Volumes/data/lab/CURRENT_PROJECTS/textbook/BookdownTextbook/imagesVCL/homeDir.png" alt="The first line in the command window navigates to saronson’s Downloads folder. The second line using the pwd command helps saronson verify that the computer navigated her to the right directory. The third line shows the user that they are in the Downloads folder." />
+(VCL, 2025)</p>
+<p><code>cd ~/Downloads</code>: This command will take the user to the Downloads folder in their home directory on their computer. The <code>~/</code> explicitly specifies that the Downloads folder is in the user’s home directory.</p>
+<p><code>cd Downloads</code>: This command would attempt to navigate the user to a folder called “Downloads” in the current directory that they are in. If the user is already in their home directory it will work the same way that <code>cd Downloads</code> works. <code>cd Downloads</code> navigates the user to the “Downloads” folder within their home directory. However, if the user is not currently in the home directory, this command will attempt to find a folder within the <strong>current directory</strong> called “Downloads”. This could result in an error appearing if there is no folder called “Downloads” in the current directory.</p>
+</div>
+<div id="listing-files" class="section level3 unnumbered hasAnchor">
+<h3>Listing Files<a href="terminal_basics.html#listing-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is often helpful for a user to be able to see all files and folders within a specific directory. This can be done by typing <code>ls</code>, and a list of files will appear.</p>
+<p><strong>Example Syntax</strong></p>
+<p><code>ls Documents</code>: This command will display a list of all the files and folders within the “Documents” folder that is located in your current directory. If the user is in a directory that contains a “Documents” folder, <code>ls Documents</code> will show the contents of that “Documents” folder. If there is no “Documents” folder in the current directory, the terminal will return an error indicating that the directory does not exist. If you want to list the content of a folder that is not in your current directory, you can provide a full path to it (e.g., <code>ls /home/bvcl/Documents</code>).</p>
+<p><img src="imagesVCL/ls.png" alt="After typing ls into the terminal a list of everything in saronson’s documents folder appears" />
+(VCL, 2025)</p>
+</div>
+<div id="creating-and-deleting-files-directories" class="section level3 unnumbered hasAnchor">
+<h3>Creating and Deleting Files &amp; Directories<a href="terminal_basics.html#creating-and-deleting-files-directories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mkdir" class="section level4 unnumbered hasAnchor">
+<h4>mkdir<a href="terminal_basics.html#mkdir" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>mkdir</code> command is used to create a new directory (or folder) in the file system.</p>
+<p><strong>Example Syntax</strong></p>
+<ul>
+<li>Unix/Linux/Mac: <code>mkdir folder_name</code></li>
+<li>Windows (Command Prompt): <code>mkdir folder_name</code></li>
+</ul>
+<p>This command makes an empty directory called “folder_name” at the specified location, and you can include the full path if you want to create it in a different directory.</p>
+<p>For example: <code>mkdir /Users/username/Documents/new_folder</code></p>
+<p><img src="imagesVCL/mkdir.png" alt="Sage created a new_folder in her home directory. She confirmed her present working directory by typing pwd. Afterward, she printed the directory contents using ls, and as shown, the new_folder appeared successfully." />
+(VCL, 2025)</p>
+</div>
+<div id="touch" class="section level4 unnumbered hasAnchor">
+<h4>Touch<a href="terminal_basics.html#touch" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>touch</code> command is mainly used to create empty file structures. For example, if you want to create a new file called <code>terrier.txt</code> within a folder called <code>dog</code> in your current directory you would navigate to the <code>dog</code> folder and type the following into the command line: <code>touch terrier.txt</code></p>
+<p>The <code>.txt</code> denotes that you are creating a text file. You also have the ability to create more than one file at once. Type: <code>touch terrier.txt collie.txt</code> This would create two new files, one called <code>terrier.txt</code> and the other called <code>collie.txt</code>.</p>
+<p><img src="imagesVCL/touch.png" alt="In this example, user saronson created an empty text file on her desktop named goldenDoodle.txt. She then moved goldenDoodle.txt into a pre-existing folder called dogFolder, which already contained another empty text file named collie.txt. To display the contents of dogFolder, she used the ls command." />
+(VCL, 2025)</p>
+</div>
+<div id="removing-commands" class="section level4 unnumbered hasAnchor">
+<h4>Removing Commands<a href="terminal_basics.html#removing-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>rm</code> (remove) command is used to delete a file or directory.
+<strong>This is a serious command, once a user deletes a file it is not recoverable. Warning: be careful about the irreversible nature of <code>rm</code>.</strong></p>
+<p>Syntax: <code>rm terrier.txt</code> This command will delete the terrier file from your computer. You can delete more than one file at once.</p>
+<p><img src="imagesVCL/rm.png" alt="Saronson knows that dogFolder is located on her desktop. The first step she took was navigating to her desktop using the cd command. She then printed the contents of dogFolder using the ls command. Next, she used the rm command to remove the collie.txt file. Finally, she printed the contents of dogFolder again to confirm that collie.txt was successfully removed." />
+(VCL, 2025)</p>
+<p>To protect the user from making a mistake, the default <code>rm</code> command will not delete a directory. In order to delete a directory, the user needs to type one of the following commands: <code>rm -r directoryname</code> OR <code>rm -rf directoryname</code></p>
+<p>The <code>-r</code> signifies a recursive functionality, meaning that all of the contents within the directory including the subdirectories and files will be deleted.</p>
+<p>The <code>-rf</code> command signifies a recursive force command. It is used to forcefully delete files and directories without any confirmation from the user. It is incredibly powerful and should be rarely and cautiously used.</p>
+</div>
+</div>
+<div id="moving-and-renaming-files-directories" class="section level3 unnumbered hasAnchor">
+<h3>Moving and Renaming Files &amp; Directories<a href="terminal_basics.html#moving-and-renaming-files-directories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Users would like the ability to move and rename a file or directory from its current location to a specified location. One could do this by inputting <code>mv</code>, or “move” command in the terminal.</p>
+<p>-Example syntax: <code>mv participant001.csv experiments</code> This command would move the file called <code>participant001.csv</code> to the <code>experiments</code> directory.</p>
+<p>-Another example of using the <code>mv</code> command using the entire file path would look like this: <code>mv  participant001.csv /home/bvcl/Documents/experiments</code></p>
+<p><img src="imagesVCL/mv.png" alt="In the example above, saronson created a text file called EXAMPLEtext.txt and then moved it from her home directory to her Desktop. You can see that the file has been moved." />
+(VCL, 2025)</p>
+<p>To rename a file or directory we utilize the same command <code>mv</code>. For example if the user wanted to rename the file <code>participant001.txt</code> to be <code>participant1.txt</code> they would type the following into the command line: <code>mv participant001.txt participant1.txt</code></p>
+<p><img src="imagesVCL/renameWmv.png" alt="Saronson created a text file called namefile in her downloads folder. Using the mv command she then renamed the file to NameFile and the updated name appeared in her downloads folder" />
+(VCL, 2025)</p>
+<p>If the user wanted to rename a directory, they would type the name of the directory that they want to rename followed by the desired new name.</p>
+<p>-Example: <code>mv experiments BehavioralExperiments</code>
+This would rename the experiments directory to now be called <code>BehavioralExperiments</code>.</p>
+<p><img src="imagesVCL/renamingDir.png" alt="Saronson created a directory called “exampleDirectory” and then renamed the directory to be called exDirectory101. As you can see, exDirectory101 was created and appeared in the Home Directory, after saronson printed the contents using the command ls." />
+(VCL, 2025)</p>
+<div id="copying-files-directories" class="section level4 unnumbered hasAnchor">
+<h4>Copying Files &amp; Directories<a href="terminal_basics.html#copying-files-directories" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A user can make a copy of a file within the same directory or a different directory. If a user wants to create a copy of a file into a different directory, they can proceed with the following command:
+<code>cp participant001.txt /home/username/Desktop</code>. This command copies the contents of <code>participant001.txt</code> from the current directory to the Desktop.</p>
+<p><img src="imagesVCL/copyDir.png" alt="Saronson first created a text file called exampleCopy, then she determined where that file was being stored on her computer by employing the pwd command. She copied the exampleCopy file to her desktop." />
+(VCL, 2025)</p>
+<p>If the <code>cp</code> command contains the names of two files, it copies the contents of the first file into the second file. For example: <code>cp participant001.txt dataParticipant.txt</code>. This command would copy the contents of <code>participant001.txt</code> into the file <code>dataParticipant.txt</code>. If the file that the user is trying to copy into already exists, the <code>cp</code> command will <strong>overwrite</strong> the current information in that file.</p>
+<p><strong>Note</strong>: In this case, the file will not append, it will be overwritten. If the file does not already exist, the command will create a new file and copy the contents to that new file.</p>
+<p>A user can also copy the contents of one directory to another by following the command: <code>cp -r /path/to/sourceDirectory /path/to/destinationDirectory</code>. This command would copy recursively <code>(-r)</code> all the contents of the <code>sourceDirectory</code> into the <code>destinationDirectory</code>. (The user can type <code>-r</code> or <code>-R</code> because it is not case-sensitive. However, we will encounter other commands that are case-sensitive in later sections of the textbook).</p>
+</div>
+</div>
+<div id="managing-system-processes" class="section level3 unnumbered hasAnchor">
+<h3>Managing System Processes<a href="terminal_basics.html#managing-system-processes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="top-command" class="section level4 unnumbered hasAnchor">
+<h4>Top Command<a href="terminal_basics.html#top-command" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Monitoring system resources in real-time is helpful for maintaining optimal computer performance. The <code>top</code> command is a powerful tool that allows users to do just that. When executed, <code>top</code> provides a dynamic display of all currently running processes, including details on CPU, memory usage, system load, and uptime. If a user notices their computer lagging, the <code>top</code> command can help identify resource-heavy processes that may need to be closed to improve performance. To use the <code>top</code> command simply type <code>top</code> into the command line and press enter.</p>
+<p><img src="imagesVCL/top.png" alt="The screenshot above shows what appears on a Mac terminal when a user types top into the command window. Top monitors system performance. This command displays a list of processes, showing the percentage of CPU each application is using, memory usage of each application, and process IDs. For instance, the WindowServer is consuming 13% of the CPU, its process ID is 356, it is taking up 669 bits of memory etc." />
+(VCL, 2025)</p>
+</div>
+<div id="terminating-commands" class="section level4 unnumbered hasAnchor">
+<h4>Terminating Commands<a href="terminal_basics.html#terminating-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If an application becomes unresponsive, a user can terminate the application by using the <code>kill</code> or <code>killall</code> command. The <code>kill</code> command is used to terminate a singular process using the process ID (PID). The PID is found in the leftmost column of the output of <code>top</code>. To successfully kill a process, type <code>kill</code> followed by the process ID into the terminal.</p>
+<p><img src="imagesVCL/kill.png" alt="1424 is the process ID for saronson’s Safari browser. She knows that this is the process ID by running the top command." />
+(VCL, 2025)</p>
+<p>The <code>killall</code> command terminates all instances of a process running on your computer’s system based upon its name. This is useful when the user wants to kill all processes running on the computer that have the same name. Example: <code>killall firefox</code> will kill the Firefox web browser.</p>
+</div>
+<div id="viewing-disk-space" class="section level4 unnumbered hasAnchor">
+<h4>Viewing Disk Space<a href="terminal_basics.html#viewing-disk-space" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>df -h</code> command is valuable for users who need to check how much disk space is available (<code>df</code> stands for “disk free”) on their system in a human-comprehensible format (<code>-h</code>). The <code>df</code> command displays information about all mounted file systems and the disk usage for each. By adding the <code>-h</code> flag, the output is made more comprehensible, converting the usage into easily understood units like gigabytes and megabytes. Type <code>df -h</code> into the terminal to view this information.</p>
+<p><img src="imagesVCL/df.png" alt="Output of the df -h command showing disk usage and available space for all mounted filesystems with values displayed in gigabytes and megabytes." />
+(VCL, 2025)</p>
+</div>
+</div>
+<div id="some-special-directories-and-shortcuts" class="section level3 unnumbered hasAnchor">
+<h3>Some Special Directories and Shortcuts<a href="terminal_basics.html#some-special-directories-and-shortcuts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here are some helpful shorthand ways to refer to some common directories.</p>
+<p><code>‘.’</code>: Refers to the current directory. Example: <code>cp /home/username/Documents/experiments/participant001.csv .</code> will copy the file located at this path to the current directory.<br />
+<code>‘~’</code>: Refers to the home or root directory. For example, the previous example could be shortened to <code>cp ~/Documents/experiments/participant001.csv .</code>.
+<code>'*'</code>: The * character is called a “wildcard” and will match anything. For example, <code>ls *.csv</code> will list any files that end with the ‘.csv’ extension, and <code>ls a*</code> will list any files starting with the letter “a”.</p>
+</div>
+<div id="finding-files-directories" class="section level3 unnumbered hasAnchor">
+<h3>Finding Files &amp; Directories<a href="terminal_basics.html#finding-files-directories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>find</code> command lets you search your computer for specific files or directories. It’s a powerful and flexible tool that supports searching by name, size, modification time, or even file content. Because of its flexibility, there are several ways to use it depending on your needs.</p>
+<p>To search for a file or folder, use the following format:</p>
+<p><code>find directory option criteria</code></p>
+<ul>
+<li><p><code>directory</code>: the folder where you want the search to begin. Use “.” to search in the current directory, or “/” to search the whole file system.</p></li>
+<li><p><code>option</code>: how you want to search—e.g., -name for a filename, -size for file size, etc.</p></li>
+<li><p><code>criteria</code>: the specific value you’re looking for, such as a file name (“report.txt”) or size (+10M).</p></li>
+</ul>
+<p>If a user is searching for a file named <code>participant.txt</code>, they would type: <code>find -name participant.txt</code></p>
+<p>Other examples:</p>
+<ul>
+<li><p><code>find . -name “p*”</code>: Let’s break down the command: <code>find .</code> specifies the current directory as the starting point for the search, and <code>"p*"</code> specifies all files starting with the letter “p”.</p></li>
+<li><p><code>find / -name participant.txt</code>: Searches the whole file system “/” for a file with the name “participant.txt”. Note that this command might be very slow if there are many files on your computer!</p></li>
+</ul>
+<p><img src="imagesVCL/ex.png" alt="Since the exampleCopy.txt file is in both saronson’s downloads folder and desktop, both file paths are outputted" />
+(VCL, 2025)</p>
+<ul>
+<li><p>If you want to perform a case-insensitive search, use the flag <code>-iname</code> instead of <code>-name.</code></p></li>
+<li><p>Example: <code>find . -iname participant.txt</code>
+This command would locate files on your local computer that were either named <code>Participant.txt</code> or <code>participant.txt.</code></p></li>
+</ul>
+<div id="searching-by-size" class="section level4 unnumbered hasAnchor">
+<h4>Searching by Size<a href="terminal_basics.html#searching-by-size" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can also search a file by size in the Linux system. To do so use the <code>-size</code> tag and the <code>find</code> command. Add a <code>+</code> or <code>-</code> sign to the size to represent greater than and less than. For example, say you want to search the entire file system for files that are greater than five gigabytes you would type the following command into the terminal:</p>
+<p>Example: <code>find ./ -size +5G</code></p>
+<p>You can also search for files within a certain size range. Say you wanted to locate files between the size of 25 gigabytes and 30 gigabytes, you would type the following command. The “+” means “search for files larger than”, and the “-” means “search for files smaller than”.</p>
+<p>Example: <code>find ./ -size +25G -size -30G</code></p>
+</div>
+<div id="searching-by-time" class="section level4 unnumbered hasAnchor">
+<h4>Searching by Time<a href="terminal_basics.html#searching-by-time" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s say that you are looking for a file you created last week, but you can’t remember it’s name or location. You can search a file system using the <code>-mtime</code> parameter. This parameter helps a user search for files that were modified within the last seven days. To do so input the following command: <code>find ./ -mtime -7</code>. This indicates that we are looking for files within the last 7 days. If you wanted to search for files that are at least a week old, you could modify this command to <code>find ./ -mtime +7</code>, and if you knew that you were looking for a file created one week ago exactly, you could use <code>find ./ -mtime 7</code>. Of course, there is nothing magical about the number 7 - feel free to change this to any number that suits your needs.</p>
+</div>
+</div>
+<div id="wordcount" class="section level3 unnumbered hasAnchor">
+<h3>Wordcount<a href="terminal_basics.html#wordcount" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>The <code>wc</code> (word count) command allows a user to count various elements within a file:</p></li>
+<li><p><code>wc -l</code> prints the number of lines in a file. This can be helpful for ensuring that all trials in an experiment are written correctly. For example, if there should be 1024 trials, using the command <code>wc -l file_name.csv</code> allows the user to verify that the file contains the expected number of lines, confirming that all trials are accounted for.</p></li>
+<li><p><code>wc -w</code> Prints the number of words in a file. This may be useful if there is a specific word count that the user must meet given specific instructions.</p></li>
+<li><p><code>wc -c</code> Displays the count of bytes in a file. Knowing the number of bytes helps the user make intentional storage decisions.</p></li>
+<li><p><code>wc -m</code> Prints the count of characters in a file.</p></li>
+<li><p><code>wc -L</code> Prints the length of the longest line in a file.</p></li>
+</ul>
+</div>
+<div id="other-terminal-uses" class="section level3 unnumbered hasAnchor">
+<h3>Other Terminal Uses<a href="terminal_basics.html#other-terminal-uses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Users can use the terminal for various other tasks such as launching applications, running scripts, and editing text with Vim (see Chapter 4 for more), and using version control systems like Git (see Chapter 8 for more). In the Visual Cognition Lab (VCL), students often need to launch applications like Spyder and PsychoPy. To do this, simply type the application name into the terminal and press Enter. Keep in mind that launching applications directly through the terminal is fast and easy.</p>
+</div>
+<div id="the-man-command" class="section level3 unnumbered hasAnchor">
+<h3>The Man Command<a href="terminal_basics.html#the-man-command" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The man (“manual”) command is super helpful as it acts as a kind of terminal glossary. It provides the user with information about all terminal commands. Simply type the command <code>man</code> into the terminal followed by the command that you want to learn more about.</p>
+<ul>
+<li>Example: <code>man pwd</code>
+After typing the command <code>man pwd</code> the following output will appear on your terminal. (Note: If you want to exit the manual terminal page, type <code>q</code>.</li>
+</ul>
+<p><img src="imagesVCL/manCommand.png" />
+(VCL, 2025)</p>
+<p><img src="imagesVCL/terminalOpen.png" alt="Image of an open terminal on macOS desktop" />
+(VCL, 2025)</p>
+<p><strong>Quitting the Terminal</strong></p>
+<p>Once you are in the terminal application, you can look to the top bar on your computer. On the left, next to the Apple sign, there is a Terminal button. Click on “Terminal” and scroll down to the “Quit Terminal” button. An alternative method for quitting the terminal is clicking the red exit button located in the top left corner.</p>
+<p><img src="imagesVCL/quittingTerminal.png" />
+(VCL, 2025)</p>
+</div>
+</div>
+<div id="further-reading-1" class="section level2 unnumbered hasAnchor">
+<h2>Further Reading<a href="terminal_basics.html#further-reading-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend the following sources for more information on this topic:</p>
+<p><a href="https://swcarpentry.github.io/shell-novice/">The Unix Shell</a> by Software Carpentry.</p>
+<p><a href="https://missing.csail.mit.edu/2020/course-shell/">Shell</a> from MIT’s “Missing Semester” Course.</p>
+<p><a href="https://missing.csail.mit.edu/2020/shell-tools/">Shell Tools and Scripting</a> from MIT’s “Missing Semester” Course.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="file_organization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="remote_computing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["official-textbook.pdf", "official-textbook.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

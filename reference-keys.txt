@@ -1,0 +1,15 @@
+file_organization
+terminal_basics
+remote_computing
+editors_vim
+environments
+scripting
+gitVersion_control
+excel_basics
+intro_eeg
+signal_detection
+fourier
+found_stats
+machine_learning
+image_processing
+advanced_image_rep

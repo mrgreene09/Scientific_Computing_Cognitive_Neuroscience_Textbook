@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Foundational Statistics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="12 Foundational Statistics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Foundational Statistics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Foundational Statistics | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  
+  
+  
+
+<meta name="author" content="Michelle Greene" />
+<meta name="author" content="Sage Aronson" />
+<meta name="author" content="Hooriya Aamir" />
+<meta name="author" content="Maria Adkins" />
+<meta name="author" content="Vivian Gao" />
+<meta name="author" content="Amy Nguyen" />
+<meta name="author" content="Sundari Ruth" />
+<meta name="author" content="Skylar Stadhard" />
+<meta name="author" content="Carina Wong" />
+
+
+<meta name="date" content="2025-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fourier.html"/>
+<link rel="next" href="machine_learning.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#foundational-knowledge-of-scientific-computing"><i class="fa fa-check"></i>Foundational Knowledge of Scientific Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="file_organization.html"><a href="file_organization.html"><i class="fa fa-check"></i><b>1</b> Computer File Organization</a>
+<ul>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#operating-systems"><i class="fa fa-check"></i>Operating Systems</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#key-terms"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#unix-linux-history"><i class="fa fa-check"></i>Unix &amp; Linux History</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#hierarchical-structure"><i class="fa fa-check"></i>Hierarchical Structure</a></li>
+<li class="chapter" data-level="" data-path="file_organization.html"><a href="file_organization.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="terminal_basics.html"><a href="terminal_basics.html"><i class="fa fa-check"></i><b>2</b> Terminal Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#key-terms-1"><i class="fa fa-check"></i>Key Terms</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#what-is-the-terminal"><i class="fa fa-check"></i>What is the Terminal?</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#importance-of-the-terminal-command-line-proficiency"><i class="fa fa-check"></i>Importance of the Terminal &amp; Command Line Proficiency</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#accessing-the-terminal"><i class="fa fa-check"></i>Accessing the Terminal</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#linux-unix"><i class="fa fa-check"></i>Linux &amp; Unix</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#mac-1"><i class="fa fa-check"></i>Mac</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#windows-1"><i class="fa fa-check"></i>Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#using-the-terminal-to-navigate"><i class="fa fa-check"></i>Using the Terminal to Navigate</a>
+<ul>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#checking-locationexercises-to-test-understanding"><i class="fa fa-check"></i>Checking Location/Exercises to Test Understanding</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#changing-location"><i class="fa fa-check"></i>Changing Location</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#listing-files"><i class="fa fa-check"></i>Listing Files</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#creating-and-deleting-files-directories"><i class="fa fa-check"></i>Creating and Deleting Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#moving-and-renaming-files-directories"><i class="fa fa-check"></i>Moving and Renaming Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#managing-system-processes"><i class="fa fa-check"></i>Managing System Processes</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#some-special-directories-and-shortcuts"><i class="fa fa-check"></i>Some Special Directories and Shortcuts</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#finding-files-directories"><i class="fa fa-check"></i>Finding Files &amp; Directories</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#wordcount"><i class="fa fa-check"></i>Wordcount</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#other-terminal-uses"><i class="fa fa-check"></i>Other Terminal Uses</a></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#the-man-command"><i class="fa fa-check"></i>The Man Command</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="terminal_basics.html"><a href="terminal_basics.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="remote_computing.html"><a href="remote_computing.html"><i class="fa fa-check"></i><b>3</b> Remote Computing</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#overview-2"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#computer-clusters"><i class="fa fa-check"></i>Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#key-terms-2"><i class="fa fa-check"></i>Key Terms</a>
+<ul>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#importance-of-computer-clusters"><i class="fa fa-check"></i>Importance of Computer Clusters</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#permissions"><i class="fa fa-check"></i>Permissions</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#accessing-remote-computers"><i class="fa fa-check"></i>Accessing Remote Computers</a></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#transferring-files-between-local-and-remote-systems"><i class="fa fa-check"></i>Transferring Files Between Local and Remote Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="remote_computing.html"><a href="remote_computing.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="editors_vim.html"><a href="editors_vim.html"><i class="fa fa-check"></i><b>4</b> Text Editors and Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#text-editors"><i class="fa fa-check"></i>Text Editors</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim"><i class="fa fa-check"></i>Vim</a>
+<ul>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#entering-and-exiting-vim"><i class="fa fa-check"></i>Entering and Exiting Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#modes-in-vim"><i class="fa fa-check"></i>Modes in Vim</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#vim-cheat-sheet"><i class="fa fa-check"></i>Vim Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="editors_vim.html"><a href="editors_vim.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>5</b> Python Environments (Using Anaconda)</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#understanding-computing-environments-in-python"><i class="fa fa-check"></i>Understanding Computing Environments in Python</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#background-information"><i class="fa fa-check"></i>Background Information</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-an-environment"><i class="fa fa-check"></i>Creating an Environment</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#determining-current-environments"><i class="fa fa-check"></i>Determining Current Environments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#activating-environments"><i class="fa fa-check"></i>Activating Environments</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#downloading-python-libraries"><i class="fa fa-check"></i>Downloading Python Libraries</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#creating-and-managing-conda-environments"><i class="fa fa-check"></i>Creating and Managing Conda Environments</a>
+<ul>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#recommended-packages"><i class="fa fa-check"></i>Recommended Packages</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#changing-python-environments-in-spyder-ide"><i class="fa fa-check"></i>Changing Python Environments in Spyder IDE</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#additional-helpful-commands"><i class="fa fa-check"></i>Additional Helpful Commands</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#difference-between-pip-install-and-conda-install"><i class="fa fa-check"></i>Difference between Pip Install and Conda Install</a></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#specific-notes-for-within-spyder"><i class="fa fa-check"></i>Specific Notes for Within Spyder</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="environments.html"><a href="environments.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="scripting.html"><a href="scripting.html"><i class="fa fa-check"></i><b>6</b> Basic Scripting</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#programming-languages"><i class="fa fa-check"></i>Programming Languages</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#python"><i class="fa fa-check"></i>Python</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#matlab"><i class="fa fa-check"></i>MATLAB</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#integrated-development-environments-ides"><i class="fa fa-check"></i>Integrated Development Environments (IDEs)</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#defining-variables"><i class="fa fa-check"></i>Defining Variables</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#indentation"><i class="fa fa-check"></i>Indentation</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-logical-operators"><i class="fa fa-check"></i>Operators: Logical Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-arithmetic-operators"><i class="fa fa-check"></i>Operators: Arithmetic Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#operators-comparison-operators"><i class="fa fa-check"></i>Operators: Comparison Operators</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-types"><i class="fa fa-check"></i>Data Types</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#boolean"><i class="fa fa-check"></i>Boolean</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#data-structures"><i class="fa fa-check"></i>Data Structures</a>
+<ul>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#array-indexing"><i class="fa fa-check"></i>Array Indexing</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#conditionals"><i class="fa fa-check"></i>Conditionals</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#loops"><i class="fa fa-check"></i>Loops</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#functions"><i class="fa fa-check"></i>Functions</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#comparison-table"><i class="fa fa-check"></i>Comparison Table</a></li>
+<li class="chapter" data-level="" data-path="scripting.html"><a href="scripting.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="gitVersion_control.html"><a href="gitVersion_control.html"><i class="fa fa-check"></i><b>7</b> Git and Version Control</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#introduction-to-version-control"><i class="fa fa-check"></i>Introduction to Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#local-version-control"><i class="fa fa-check"></i>Local Version Control</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#centralized-version-control-system"><i class="fa fa-check"></i>Centralized Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#distributed-version-control-system"><i class="fa fa-check"></i>Distributed Version Control System</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git"><i class="fa fa-check"></i>Git</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#github"><i class="fa fa-check"></i>GitHub</a>
+<ul>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#what-is-a-repository"><i class="fa fa-check"></i>What is a Repository?</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#initializing-a-git-repository"><i class="fa fa-check"></i>Initializing a Git Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#commits"><i class="fa fa-check"></i>Commits</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#cloning-a-repository"><i class="fa fa-check"></i>Cloning a Repository</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#branches"><i class="fa fa-check"></i>Branches</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#merging"><i class="fa fa-check"></i>Merging</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#pull-requests"><i class="fa fa-check"></i>Pull Requests</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#example-of-a-git-workflow"><i class="fa fa-check"></i>Example of a Git Workflow</a></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#git-cheat-sheet"><i class="fa fa-check"></i>Git Cheat Sheet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="gitVersion_control.html"><a href="gitVersion_control.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="excel_basics.html"><a href="excel_basics.html"><i class="fa fa-check"></i><b>8</b> Excel Basics</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#formulas"><i class="fa fa-check"></i>Formulas</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#operator-precedence"><i class="fa fa-check"></i>Operator Precedence</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#sorting"><i class="fa fa-check"></i>Sorting</a></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottables"><i class="fa fa-check"></i>PivotTables</a>
+<ul>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#pivottable-fields"><i class="fa fa-check"></i>PivotTable Fields</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="excel_basics.html"><a href="excel_basics.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="intro_eeg.html"><a href="intro_eeg.html"><i class="fa fa-check"></i><b>9</b> Introduction to EEG</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#what-is-eeg"><i class="fa fa-check"></i>What is EEG?</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#basic-methodology"><i class="fa fa-check"></i>Basic Methodology</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#electrodes-and-their-placement"><i class="fa fa-check"></i>Electrodes and their Placement</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#artifacts-and-their-origins"><i class="fa fa-check"></i>Artifacts and their Origins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-preprocessing"><i class="fa fa-check"></i>Data Preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#referencing-and-re-referencing"><i class="fa fa-check"></i>Referencing and Re-referencing</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#filtering"><i class="fa fa-check"></i>Filtering</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#event-detection"><i class="fa fa-check"></i>Event Detection</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#epoching-and-baseline-correction"><i class="fa fa-check"></i>Epoching and Baseline Correction</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#independent-components-analysis-ica"><i class="fa fa-check"></i>Independent Components Analysis (ICA)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#data-analysis"><i class="fa fa-check"></i>Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#frequency"><i class="fa fa-check"></i>Frequency</a></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#traditional-erps"><i class="fa fa-check"></i>Traditional ERPs</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro_eeg.html"><a href="intro_eeg.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="signal_detection.html"><a href="signal_detection.html"><i class="fa fa-check"></i><b>10</b> Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#image-detection-example"><i class="fa fa-check"></i>Image Detection Example</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#implementation-of-d-in-excel-r-and-matlab"><i class="fa fa-check"></i>Implementation of d’ in Excel, R, and Matlab</a></li>
+<li class="chapter" data-level="" data-path="signal_detection.html"><a href="signal_detection.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fourier.html"><a href="fourier.html"><i class="fa fa-check"></i><b>11</b> Fourier Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#time-domain-vs.-frequency-domain-visualization"><i class="fa fa-check"></i>Time Domain vs. Frequency Domain Visualization</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#relevance-to-eeg"><i class="fa fa-check"></i>Relevance to EEG</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#amplitude-and-phase-spectra"><i class="fa fa-check"></i>Amplitude and Phase Spectra</a></li>
+<li class="chapter" data-level="" data-path="fourier.html"><a href="fourier.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="found_stats.html"><a href="found_stats.html"><i class="fa fa-check"></i><b>12</b> Foundational Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#some-key-concepts"><i class="fa fa-check"></i>Some Key Concepts</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-central-tendency"><i class="fa fa-check"></i>Measures of Central Tendency</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-variability"><i class="fa fa-check"></i>Measures of Variability</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#measures-of-relatedness"><i class="fa fa-check"></i>Measures of Relatedness</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#types-of-distributions"><i class="fa fa-check"></i>Types of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#inferential-statistics"><i class="fa fa-check"></i>Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#null-hypothesis-significance-testing"><i class="fa fa-check"></i>Null-hypothesis significance testing</a></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#effect-size-versus-statistical-significance"><i class="fa fa-check"></i>Effect size versus statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="found_stats.html"><a href="found_stats.html#further-reading-11"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine_learning.html"><a href="machine_learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning and Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-3"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#machine-learning-and-cognitive-science"><i class="fa fa-check"></i>Machine Learning and Cognitive Science</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#unsupervised-learning"><i class="fa fa-check"></i>Unsupervised Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#principal-component-analysis"><i class="fa fa-check"></i>Principal Component Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#steps-for-pca"><i class="fa fa-check"></i>Steps for PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#multidimensional-scaling-mds"><i class="fa fa-check"></i>Multidimensional Scaling (MDS)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#t-distributed-stochastic-neighbor-embedding-t-sne"><i class="fa fa-check"></i>T-Distributed Stochastic Neighbor Embedding (T-SNE)</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#clustering"><i class="fa fa-check"></i>Clustering</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#supervised-machine-learning"><i class="fa fa-check"></i>Supervised Machine Learning</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classification"><i class="fa fa-check"></i>Classification</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#support-vector-machines"><i class="fa fa-check"></i>Support Vector Machines</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#decoding-neural-signals"><i class="fa fa-check"></i>Decoding Neural Signals</a>
+<ul>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#overview-what-is-decoding"><i class="fa fa-check"></i>Overview: What is decoding?</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#linear-decoding-models"><i class="fa fa-check"></i>Linear Decoding Models</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#classifier-information"><i class="fa fa-check"></i>Classifier Information</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#training-and-testing"><i class="fa fa-check"></i>Training and Testing</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#cross-validation-classification-methodology"><i class="fa fa-check"></i>Cross-Validation Classification Methodology</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#leave-one-out-cross-validation"><i class="fa fa-check"></i>Leave One Out Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#k-fold-cross-validation"><i class="fa fa-check"></i>K-fold Cross Validation</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#regression"><i class="fa fa-check"></i>Regression</a></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#evaluation-and-interpretation-of-the-classifier"><i class="fa fa-check"></i>Evaluation and Interpretation of the Classifier</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="machine_learning.html"><a href="machine_learning.html#further-reading-12"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="image_processing.html"><a href="image_processing.html"><i class="fa fa-check"></i><b>14</b> Image Processing</a>
+<ul>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#digital-cameras"><i class="fa fa-check"></i>Digital Cameras</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-values"><i class="fa fa-check"></i>Pixel Values</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-file-formats"><i class="fa fa-check"></i>Image File Formats</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#color-spaces"><i class="fa fa-check"></i>Color Spaces</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#cielab-color"><i class="fa fa-check"></i>CIELAB Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#hsv-color"><i class="fa fa-check"></i>HSV Color</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-luminance-and-contrast"><i class="fa fa-check"></i>Image Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#luminance"><i class="fa fa-check"></i>Luminance</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#contrast"><i class="fa fa-check"></i>Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#normalizing-luminance-and-contrast"><i class="fa fa-check"></i>Normalizing Luminance and Contrast</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#pixel-coordinates"><i class="fa fa-check"></i>Pixel Coordinates</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#image-resolution-and-resizing"><i class="fa fa-check"></i>Image Resolution and Resizing</a></li>
+<li class="chapter" data-level="" data-path="image_processing.html"><a href="image_processing.html#further-reading-13"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html"><i class="fa fa-check"></i><b>15</b> Advanced Image Representation</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#fourier-transforms-in-two-dimensions"><i class="fa fa-check"></i>Fourier transforms in two dimensions</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#spatial-frequencies"><i class="fa fa-check"></i>Spatial Frequencies</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#amplitude-and-phase-spectra-of-images"><i class="fa fa-check"></i>Amplitude and Phase Spectra of Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#phase-randomized-images"><i class="fa fa-check"></i>Phase Randomized Images</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#gabor-wavelet"><i class="fa fa-check"></i>Gabor Wavelet</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-is-a-gabor"><i class="fa fa-check"></i>What is a Gabor?</a></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#what-are-gabor-wavelets-inspired-by"><i class="fa fa-check"></i>What are Gabor wavelets inspired by?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced_image_rep.html"><a href="advanced_image_rep.html#further-reading-14"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="found_stats" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">12</span> Foundational Statistics<a href="found_stats.html#found_stats" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Statistics is essential for drawing meaningful conclusions from data. It allows us to go beyond our observations to ask: how likely is it that we would observe the same thing again? Could we have observed these data by chance? Is this enough of a difference to be meaningful? Statistics enable us to develop theories, formulate testable hypotheses, gather evidence, and update our theories as new data emerges. Statistics can be broadly divided into two categories: the <em>descriptive statistics</em> that summarize data and <em>inferential statistics</em> that allow us to draw conclusions about that data. This is a large topic and we will not cover all of statistics here. For interested readers, there are excellent open textbooks cited at the end of this chapter. Let’s first examine some key definitions and concepts.</p>
+<div id="some-key-concepts" class="section level2 unnumbered hasAnchor">
+<h2>Some Key Concepts<a href="found_stats.html#some-key-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Data</strong>: The term “data” is plural. Data are the measurements or observations recorded in a study. Examples of data in cognitive neuroscience include reaction times, the records of whether a trial was correctly classified (by a human or a machine learning classifier), or the voltages recorded from the scalp in an EEG experiment. “Datum” is the singular term representing one measurement or observation. A datum is sometimes called a “raw score”, or simply, “score”.</p>
+<p><strong>Distribution</strong>: A probability distribution gives the probabilities of all possible outcomes of a certain event space. This can be discrete (e.g., a flip of a fair coin, the probability of selecting a particular card out of a deck) or continuous (e.g., the heights of all people). A histogram is a graph that shows data distributions. These can be converted to probability distributions by ensuring that all outcomes sum (or integrate) to 1. The shape of a distribution is highly informative about the relative frequencies of events: for example, is there one peak (unimodal) or more (multimodal)? Distributions can either be symmetrical, or positively or negatively skewed. A symmetrical distribution is such that a vertical line can be drawn through the middle of the distribution and the values on each side of the vertical line will be the mirror image of each other. A positive skew has a peak to the left and a tail stretching right; negative skew has the opposite.</p>
+<p><img src="imagesVCL/Relationship_between_mean_and_median_under_different_skewness.png" />
+(“Relationship_between_mean_and_median_under_different_skewness”, 2025)</p>
+<p><strong>Population</strong>: A population is the set of entities we want to make inferences about. In cognitive neuroscience, we almost always mean “all people” as our population of interest. We can’t measure all 8 billion people in our study, so we ask a certain sample of people to be in our study.</p>
+<p><strong>Sample</strong>: A sample is the set of observations that are meant to stand in as representatives of the population. For example, if I ask 40 Introduction to Psychology students to take part in my study, these 40 individuals are my sample. If every item in a population has an equal chance of being included in the sample, we are said to have a random sample. In theory, random sampling is great because the characteristics of the sample match the characteristics of the population, allowing us to generalize our data from the sample to the population. In practice, this is impractical in cognitive neuroscience. How would we find the contact information for all humans in all countries, get them to our lab, and be able to explain our experiment to them?</p>
+<p><img src="imagesVCL/population_vs_sample.png" />
+(“Population_versus_sample_(Statistics)”, 2025)</p>
+<p><strong>Sampling bias</strong>: Sampling bias refers to a sample that varies systematically from the population we hope to generalize to. If we measured height only by sampling NBA players, we would have a biased sample because professional basketball players are markedly taller than the average human. Often, our sampling in cognitive neuroscience is one of convenience, meaning we sample from the folks in our university community who are easy to recruit. However, folks at any university are not necessarily a representative sample of people as a whole, and there have been valid criticisms of studies oversampling Western, Educated, Industrialized, Rich, and Democratic (WEIRD) samples (Henrich et al., 2010). These attributes may cause biased samples.</p>
+<p><strong>Sampling error</strong>: Sampling error refers to the fact that any two samples from a population will not lead to identical statistical results, due to random fluctuations. Sampling error is reduced when our sample sizes increase. Intuitively, this makes sense. A single NBA player in a sample of five people will affect the average height of the sample much more than this same NBA player in a sample of 500 people. Importantly, sampling error leads to both over- and under-estimation of population parameters, while sampling bias will systematically create an estimate that is either too high or too low.</p>
+<p><strong>Statistic</strong>: A statistic is the property of a sample, typically a numerical value that summarizes some part of the sample, such as a typical value (see central tendency), or how much values vary (see measures of variability).</p>
+<p><strong>Parameter</strong>: A parameter is similar to a statistic, but it is a property of a population. Because we can seldom observe an entire population, parameters are often things that we estimate from our sample statistics.</p>
+</div>
+<div id="descriptive-statistics" class="section level2 unnumbered hasAnchor">
+<h2>Descriptive Statistics<a href="found_stats.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s say we just ran an experiment with 40 participants. We have each participant’s reaction time in each of the 200 trials in the experiment. How can we start to make sense of these 8000 individual numbers? Descriptive statistics allow us to summarize these data. We will mainly focus on 4 types of descriptive statistics: measures of central tendency, measures of variability, measures of relatedness, and types of distribution.</p>
+<div id="measures-of-central-tendency" class="section level3 unnumbered hasAnchor">
+<h3>Measures of Central Tendency<a href="found_stats.html#measures-of-central-tendency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One question we might ask ourselves is what a typical reaction time would be. This is called a “central tendency” because if we plotted a histogram of our data, typical reaction times would be at the tallest parts of the graph, often near the center. (A histogram is a type of graph that plots how frequently various values were observed in a dataset.) The goal of central tendency is to find the single score that is most typical or most representative of the entire group. There are three different ways we can measure central tendency: mean, median and mode.</p>
+<div id="mean" class="section level4 unnumbered hasAnchor">
+<h4>Mean<a href="found_stats.html#mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The mean (often called the average in casual conversation) for a distribution is the sum of all the scores divided by the number of scores in that distribution. The mean for a population is represented by the Greek letter <span class="math inline">\(\mu\)</span> (mu) whereas the mean for a sample is represented by capital M or <span class="math inline">\(\bar{X}\)</span> (called “x-bar”). The mean is considered the balance point of a distribution - the values above the mean must sum to the same amount as the values below the mean.</p>
+</div>
+<div id="median" class="section level4 unnumbered hasAnchor">
+<h4>Median<a href="found_stats.html#median" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The median is the middle score in a distribution that is arranged from smallest to largest. 50% of the distribution of scores lies before the median and 50% of the distribution of scores lies after the median. The median can either be a score within the list (or can lie between two scores if there is an even number of items in the distribution). To compute the median, one orders each datapoint from smallest to largest and takes the middle point (in the case of odd-numbered data) or the average of the two middlemost points (in the case of even-numbered data). The median is the best metric of central tendency when a distribution is skewed or contains outliers.</p>
+</div>
+<div id="mode" class="section level4 unnumbered hasAnchor">
+<h4>Mode<a href="found_stats.html#mode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In a frequency distribution, the mode is the most frequent score or category that occurs. The mode is the sole measure of central tendency that may also correspond with an actual value in the data. Although it is the least frequently used metric of central tendency, it is the only possible metric for categorical data. Intuitively, this makes sense: you can find the most frequently selected favorite movie from your group of friends, but you cannot compute a mean or median because these are not numeric.</p>
+</div>
+</div>
+<div id="measures-of-variability" class="section level3 unnumbered hasAnchor">
+<h3>Measures of Variability<a href="found_stats.html#measures-of-variability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition to characterizing what a typical member of a dataset looks like, we also often want to characterize how much data points vary: what is the difference between minimum and maximum? How much variability is typical?</p>
+<div id="range" class="section level4 unnumbered hasAnchor">
+<h4>Range<a href="found_stats.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The range of a dataset refers to the difference between the largest and smallest values. While this is simple to understand, it is not very common in practice because outliers can strongly affect its value.</p>
+</div>
+<div id="interquartile-range-iqr" class="section level4 unnumbered hasAnchor">
+<h4>Interquartile Range (IQR)<a href="found_stats.html#interquartile-range-iqr" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The interquartile range is the difference between a distribution’s 75th and 25th percentiles. A percentile is the value where X% of values are smaller. For example, the 80th percentile refers to the smallest value that is larger than 80% of data points. In other words, the IQR provides the range for the middle 50% of values. It is less prone to outliers than the range.</p>
+</div>
+<div id="standard-deviation" class="section level4 unnumbered hasAnchor">
+<h4>Standard Deviation<a href="found_stats.html#standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The standard deviation (denoted s for samples and the Greek letter sigma (<span class="math inline">\(\sigma\)</span>) for populations) is the average difference between a datapoint and its mean. It tells us how different, on average, a randomly-sampled item would be from the mean. This is the most common measure of variability used in scientific research. Larger standard deviations are associated with greater data spread.</p>
+<p><span class="math display">\[\sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2 }\]</span>
+This is, as shown in the figure above, the formula for computing the standard deviation for a population. For a sample, as shown in the figure below, we divide by (n-1) to account for the greater variability in a sample.</p>
+<p><span class="math display">\[s = \sqrt{ \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})^2 }\]</span></p>
+</div>
+<div id="variance" class="section level4 unnumbered hasAnchor">
+<h4>Variance<a href="found_stats.html#variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For some applications, squaring the differences from the mean is better. The variance of a dataset is the squared value of its standard deviation. We denote the variance of the sample as (<span class="math inline">\(s^2\)</span>) and the variance of a population as (<span class="math inline">\(\sigma^2\)</span>).</p>
+</div>
+<div id="standard-error-of-the-mean-sem" class="section level4 unnumbered hasAnchor">
+<h4>Standard Error of the Mean (SEM)<a href="found_stats.html#standard-error-of-the-mean-sem" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The standard error of the mean is a measure of expected variability of our sample mean, given sampling error. It is computed as <span class="math inline">\(SEM = \frac{s}{\sqrt(n)}\)</span> where n is the sample size of an experiment. Larger sample variability (larger s) is associated with larger SEM, and larger sample sizes decrease SEM.</p>
+</div>
+</div>
+<div id="measures-of-relatedness" class="section level3 unnumbered hasAnchor">
+<h3>Measures of Relatedness<a href="found_stats.html#measures-of-relatedness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The statistics that we’ve considered so far are computed within a single variable. But we often want to know how variables relate to each other.</p>
+<div id="covariance" class="section level4 unnumbered hasAnchor">
+<h4>Covariance<a href="found_stats.html#covariance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Covariance is a measure of a positive or negative linear relationship between two variables. In other words, when one variable increases, and the other variable also increases, the covariance is positive. By contrast, when an increase in one variable mainly corresponds to a decrease in the other (that is, the variables tend to show opposite behavior), the covariance is negative. When the variables have no linear relationship, the covariance is zero. We can see that the formula for covariance is derived simply from the formula for variance:<br />
+<span class="math display">\[\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu_X)(y_i - \mu_Y)\]</span></p>
+</div>
+<div id="correlation" class="section level4 unnumbered hasAnchor">
+<h4>Correlation<a href="found_stats.html#correlation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Like covariance, correlation shows the linear relationship between two variables. Also like covariance, a negative value shows that an increase in one variable corresponds to a decrease in the other. While a positive correlation indicates that both variables increase together. A value of zero indicates no linear relationship between the variables. You may be wondering why I keep saying the word “linear”. This is because two variables can be related in highly regular and predictable ways that are not linear. These relationships are not captured by the correlation coefficient.</p>
+<p><img src="imagesVCL/Correlation_examples2.svg.png" />
+(Naught101, 2012)</p>
+<p>There are three major types of correlation coefficients (Pearson, Spearman, Kendall), but Pearson is by far the most commonly used. It is computed as:
+<span class="math display">\[
+r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
+\]</span></p>
+<p>The Spearman rank-order correlation also measures the association between two variables, but does not necessarily require the relationship to be linear. For example, all runners might show faster race times from increased training. However, beginners might show more of a benefit than experienced runners, making the function nonlinear. Spearman’s rank-order correlation can capture this type of relationship, but it cannot capture other types of nonlinearities. For example, the sinusoidal relationship between temperature and season.</p>
+</div>
+</div>
+<div id="types-of-distributions" class="section level3 unnumbered hasAnchor">
+<h3>Types of Distributions<a href="found_stats.html#types-of-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Different statistical methods will make different assumptions about data distributions. There is a whole zoo of different types of probability distributions, so we will only review the three most common here.</p>
+<div id="normal" class="section level4 unnumbered hasAnchor">
+<h4>Normal<a href="found_stats.html#normal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The normal distribution (also known as the Gaussian distribution, or a bell curve) is the most common probability distribution in statistics. This distribution is unimodal (has only one peak), symmetrical (is not skewed), and shows up all the time in nature. Many of our physical attributes are normally distributed, including height, shoe size, and our weights at birth. The ubiquity of the normal distribution is one reason for its popularity. The other reason is that the central limit theorem states that the distribution of sample means will follow a normal distribution, as long as your sample size is large enough. What’s more remarkable is that this is true regardless of the underlying distribution of the data! Nearly all major statistical tests assume a normal distribution for this reason. A third reason for the popularity of the normal distribution is that it can be fully described with only two parameters: 𝜇, describing the mean and 𝛔 describing the standard deviation.</p>
+<p>A helpful application of the normal distribution is to calculate Z-scores (sometimes known as standard scores). The purpose of a z-score is to show exactly where a datum is on a normal distribution. This is helpful for comparing across different metrics or individuals. Z-scores are in units of standard deviation away from the mean. Hence, a z-score of 0 indicates that a score is the mean, a positive z-score tells you that the score is above the mean, and a negative z-score indicates a value below the mean. For example, a z-score of +2 means the score is two standard deviations above the mean.</p>
+<p>To calculate a z-score, one subtracts the mean from the raw score and divides by the standard deviation:</p>
+<p><span class="math display">\[
+Z = \frac{X - \mu}{\sigma}
+\]</span></p>
+</div>
+<div id="t-distribution" class="section level4 unnumbered hasAnchor">
+<h4>T-Distribution<a href="found_stats.html#t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The t-distribution (also called Student’s t-distribution) looks a lot like the normal distribution, except it has heavier tails. This means that there are comparatively more observations in the extremes, with fewer observations around the central tendency. The t-distribution does a better job of capturing the variability in smaller samples (sample sizes less than 100). It can be shown that the t-distribution becomes identical to the normal distribution at infinite sample sizes. The t-distribution is described by only one parameter, the degrees of freedom (equal to the sample size - 1).</p>
+<p><img src="imagesVCL/tDistribution.png" />
+(“Student’s t-Distribution,” 2025)</p>
+</div>
+<div id="binomial" class="section level4 unnumbered hasAnchor">
+<h4>Binomial<a href="found_stats.html#binomial" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The binomial distribution describes the data distribution for binary outcomes (success versus failure; heads versus tails; Red Sox versus Yankees). We often see the binomial distribution in models where we aim to predict the factors that will make a participant succeed or fail at a given task.</p>
+</div>
+</div>
+</div>
+<div id="inferential-statistics" class="section level2 unnumbered hasAnchor">
+<h2>Inferential Statistics<a href="found_stats.html#inferential-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While the goal of descriptive statistics is to characterize the properties of your sample, the goal of inferential statistics is to make inferences about the underlying characteristics of the population. Statistics is powerful when it can generalize beyond our observations. As such, inferential statistics typically makes up the supermajority of most statistics syllabi.</p>
+<div id="confidence-intervals" class="section level3 unnumbered hasAnchor">
+<h3>Confidence Intervals<a href="found_stats.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Confidence intervals are like standard error of the mean, in that, both describe how sampling error can limit knowledge about true population parameters. In fact, both are often used in the construction of error bars on scientific plots. A confidence interval provides a range of uncertainty about a population parameter, given the variability in the sample statistics. Confidence intervals are very frequently misunderstood. Many people falsely believe that a 95% confidence interval means that there is a 95% chance that the population parameter is inside that interval. Unfortunately, we have to be very careful with our interpretation. A population parameter either is or is not in the confidence interval, and the procedure guarantees that the confidence interval will capture the parameter 95% of the time. In other words, if you were to repeat your experiments tens of thousands of times, each time taking a new sample and creating a new confidence interval, that 95% of the confidence intervals would include the population parameter. Although 95% confidence is the most commonly used interval, one can specify any level of confidence. For example, a 99% confidence interval would be more likely to capture the population parameter (it will fail 1 out of 100 times instead of 1 out of 20 times), but this comes at the cost of being a wider interval. To compute a confidence interval:
+<span class="math display">\[
+\text{Population mean} = \text{Sample mean} \pm (t_{\text{critical}} \times \text{SEM})
+\]</span></p>
+<p>Where <em>t</em>-critical is given by the 95th percentile of the <em>t</em>-distribution, given the sample size, and <span class="math inline">\(\text{SEM} = \frac{s}{\sqrt{n}}\)</span>.</p>
+<p>As you can see, an error bar that reflects a 95% confidence interval will be wider than an error bar reflecting standard error of the mean since we multiply by the critical t-value. Further, we can also see that, like SEM, the width of the 95% confidence interval decreases with increasing sample size.</p>
+</div>
+<div id="null-hypothesis-significance-testing" class="section level3 unnumbered hasAnchor">
+<h3>Null-hypothesis significance testing<a href="found_stats.html#null-hypothesis-significance-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When most psychologists think about statistics, they are thinking about null-hypothesis significance testing (NHST). The myriad tests involved in this enterprise take up roughly 50-66% of an undergraduate course in statistics. Students often find them to be one of the most frustrating parts of the course. The chief reason for this is that NHST does not measure what we intuitively want it to measure. Misinterpretations of NHST are common, even among professional statisticians! (Lecoutre et al., 2010). Despite these difficulties, NHST is still a standard set of tools in this field, so we will cover the main ideas and then some of the main controversies.</p>
+<p>As a researcher, you have some hypothesis about the world, and you want a quantitative method to determine whether your data support this theory. While we can’t accept a theory based on inference from a sample (yeah, all of the swans in your sample are white, but there might be black swans in the world), we can reject a hypothesis based on a sample (a single black swan would force us to reject the hypothesis that ‘all swans are white’). Therefore, rather than trying to accept our actual hypothesis, we will aim to reject the <strong>null hypothesis</strong> (denoted <span class="math inline">\(H_0\)</span>), which is the hypothesis that there is no such effect (the difference between experimental and control groups is zero, for example).</p>
+<p>Importantly, there are two ways that your data and your hypotheses could align: the null-hypothesis could be true, and your data could support retaining the null hypothesis; or the null hypothesis could be false and your data support rejecting the null hypothesis. However, this also means that there are two ways that we might be wrong. If the null hypothesis is true, but we reject it, this is called a Type I error. If the null hypothesis is false, but we retain it, we have made a Type II error. While both types of errors should be avoided, we generally view Type I errors as much more serious. In many applications, this makes sense: you don’t want to state that your new vaccine prevents some illness when the data do not support it.
+<img src="imagesVCL/null.png" /></p>
+<p>(Statistical Inference - Wikiversity, n.d.)</p>
+<p>Because Type I errors are far less acceptable, NHST sets the maximum acceptable Type I error rate through a parameter called α. The most common levels of α are 0.05 and 0.01, reflecting a 5% and 1% risk of making a Type I error, respectively.</p>
+<p>We will then model the null hypothesis using the appropriate distribution. This can be the normal distribution for large datasets, or the t-distribution for more modest sample sizes, or other distributions for more specialized tests. We will first divide α between the two tails of the distribution (e.g., an α=0.05 would leave 2.5% of the probability density in the left tail and 2.5% of the probability density in the right tail). This is called a <strong>two-tailed test</strong> and leaves open the possibility that our result might be more extreme because it’s larger or smaller than predicted by the null hypothesis. In cases where it is only possible to go in one direction, one can place all of alpha in one tail, making it a <strong>one-tailed test</strong>. Either way, these critical values will help us determine statistical significance. We will then compute the probability of obtaining our test statistic, given this null distribution. This in effect says “If the null hypothesis were true, what is the probability of obtaining my result or something more extreme?”. This probability is known as the p-value. If this probability is smaller than α, then we reject the null hypothesis and consider the result “statistically significant”. In effect, this is saying that our data would be so unlikely if the null hypothesis were true that we reject the null hypothesis.</p>
+<p><img src="imagesVCL/t-test.png" />
+(VCL, 2025)</p>
+<p><strong>Steps of conducting a null hypothesis significance test</strong></p>
+<ol style="list-style-type: decimal">
+<li>State the <strong>null</strong> and <strong>alternative hypotheses</strong>.</li>
+<li>Set the alpha level (α)</li>
+<li>Determine critical values for either a one- or two-tailed hypothesis</li>
+<li>Compute the probability of the data given the null hypothesis to obtain a p-value</li>
+<li>Accept or reject the null hypothesis</li>
+</ol>
+<p><strong>Controversies</strong></p>
+<ol style="list-style-type: decimal">
+<li>A p-value does not state the probability that your hypothesis is false (but people think it does).</li>
+<li>Alpha levels are arbitrary and can lead to “p-hacking”, an unethical practice whereby a researcher might change experimental plans to bring a non-significant effect into statistical significance by running another participant, changing exclusion criteria, etc.</li>
+<li>The tests are only valid when the assumptions of the test hold. Too few researchers check these assumptions in practice.</li>
+<li>Statistical significance is not practical significance.</li>
+</ol>
+</div>
+<div id="effect-size-versus-statistical-significance" class="section level3 unnumbered hasAnchor">
+<h3>Effect size versus statistical significance<a href="found_stats.html#effect-size-versus-statistical-significance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The statistical significance of a result tells you how unlikely it is that it was generated from the null hypothesis. However, it does not tell you how large the effect is in real terms. Imagine that I was able to recruit 7 billion of the world’s 8 billion people to my experiment testing a new “smart drug”. If each of the 3.5 billion people in the experimental group improve their IQ scores by exactly one point, then the result is highly statistically significant. However, these 3.5 billion people will be unlikely to notice a difference in their cognition, because one point on a standard IQ test is only 7% of a standard deviation of difference! In this way, a statistically significant result is not necessarily a large result. Some of the statistics we have covered, such as correlations, are themselves effect sizes. Other metrics, such as Cohen’s D standardize effect sizes using a logic similar to z-scores.</p>
+<p><span class="math display">\[
+d = \frac{M1 - M2}{S_p}
+\]</span></p>
+<p>Here, larger absolute values indicate larger effects. Cohen originally offered the following definitions of small, medium, and large effects (small: less than 0.2; medium: 0.4-0.5; large: 0.63-0.8; very large: greater than 0.87). However, he also noted that these depend on the context of the experiment and the norms of an individual field.</p>
+</div>
+</div>
+<div id="further-reading-11" class="section level2 unnumbered hasAnchor">
+<h2>Further Reading<a href="found_stats.html#further-reading-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We recommend the following sources for more information on this topic:</p>
+<p>Danielle Navarro <a href="https://learningstatisticswithr.com/">Learning Stats with R</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fourier.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="machine_learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["official-textbook.pdf", "official-textbook.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
