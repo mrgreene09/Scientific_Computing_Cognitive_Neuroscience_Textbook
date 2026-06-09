@@ -490,7 +490,7 @@ div.csl-indent {
 <h2>Digital Cameras<a href="image_processing.html#digital-cameras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Digital cameras capture images using a sensor, which is the electronic equivalent of film. The two most common types of sensors are CCD (Charge-Coupled Device) and CMOS (Complementary Metal-Oxide-Semiconductor), with CMOS being more common in modern cameras. Each sensor contains millions of tiny light-sensitive elements called pixels, which convert incoming light into electrical signals. Pixels are arranged as a matrix where the number of rows determine the image’s height and the number of columns give the image’s width. Most sensors use a color filter array called a Bayer filter to assign red, green, or blue filters to each pixel. Since each pixel only sees one color, the camera must reconstruct a full-color image through a process called demosaicing.</p>
 <p><img src="imagesVCL/beyerFil.png" /></p>
-<p>(Murray 1010, 2007)</p>
+<p><span class="citation">(<a href="#ref-murray1010English1CCDBayer2007">Murray 1010, 2007</a>)</span></p>
 <p>The Bayer filter “assigns” each pixel to specialize in red, green, or blue much like the cone photoreceptors of the eye can be tuned to (roughly) red, green, and blue wavelengths.</p>
 </div>
 <div id="pixel-values" class="section level2 unnumbered hasAnchor">
@@ -527,8 +527,7 @@ In image processing, the type of image file matters. A RAW file, like those prod
 <p>CIELab (Commission on Illumination) is the most useful color space if you want to make quantitative comparisons. Like RGB, CIELab is built on three channels: luminance (black to white), a (green to red) and b (blue to yellow). There are several advantages to this representation. First, by separating luminance from the other channels, we can adjust the overall brightness of a picture while leaving the colors the same. Second, the color opponent green-red and yellow-blue channels mimic the color opponency observed in the retina and lateral geniculate nucleus (LGN) of the visual system. Third, CIELAB is perceptually uniform, meaning that a change of the same amount in one of its dimensions (lightness, or chromatic components) corresponds to a roughly equal change in perceived color. This makes it a better choice when comparing how similar two colors look to a human observer.</p>
 <p><img src="imagesVCL/colors.png" />
 (“RGB Color Spaces,” 2025)
-(Horvath, 2017)
-(SharkD Talk, 2010)</p>
+<span class="citation">(<a href="#ref-horvathEnglishVisibleGamut2017">Horvath, 2017</a>; <a href="#ref-sharkdtalkEnglishHSLHSV2010">SharkD Talk, 2010</a>)</span></p>
 </div>
 <div id="hsv-color" class="section level2 unnumbered hasAnchor">
 <h2>HSV Color<a href="image_processing.html#hsv-color" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -556,10 +555,10 @@ In image processing, the type of image file matters. A RAW file, like those prod
 <p>Histogram matching is another way to do this: here, we adjust the pixel values of one image so that its histogram matches that of a reference image. This technique is useful for normalizing images from different sources or conditions, like lighting.</p>
 <p>Here is an example:</p>
 <p><img src="imagesVCL/Textbook_images-7.png" />
-(<a href="mailto:e.koukakis@gmail.com" class="email">e.koukakis@gmail.com</a>, 2023; OWP et al., 2022)</p>
+<span class="citation">(<a href="#ref-owpDronesDeforestationAmazons2022">OWP et al., 2022</a>)</span></p>
 <p>The series of images above represents a visual of what the histogram matching process looks like. The cat on the left is the original image. The jungle scene in the middle is the reference image with a different luminance and contrast scheme. The cat on the right is the matched image and contains the same luminance and contrast values as the reference image.</p>
 <p><img src="imagesVCL/Histogram_equalization.png" />
-(Capper, 2020)</p>
+<span class="citation">(<a href="#ref-capperSlovencinaEkvalizaciaHistogramu2020">Capper, 2020</a>)</span></p>
 <p>This figure demonstrates histogram equalization, a technique used to enhance image contrast. Panel (a) shows the original grayscale image with low contrast, while panel (b) shows the same image after equalization, revealing greater detail. Panels (c) and (d) show the histograms before and after processing, illustrating how pixel intensities are redistributed to span a wider range of brightness levels.</p>
 </div>
 <div id="pixel-coordinates" class="section level2 unnumbered hasAnchor">
@@ -583,6 +582,24 @@ In image processing, the type of image file matters. A RAW file, like those prod
 <li><p>Describe two ways to reduce the number of pixels in an image.</p></li>
 </ol>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-capperSlovencinaEkvalizaciaHistogramu2020" class="csl-entry">
+Capper, P. (2020). <em>Slovenčina: <span>Ekvalizácia</span> histogramu: (A) pôvodný obrázok, (b) obrázok po ekvalizácii, (c) histogram pôvodného obrázku a (d) histogram výstupného obrázku.</em> <a href="https://commons.wikimedia.org/wiki/File:Histogram_equalization.png">https://commons.wikimedia.org/wiki/File:Histogram_equalization.png</a>
+</div>
+<div id="ref-horvathEnglishVisibleGamut2017" class="csl-entry">
+Horvath, M. (2017). <em>English: <span>The</span> visible gamut plotted within the <span>CIELAB</span> color space. A and b are the horizontal axes. <span>L</span> is the vertical axis. <span>Uses</span> <span>D65</span> whitepoint.</em> <a href="https://commons.wikimedia.org/wiki/File:Visible_gamut_within_CIELAB_color_space_D65_whitepoint_mesh.png">https://commons.wikimedia.org/wiki/File:Visible_gamut_within_CIELAB_color_space_D65_whitepoint_mesh.png</a>
+</div>
+<div id="ref-murray1010English1CCDBayer2007" class="csl-entry">
+Murray 1010. (2007). <em>English: <span>1CCD</span> <span>Bayer</span> <span>Filter</span></em>. <a href="https://commons.wikimedia.org/wiki/File:1CCD_camera_system.jpg">https://commons.wikimedia.org/wiki/File:1CCD_camera_system.jpg</a>
+</div>
+<div id="ref-owpDronesDeforestationAmazons2022" class="csl-entry">
+OWP, E. S. is a. senior correspondent at the, America, currently studying for her M. degree at the C. A. at U. C. D. S. graduated in M. 2022. with a. B. degree in I. R. at B. U. with a. focus in L., Policy, F., background, S. S. E. international, Scotland, being born in, States, growing up in the U., resolution, has inspired her passion for global affairs S. deeply believes in peaceful conflict, &amp; career, the importance of raising awareness on current events T. inspires her work at O. as well as her plans to pursue journalism as her. (2022). Drones v. <span>Deforestation</span>: <span>The</span> <span>Amazon</span>’s <span>Indigenous</span> <span>Communities</span> <span>Fight</span> <span>Back</span>. In <em>The Organization for World Peace</em>. <a href="https://theowp.org/reports/drones-v-deforestation-the-amazons-indigenous-communities-fight-back/">https://theowp.org/reports/drones-v-deforestation-the-amazons-indigenous-communities-fight-back/</a>
+</div>
+<div id="ref-sharkdtalkEnglishHSLHSV2010" class="csl-entry">
+SharkD Talk, H. svg:. J. R. png:. S. work:. (2010). <em>English: <span>HSL</span> and <span>HSV</span> are two cylindrical representations of the <span>RGB</span> gamut, created in the mid-1970s and used mostly in image editing and computer graphics. <span>When</span> <span>HSL</span>/<span>HSV</span> hue and <span>HSL</span> lightness/<span>HSV</span> value are plotted against chroma <span>C</span> – where <span>C</span> = max(<span>R</span>, <span>G</span>, <span>B</span>) − min(<span>R</span>, <span>G</span>, <span>B</span>) – the resulting color solid is a bicone or cone. <span>For</span> details, see the article <span>HSL</span> and <span>HSV</span>.</em> <a href="https://commons.wikimedia.org/wiki/File:HSV_color_solid_cone_chroma_gray.png">https://commons.wikimedia.org/wiki/File:HSV_color_solid_cone_chroma_gray.png</a>
 </div>
 </div>
             </section>

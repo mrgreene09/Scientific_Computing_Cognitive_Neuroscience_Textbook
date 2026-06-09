@@ -494,7 +494,7 @@ div.csl-indent {
 <h2>Basic Methodology<a href="intro_eeg.html#basic-methodology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="electrodes-and-their-placement" class="section level3 unnumbered hasAnchor">
 <h3>Electrodes and their Placement<a href="intro_eeg.html#electrodes-and-their-placement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>EEG machines vary in the number of electrodes they use. Research-grade machines typically have electrode numbers that follow powers of two: 32, 64, 128, and 256-electrode systems are common. How many electrodes does a system need? Is more necessarily better? In part, this depends on your research question. In our lab, machine learning applications, benefit from more electrodes, so 128 is good for us. In general, the fewer electrodes a system has, the easier it is to set up an experiment. This is because each electrode needs to get a good electrical connection with the scalp (measured as impedance).</p>
+<p>EEG machines vary in the number of electrodes they use. Research-grade machines typically have electrode numbers that typically follow powers of two: 32, 64, 128, and 256-electrode systems are common. How many electrodes does a system need? Is more necessarily better? In part, this depends on your research question. In our lab, machine learning applications, benefit from more electrodes, so 128 is good for us. In general, the fewer electrodes a system has, the easier it is to set up an experiment. This is because each electrode needs to get a good electrical connection with the scalp (measured as impedance).</p>
 <p>Where do these electrodes go on the scalp? Most researchers do not have to worry about this because electrodes are often placed on a fabric cap that is centered on the participant’s head. Electrode placement follows the international [10-20 system](<a href="https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)" class="uri">https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)</a>, a set of standardized electrode locations, based on 10% and 20% distances between two anatomical landmarks: the <em>nasion</em> (the indentation at the bridge of the nose, in between the eyes), and the <em>inion</em> (the most protruding part of head at the back of the skull).</p>
 <p><img src="imagesVCL/nasionInionMastoid.png" />
 (VCL, 2025)</p>
@@ -539,7 +539,7 @@ div.csl-indent {
 </div>
 <div id="filtering" class="section level3 unnumbered hasAnchor">
 <h3>Filtering<a href="intro_eeg.html#filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Noise removal is essential for clean EEG data. Muscle movements, line noise, sweat potentials, and other distractions can cause noise in the data. If the noise source is constant, it is easy to filter out during post-processing. Some terminology is in order. A <em>high-pass filter</em> allows voltages above a certain threshold to remain. For example, a high-pass filter of 1 Hz will filter out anything below 1 Hz, while keeping all of the higher frequencies. A <em>low-pass filter</em> consequently allows voltages below a certain threshold. For example, a low-pass filter of 50 Hz will filter out all frequencies higher than this value. Yes, the names are counterintuitive! Finally, a <em>notch filter</em> will take out frequencies around a specific frequency range. This is one common approach to dealing with line noise. Filtering should be done with care because it is literally changing your EEG data. In our lab, we tend to employ a low-pass filter of around 50 Hz to reduce the influence of line noise and muscular tension in the face and neck. While high-pass filters can be very helpful for slow drift and sweat potentials, we do not use them for studies involving decoding because this can create both false-positive and false-negative decoding results! <span class="citation">(<a href="#ref-vandrielHighpassFilteringArtifacts2021">van Driel, Olivers, and Fahrenfort 2021</a>)</span></p>
+<p>Noise removal is essential for clean EEG data. Muscle movements, line noise, sweat potentials, and other distractions can cause noise in the data. If the noise source is constant, it is easy to filter out during post-processing. Some terminology is in order. A <em>high-pass filter</em> allows voltages above a certain threshold to remain. For example, a high-pass filter of 1 Hz will filter out anything below 1 Hz, while keeping all of the higher frequencies. A <em>low-pass filter</em> consequently allows voltages below a certain threshold. For example, a low-pass filter of 50 Hz will filter out all frequencies higher than this value. Yes, the names are counterintuitive! Finally, a <em>notch filter</em> will take out frequencies around a specific frequency range. This is one common approach to dealing with line noise. Filtering should be done with care because it is literally changing your EEG data. In our lab, we tend to employ a low-pass filter of around 50 Hz to reduce the influence of line noise and muscular tension in the face and neck. While high-pass filters can be very helpful for slow drift and sweat potentials, we do not use them for studies involving decoding because this can create both false-positive and false-negative decoding results! <span class="citation">(<a href="#ref-vandrielHighpassFilteringArtifacts2021">Driel et al., 2021</a>)</span></p>
 </div>
 <div id="event-detection" class="section level3 unnumbered hasAnchor">
 <h3>Event Detection<a href="intro_eeg.html#event-detection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -561,42 +561,41 @@ div.csl-indent {
 <p>Now that we have our data in order, it’s time to get some insights into what the brain is doing. At this point, our data is in a very large array (electrodes by time points or electrodes by epoch time points by trials). For example, if we record from a 128-electrode system sampling at 1000 Hz for one hour (60 s/min * 60 min/hour * 1000 samples/s), we would have a 128x3.6 million matrix! Assuming we had 1000 trials in our experiment, and had already created epochs of 600 ms for each trial, this array might be 128x600x1000 (128 electrodes, 600 ms per trial, 1000 trials).</p>
 <div id="frequency" class="section level3 unnumbered hasAnchor">
 <h3>Frequency<a href="intro_eeg.html#frequency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Researchers often examine the frequency content of EEG signals to study ongoing brain activity. Frequency analysis involves decomposing the EEG signal into its constituent rhythms. For example, delta (1–4 Hz), theta (4–8 Hz), alpha (8–12 Hz), beta (13–30 Hz), and gamma (&gt;30 Hz) bands each correspond to different cognitive states (and states of consciousness). This is done with the Fast Fourier Transform (FFT) that you can learn more about in Chapter <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(fourier).</p>
+<p>Researchers often examine the frequency content of EEG signals to study ongoing brain activity. Frequency analysis involves decomposing the EEG signal into its constituent rhythms. For example, delta (1–4 Hz), theta (4–8 Hz), alpha (8–12 Hz), beta (13–30 Hz), and gamma (&gt;30 Hz) bands each correspond to different cognitive states (and states of consciousness). This is done with the Fast Fourier Transform (FFT) that you can learn more about in Chapter <a href="fourier.html#fourier">11</a>.</p>
 <p><img src="imagesVCL/eegBands.png" /></p>
-<p>(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)
-(“Electroencephalography,” 2025)</p>
+<p><span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>The above image shows different wave types and their frequency.</p>
 </div>
 <div id="traditional-erps" class="section level3 unnumbered hasAnchor">
 <h3>Traditional ERPs<a href="intro_eeg.html#traditional-erps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In most cognitive applications, we want to measure how the brain responds to a particular stimulus or event. To achieve this, we measure event-related potentials (ERPs), which are electrical signals generated by the brain in response to specific events or stimuli. An “event code” is incorporated into the EEG recording, marking the time and identity of each event. ERPs specifically measure brain responses that are directly tied to sensory, cognitive, or motor events. While we often cannot pinpoint the exact brain regions responsible for the recorded voltages, ERPs still provide valuable insights into brain activity.</p>
 <p><img src="imagesVCL/13a2.png" style="width:50.0%" /></p>
-<p>(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<p><span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>During the EEG experiment, the researcher typically uses two computers, one for presenting the participant with stimuli and the other for actively monitoring and recording the EEG waves and event codes.</p>
 <p><img src="imagesVCL/13a3.png" style="width:50.0%" /></p>
-<p>(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<p><span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <div id="breaking-down-erps-into-epochs" class="section level4 unnumbered hasAnchor">
 <h4>Breaking Down ERPs into Epochs<a href="intro_eeg.html#breaking-down-erps-into-epochs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="imagesVCL/13a4.png" style="width:55.0%" />
-(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>The diagram above is complex and may appear a bit overwhelming when understanding ERPs. Let’s break it down into manageable subparts to better understand what is going on!</p>
 <p><img src="imagesVCL/13a5.png" style="width:60.0%" /></p>
-<p>(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<p><span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>In the diagram above, the black line represents a continuous recording of brain activity, showing voltage over time. “Stim 1” through “Stim N” represent different discrete stimuli, imagine these stimuli might be various images presented to the participant on a screen. The participant’s brain response to each stimulus is recorded in the EEG data, which is shown in the three yellow boxes. However, the EEG does not only capture the brain’s response to the stimuli; it also picks up noise. To the naked eye, it is impossible to distinguish which parts of the recording in these yellow boxes (epoch windows) are true responses to the stimuli and which are noise. Epoch windows are predetermined time frames where the researcher expects the brain to react to the stimuli.</p>
 <p><img src="imagesVCL/13a6.png" style="width:50.0%" /></p>
-<p>(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<p><span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>Each epoch represents the time period starting when the stimulus is presented to the participant (time-locked to the stimulus onset) and continues for a predetermined duration, 600 milliseconds in this example. However, this duration can vary depending on the type of stimulus and the researcher’s prediction of how long the participant’s brain will need to react and produce an accurate response.</p>
 <p><img src="imagesVCL/13a1.png" style="width:35.0%" />
-(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>To filter out the noise in EEG epoch data, we average the brain responses to each stimulus. This process allows researchers to identify consistent patterns in brain activity and distinguish them from noise. By averaging multiple epochs, the random noise cancels out, revealing the more consistent brain response, which forms the event-related potential (ERP) waveform. The x-axis represents time in milliseconds, while the y-axis represents voltage in microvolts. P1 is the first positive peak following the stimulus, and N1 is the first negative peak. These are exciting to researchers because these ERPs are correlated with specific cognitive processes.</p>
 </div>
 <div id="types-of-erps-stimulus-locked-average-vs.-response-locked-average" class="section level4 unnumbered hasAnchor">
 <h4>Types of ERPs: Stimulus-Locked Average vs. Response-Locked Average<a href="intro_eeg.html#types-of-erps-stimulus-locked-average-vs.-response-locked-average" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="imagesVCL/ex101010101.png" style="width:50.0%" /></p>
-<p>(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<p><span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>Stimulus-Locked Potential: This type of ERP is time-locked to the presentation of the stimulus. Typically the epoch begins a few hundred milliseconds before the stimulus is presented and ends a few hundred milliseconds after the stimulus is presented.</p>
 <p><img src="imagesVCL/13a7.png" style="width:50.0%" />
-(Virtual ERP Boot Camp: Introduction to ERPs - Virtual ERP Boot Camp, n.d.)</p>
+<span class="citation">(<a href="#ref-VirtualERPBoot"><em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span></em>, n.d.</a>)</span></p>
 <p>Response-Locked Potential: This type of ERP is time-locked to when the brain demonstrates a response to the stimulus presented to the participant.</p>
 </div>
 </div>
@@ -608,16 +607,21 @@ div.csl-indent {
 </div>
 <div id="practice-questions-8" class="section level2 unnumbered hasAnchor">
 <h2>Practice Questions<a href="intro_eeg.html#practice-questions-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Q1: What is line noise, how do we identify it, and why is it important for us to remove it?</p>
-<p>Q2: How do we mitigate muscle artifacts in our data when using EEG?</p>
-<p>Q3: What is an event-related potential and what are its two subtypes?</p>
+<ol style="list-style-type: decimal">
+<li><p>What is line noise, how do we identify it, and why is it important for us to remove it?</p></li>
+<li><p>How do we mitigate muscle artifacts in our data when using EEG?</p></li>
+<li><p>What is an event-related potential and what are its two subtypes?</p></li>
+</ol>
 
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
 <div id="ref-vandrielHighpassFilteringArtifacts2021" class="csl-entry">
-van Driel, Joram, Christian N. L. Olivers, and Johannes J. Fahrenfort. 2021. <span>“High-Pass Filtering Artifacts in Multivariate Classification of Neural Time Series Data.”</span> <em>Journal of Neuroscience Methods</em> 352 (March): 109080. <a href="https://doi.org/10.1016/j.jneumeth.2021.109080">https://doi.org/10.1016/j.jneumeth.2021.109080</a>.
+Driel, J. van, Olivers, C. N. L., &amp; Fahrenfort, J. J. (2021). High-pass filtering artifacts in multivariate classification of neural time series data. <em>Journal of Neuroscience Methods</em>, <em>352</em>, 109080. <a href="https://doi.org/10.1016/j.jneumeth.2021.109080">https://doi.org/10.1016/j.jneumeth.2021.109080</a>
+</div>
+<div id="ref-VirtualERPBoot" class="csl-entry">
+<em>Virtual <span>ERP</span> <span>Boot</span> <span>Camp</span>: <span>Introduction</span> to <span>ERPs</span> - <span>Virtual</span> <span>ERP</span> <span>Boot</span> <span>Camp</span></em>. (n.d.). Retrieved June 2, 2025, from <a href="https://courses.erpinfo.org/courses/take/Intro-to-ERPs/texts/14727771-chapter-1-overview">https://courses.erpinfo.org/courses/take/Intro-to-ERPs/texts/14727771-chapter-1-overview</a>
 </div>
 </div>
             </section>

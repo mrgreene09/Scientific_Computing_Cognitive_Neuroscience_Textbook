@@ -519,7 +519,7 @@ Wikipedia contributors. (n.d.). <i>Virginia tech xserve cluster</i>. Wikimedia C
 </ul>
 <div id="importance-of-computer-clusters" class="section level3 unnumbered hasAnchor">
 <h3>Importance of Computer Clusters<a href="remote_computing.html#importance-of-computer-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Computer clusters are crucial for labs like VCL (Viusal Cognition Lab), enabling the efficient computation of large, multidimensional data like EEG. They allow for the processing of large datasets, enhancing the lab’s ability to handle complex tasks such as decoding (discussed in later sections). Clusters also enable developers and researchers to scale data analysis by adding more nodes, increasing computational power. At times, we assign different parts of a script to separate machines, ensuring optimal processing speed. You can think of it like a team of farmers, each responsible for a row of strawberries, working together to harvest the entire field.</p>
+<p>Computer clusters are crucial for labs like VCL (Visual Cognition Lab), enabling the efficient computation of large, multidimensional data like EEG. They allow for the processing of large datasets, enhancing the lab’s ability to handle complex tasks such as decoding (discussed in later sections). Clusters also enable developers and researchers to scale data analysis by adding more nodes, increasing computational power. At times, we assign different parts of a script to separate machines, ensuring optimal processing speed. You can think of it like a team of farmers, each responsible for a row of strawberries, working together to harvest the entire field.</p>
 </div>
 <div id="permissions" class="section level3 unnumbered hasAnchor">
 <h3>Permissions<a href="remote_computing.html#permissions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -618,16 +618,12 @@ B. Both computers are head nodes.
 C. The first computer is the head node, and the second computer is a compute node.
 D. Both computers are compute nodes.</p></li>
 <li><p>A student wants to copy report.txt from their local computer to a remote server using rsync. In the command format rsync [options] [origin] [destination], what do the origin and destination represent, and why is it important to place them in the correct order?</p></li>
-<li><p>You need to copy a 40 GB project folder from your laptop to a remote server. Halfway through the transfer, your internet disconnects. Later, you reconnect and want to continue transferring only the missing parts without re-copying everything. Which tool would be the better choice, scp or rsync, and why?
-A. scp, because it is designed to resume interrupted transfers and only copy changed parts of files
-B. rsync, because it avoids re-copying unchanged data and is more efficient for large or interrupted transfers</p></li>
-</ol>
-<ol start="3" style="list-style-type: upper-alpha">
-<li>scp, because it automatically compares source and destination before copying
-D. rsync, because it always encrypts files, while scp does not</li>
-</ol>
-<ol start="4" style="list-style-type: decimal">
-<li>When would it be appropriate to use a compute cluster?</li>
+<li><p>You need to copy a 40 GB project folder from your laptop to a remote server. Halfway through the transfer, your internet disconnects. Later, you reconnect and want to continue transferring only the missing parts without re-copying everything. Which tool would be the better choice, scp or rsync, and why?<br />
+A. scp, because it is designed to resume interrupted transfers and only copy changed parts of files.<br />
+B. rsync, because it avoids re-copying unchanged data and is more efficient for large or interrupted transfers.<br />
+C. scp, because it automatically compares source and destination before copying.<br />
+D. rsync, because it always encrypts files, while scp does not.</p></li>
+<li><p>When would it be appropriate to use a compute cluster?</p></li>
 </ol>
 
 </div>

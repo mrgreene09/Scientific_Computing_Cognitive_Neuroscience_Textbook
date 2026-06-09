@@ -499,15 +499,15 @@ div.csl-indent {
 <h2>Time Domain vs. Frequency Domain Visualization<a href="fourier.html#time-domain-vs.-frequency-domain-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>EEG data can be viewed and interpreted in two different ways: through a time domain or through a frequency domain. Viewing EEG data through the time domain is common; the x-axis represents time (typically in milliseconds) and the y-axis represents voltage. Voltage is pressure, the force of electricity.</p>
 <p><img src="imagesVCL/Human_EEG_with_prominent_alpha-rhythm.png" /></p>
-<p>(Cherninskyi, 2015)</p>
+<p><span class="citation">(<a href="#ref-cherninskyiEnglishSampleHuman2015">Cherninskyi, 2015</a>)</span></p>
 <p>Time Domain EEG Graph. The x-axis represents time in milliseconds, labeled in 5 millisecond increments. The y-axis is specifying different channels and the amplitude of each channel is the voltage.</p>
 <p>Fourier transformation is utilized when EEG data is viewed via the frequency domain. Any signal at a point in time can be broken down into a series of sine waves that vary in frequency, and amplitude.</p>
 <p><img src="imagesVCL/Missing_fundamental_Fourier_series_frequency_8.png" /></p>
-<p>(Hyacinth, 2014)</p>
+<p><span class="citation">(<a href="#ref-hyacinthEnglishMissingFundamental2014">Hyacinth, 2014</a>)</span></p>
 <p>The figure above depicts what a broken down signal may look like and the individual sine waves that make up the original signal.</p>
 <p>Fourier transformation estimates the amplitude (power) and frequency of each sine wave. This is then plotted in a frequency domain graph where frequency measured in Hertz is on the x-axis and amplitude is on the y-axis.</p>
 <p><img src="imagesVCL/Simple_time_domain_vs_frequency_domain_IRL.png" /></p>
-<p>(Accountalive, 2021)</p>
+<p><span class="citation">(<a href="#ref-accountaliveDeutschObenAufnahme2021">Accountalive, 2021</a>)</span></p>
 <p>The wave in this image is depicting a signal made up of 440 Hz and 659 Hz notes. The graph under the wave shows the two distinct frequencies that makes up the signal. What makes the second graph different is that it’s represented in the form of frequency and amplitude rather than time and amplitude.</p>
 <p>When analyzing and plotting EEG data using the frequency domain method instead of the time domain method, researchers are unable to extract power levels at specific time points for each frequency. The graph above illustrates the average power levels over the entire data window provided. As long as there is enough data to capture at least one full cycle—measured from the peak of one wave to the peak of the next—sine wave decomposition can be performed. Lower frequency data takes longer to complete a cycle. Frequency is measured in hertz (Hz), so a 2 Hz signal means the wave completes two cycles per second. As discussed in Chapter <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(intro_eeg), electrical line noise is 60 Hz in the U.S. Fourier analysis allows us to measure how much line noise there is, and also helps us filter it out! This leads us to the next subsection, where we will break down why Fourier analysis is important in EEG experiments.</p>
 </div>
@@ -515,7 +515,7 @@ div.csl-indent {
 <h2>Relevance to EEG<a href="fourier.html#relevance-to-eeg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>By decomposing EEG waves into their subcomponents, we can better understand brain activity and more easily remove noise and artifacts—one of the main reasons researchers utilize fourier analysis in EEG experiments. Different wave frequencies reveal different aspects of brain function. For example, alpha waves (8-12 Hz), as discussed in the EEG section, often indicate that the participant is becoming drowsy. When preprocessing EEG data, it is important to filter out muscle movements and eye blinks before conducting Fourier analysis.</p>
 <p><img src="imagesVCL/Ondas_cerebrales,_encefalograma.jpeg" />
-(VIGIL, 2011)</p>
+<span class="citation">(<a href="#ref-vigilEnglishTiposOndas2011">VIGIL, 2011</a>)</span></p>
 <p>The image above illustrates various types of brain waves along with examples of activities likely to produce corresponding brain activity.</p>
 </div>
 <div id="amplitude-and-phase-spectra" class="section level2 unnumbered hasAnchor">
@@ -543,6 +543,21 @@ div.csl-indent {
 <li><p>What two spectrums are produced by Fourier transform? How do they complement one another?</p></li>
 </ol>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-accountaliveDeutschObenAufnahme2021" class="csl-entry">
+Accountalive. (2021). <em>Deutsch: <span>Oben</span>: <span>Aufnahme</span> einer <span>Kalimba</span>, auf der die <span>Töne</span> a’ und e angeschlagen wurden. <span>Dargestellt</span> ist die <span>Wellenform</span> des <span>Signals</span> "im <span>Ortsraum</span>".</em> <a href="https://commons.wikimedia.org/wiki/File:Simple_time_domain_vs_frequency_domain_IRL.svg">https://commons.wikimedia.org/wiki/File:Simple_time_domain_vs_frequency_domain_IRL.svg</a>
+</div>
+<div id="ref-cherninskyiEnglishSampleHuman2015" class="csl-entry">
+Cherninskyi, A. (2015). <em>English: <span>The</span> sample of human <span>EEG</span> with prominent resting state activity - alpha-rhythm. <span>Left</span> - <span>EEG</span> traces (horizontal - time in seconds; vertical - amplitudes, scale <span>100uV</span>). <span>Right</span> - power spectra of shown signals (vertical lines - 10 and <span>20Hz</span>, scale is linear). <span>Alpha</span>-rhythm consists of sinusoidal-like waves with frequencies in 8-<span>12Hz</span> range (<span>11Hz</span> in this case) more prominent in posterior sites. <span>Alpha</span> range is red at power spectrum graph.українська: Приклад ЕЕГ здорової людини з вираженим ритмом спокою - альфа-ритмом.</em> <a href="https://commons.wikimedia.org/wiki/File:Human_EEG_with_prominent_alpha-rhythm.png">https://commons.wikimedia.org/wiki/File:Human_EEG_with_prominent_alpha-rhythm.png</a>
+</div>
+<div id="ref-hyacinthEnglishMissingFundamental2014" class="csl-entry">
+Hyacinth. (2014). <em>English: <span>Missing</span> fundamental on 1 (dashed), <span>Fourier</span> series. <span>The</span> period which is the least common multiple of all the harmonics is that of the fundamental. <span>Thus</span> even if it itself is missing, the frequency is still perceptible.</em> <a href="https://commons.wikimedia.org/wiki/File:Missing_fundamental_Fourier_series_frequency_8.png">https://commons.wikimedia.org/wiki/File:Missing_fundamental_Fourier_series_frequency_8.png</a>
+</div>
+<div id="ref-vigilEnglishTiposOndas2011" class="csl-entry">
+VIGIL, J. (2011). <em>English: <span>Tipos</span> de ondas cerebrales vistos en un encefalografo</em>. <a href="https://commons.wikimedia.org/wiki/File:Ondas_cerebrales,_encefalograma.jpg">https://commons.wikimedia.org/wiki/File:Ondas_cerebrales,_encefalograma.jpg</a>
 </div>
 </div>
             </section>

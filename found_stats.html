@@ -559,7 +559,7 @@ This is, as shown in the figure above, the formula for computing the standard de
 <h4>Correlation<a href="found_stats.html#correlation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Like covariance, correlation shows the linear relationship between two variables. Also like covariance, a negative value shows that an increase in one variable corresponds to a decrease in the other. While a positive correlation indicates that both variables increase together. A value of zero indicates no linear relationship between the variables. You may be wondering why I keep saying the word “linear”. This is because two variables can be related in highly regular and predictable ways that are not linear. These relationships are not captured by the correlation coefficient.</p>
 <p><img src="imagesVCL/Correlation_examples2.svg.png" />
-(Naught101, 2012)</p>
+<span class="citation">(<a href="#ref-naught101EnglishRecreationFile2012">Naught101, 2012</a>)</span></p>
 <p>There are three major types of correlation coefficients (Pearson, Spearman, Kendall), but Pearson is by far the most commonly used. It is computed as:
 <span class="math display">\[
 r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
@@ -609,7 +609,7 @@ Z = \frac{X - \mu}{\sigma}
 <p>As a researcher, you have some hypothesis about the world, and you want a quantitative method to determine whether your data support this theory. While we can’t accept a theory based on inference from a sample (yeah, all of the swans in your sample are white, but there might be black swans in the world), we can reject a hypothesis based on a sample (a single black swan would force us to reject the hypothesis that ‘all swans are white’). Therefore, rather than trying to accept our actual hypothesis, we will aim to reject the <strong>null hypothesis</strong> (denoted <span class="math inline">\(H_0\)</span>), which is the hypothesis that there is no such effect (the difference between experimental and control groups is zero, for example).</p>
 <p>Importantly, there are two ways that your data and your hypotheses could align: the null-hypothesis could be true, and your data could support retaining the null hypothesis; or the null hypothesis could be false and your data support rejecting the null hypothesis. However, this also means that there are two ways that we might be wrong. If the null hypothesis is true, but we reject it, this is called a Type I error. If the null hypothesis is false, but we retain it, we have made a Type II error. While both types of errors should be avoided, we generally view Type I errors as much more serious. In many applications, this makes sense: you don’t want to state that your new vaccine prevents some illness when the data do not support it.
 <img src="imagesVCL/null.png" /></p>
-<p>(Statistical Inference - Wikiversity, n.d.)</p>
+<p><span class="citation">(<a href="#ref-StatisticalInferenceWikiversity"><em>Statistical Inference - <span>Wikiversity</span></em>, n.d.</a>)</span></p>
 <p>Because Type I errors are far less acceptable, NHST sets the maximum acceptable Type I error rate through a parameter called α. The most common levels of α are 0.05 and 0.01, reflecting a 5% and 1% risk of making a Type I error, respectively.</p>
 <p>We will then model the null hypothesis using the appropriate distribution. This can be the normal distribution for large datasets, or the t-distribution for more modest sample sizes, or other distributions for more specialized tests. We will first divide α between the two tails of the distribution (e.g., an α=0.05 would leave 2.5% of the probability density in the left tail and 2.5% of the probability density in the right tail). This is called a <strong>two-tailed test</strong> and leaves open the possibility that our result might be more extreme because it’s larger or smaller than predicted by the null hypothesis. In cases where it is only possible to go in one direction, one can place all of alpha in one tail, making it a <strong>one-tailed test</strong>. Either way, these critical values will help us determine statistical significance. We will then compute the probability of obtaining our test statistic, given this null distribution. This in effect says “If the null hypothesis were true, what is the probability of obtaining my result or something more extreme?”. This probability is known as the p-value. If this probability is smaller than α, then we reject the null hypothesis and consider the result “statistically significant”. In effect, this is saying that our data would be so unlikely if the null hypothesis were true that we reject the null hypothesis.</p>
 <p><img src="imagesVCL/t-test.png" />
@@ -649,13 +649,22 @@ d = \frac{M1 - M2}{S_p}
 <ol style="list-style-type: decimal">
 <li><p>What is an example of a right-skewed distribution in the real world?</p></li>
 <li><p>Why is it useful to look at the interquartile range?</p></li>
-<li><p>A study finds a statistically significant improvement in performance using a new technology. From a statistical standpoint, what should you focus on when deciding if the improvement is meaningful enough to justify adoption?
-A. The p-value, because it tells you how different the results are from the standard method
-B. The sample size, because it determines reliability
-C. The effect size, because it tells you how big the improvement is
-D. Only whether the result is statistically significant, not magnitude</p></li>
+<li><p>A study finds a statistically significant improvement in performance using a new technology. From a statistical standpoint, what should you focus on when deciding if the improvement is meaningful enough to justify adoption?<br />
+A. The p-value, because it tells you how different the results are from the standard method.<br />
+B. The sample size, because it determines reliability.<br />
+C. The effect size, because it tells you how big the improvement is.<br />
+D. Only whether the result is statistically significant, not magnitude.</p></li>
 </ol>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-naught101EnglishRecreationFile2012" class="csl-entry">
+Naught101. (2012). <em>English: <span>Recreation</span> of <span>File</span>:<span>Correlation</span>_examples2.svg using the distance correlation method (dcor from the <span>R</span> energy library)</em>. <a href="https://commons.wikimedia.org/wiki/File:Distance_Correlation_Examples.svg">https://commons.wikimedia.org/wiki/File:Distance_Correlation_Examples.svg</a>
+</div>
+<div id="ref-StatisticalInferenceWikiversity" class="csl-entry">
+<em>Statistical inference - <span>Wikiversity</span></em>. (n.d.). Retrieved June 4, 2025, from <a href="https://en.wikiversity.org/wiki/Statistical_inference">https://en.wikiversity.org/wiki/Statistical_inference</a>
 </div>
 </div>
             </section>
