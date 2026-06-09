@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 Image Processing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
-  <meta name="description" content="14 Image Processing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <title>16 Answers | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications</title>
+  <meta name="description" content="16 Answers | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
   <meta name="generator" content="bookdown 0.46.4 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 Image Processing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta property="og:title" content="16 Answers | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 Image Processing | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
+  <meta name="twitter:title" content="16 Answers | Scientific Computing For Cognitive Neuroscience: Tutorials and Practical Applications" />
   
   
   
@@ -42,8 +42,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="machine_learning.html"/>
-<link rel="next" href="advanced_image_rep.html"/>
+<link rel="prev" href="advanced_image_rep.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -483,106 +483,171 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="image_processing" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">14</span> Image Processing<a href="image_processing.html#image_processing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In a lab focused on vision research, basic knowledge about images is essential to our everyday work. You have likely captured hundreds of digital images. This chapter will tell you about how pictures are represented digitally, and how to do some basic manipulations such as resizing, and changing luminance and contrast.</p>
-<div id="digital-cameras" class="section level2 unnumbered hasAnchor">
-<h2>Digital Cameras<a href="image_processing.html#digital-cameras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Digital cameras capture images using a sensor, which is the electronic equivalent of film. The two most common types of sensors are CCD (Charge-Coupled Device) and CMOS (Complementary Metal-Oxide-Semiconductor), with CMOS being more common in modern cameras. Each sensor contains millions of tiny light-sensitive elements called pixels, which convert incoming light into electrical signals. Pixels are arranged as a matrix where the number of rows determine the image’s height and the number of columns give the image’s width. Most sensors use a color filter array called a Bayer filter to assign red, green, or blue filters to each pixel. Since each pixel only sees one color, the camera must reconstruct a full-color image through a process called demosaicing.</p>
-<p><img src="imagesVCL/beyerFil.png" /></p>
-<p>(Murray 1010, 2007)</p>
-<p>The Bayer filter “assigns” each pixel to specialize in red, green, or blue much like the cone photoreceptors of the eye can be tuned to (roughly) red, green, and blue wavelengths.</p>
-</div>
-<div id="pixel-values" class="section level2 unnumbered hasAnchor">
-<h2>Pixel Values<a href="image_processing.html#pixel-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Digital images are essentially matrices composed of rows and columns of pixels (picture elements). You may be familiar with this term because cameras often advertise their number of megapixels. In general, the more pixels an image has, the smoother it will look. A larger number of pixels will result in a larger image, and images can be resized to meet a user’s needs.</p>
-<p>Images are a series of pixels organized in a two-dimensional array, i(x,y). It represents the amplitude, or intensity of the pixel located at the x,y position.</p>
-<p><img src="imagesVCL/image5.png" />
-(Made in house by VCL 2025)</p>
-<p>This is a visual demonstrating the two-dimensional array, the basic structure of an image. At each pixel there is an intensity level and specified location.</p>
-<p><strong>Note</strong>: in Matlab, since indexing starts at 1 instead of 0, the matrix would look something like the following:</p>
-<p><img src="imagesVCL/Textbook_images-4.png" /></p>
-<p>(Made in house by VCL 2025)</p>
-<p>But what about luminance? What range of numbers is used to represent the different light levels in an image? This depends on how granular you want to be. The number of possible values is determined in bits. A bit, or binary digit, is a data structure with two possible values, 0 or 1. Thus, a two-bit image would have four possible light values (two possibilities for each bit), a three-bit image would have eight possible values, etc. The most common representation is 8-bit, meaning 256 unique light levels. However, high-quality photographs can be represented in 16-bit (32,536 different levels).</p>
-<p>Let’s consider an 8-bit image that is in black and white (we often call this “grayscale”). A pure black pixel would be represented as 0, while a pure white pixel would be represented with 255. For all of the shades of gray in between, smaller values represent darker shades. But what about color? Color is typically represented with three color channels: red, green, and blue. Assuming an 8-bit color depth, each of the three channels would be represented with a number between 0-255, representing the amount of that color at that pixel. Any arbitrary color can thus be described with a triplet of numbers. As a thought exercise, it’s helpful to consider how many unique colors can be described in this space to prove to yourself that a television or computer monitor advertising “millions of colors” is not deceiving you.</p>
-<p><img src="imagesVCL/cat.png" />
-(VCL, 2025)</p>
-<p><img src="imagesVCL/Beyoglu_4671_tricolor.png" />
-(“Grayscale,” 2025)</p>
-</div>
-<div id="image-file-formats" class="section level2 unnumbered hasAnchor">
-<h2>Image File Formats<a href="image_processing.html#image-file-formats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In theory, computers could store the value of each pixel in the image matrix. If this were the case, then all images of the same size would have the same file size. But you may have noticed on your computer that two images of the same width and height can have variable file sizes. Why is that?</p>
-<p>An Apple iPhone 16 takes 48 megapixel photographs. This means that the image array is 8192 x 5464 pixels. Let’s imagine that our photograph is in color and represented with 8 bits of color depth. This would mean that the file size would be 8192 pixels x 5464 pixels x 3 color channels x 8 bits per channel = 1,074,266,112 bits of information! Let’s turn this into a more human-scale number. There are 8 bits per byte, and 1024^2 bytes in a megabyte. Therefore, this file would take up over 128 MB if stored directly! In actuality, images of this size typically take up 10-15 MB. What accounts for this difference?</p>
-<p>The answer lies in how images are encoded and compressed. Most digital images are not stored as raw matrices of pixel values. Instead, they are saved in file formats like JPEG, PNG, or HEIC, each of which uses different strategies to reduce file size. These strategies rely on the fact that images contain redundancy—for example, areas of sky that are all the same shade of blue, or smooth gradients across a shadow. Compression algorithms can represent these patterns more efficiently, often using fewer bits than storing every pixel individually.
-There are two main types of image compression: lossless and lossy. Lossless formats (like PNG) preserve all of the original information, allowing the image to be perfectly reconstructed. Lossy formats (like JPEG and HEIC), on the other hand, discard some information that the algorithm predicts will be hard for the human eye to notice, such as subtle color shifts or fine texture. This reduces file size dramatically, but it can introduce compression artifacts and make the image less suitable for scientific analysis.
-In image processing, the type of image file matters. A RAW file, like those produced by professional cameras, contains minimally processed sensor data and is ideal for precise analysis or editing. A JPEG is much smaller and good for sharing, but sacrifices fine detail and accuracy. As we’ll see, choosing the right image format depends on what you want to do with the image and how much data you’re willing to lose.</p>
-</div>
-<div id="color-spaces" class="section level2 unnumbered hasAnchor">
-<h2>Color Spaces<a href="image_processing.html#color-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>So far, we have considered color to be from a space of three channels, each from the red, green, and blue channels (RGB). This is a sensible choice, given that these colors are the primary colors of light and that human cones detect colors with cones that are roughly tuned to red, green, and blue wavelengths. However, this biological analogy is loose and RGB is not always the best format for analyzing or manipulating images, especially when we want to think about how colors appear to the human eye.</p>
-</div>
-<div id="cielab-color" class="section level2 unnumbered hasAnchor">
-<h2>CIELAB Color<a href="image_processing.html#cielab-color" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>CIELab (Commission on Illumination) is the most useful color space if you want to make quantitative comparisons. Like RGB, CIELab is built on three channels: luminance (black to white), a (green to red) and b (blue to yellow). There are several advantages to this representation. First, by separating luminance from the other channels, we can adjust the overall brightness of a picture while leaving the colors the same. Second, the color opponent green-red and yellow-blue channels mimic the color opponency observed in the retina and lateral geniculate nucleus (LGN) of the visual system. Third, CIELAB is perceptually uniform, meaning that a change of the same amount in one of its dimensions (lightness, or chromatic components) corresponds to a roughly equal change in perceived color. This makes it a better choice when comparing how similar two colors look to a human observer.</p>
-<p><img src="imagesVCL/colors.png" />
-(“RGB Color Spaces,” 2025)
-(Horvath, 2017)
-(SharkD Talk, 2010)</p>
-</div>
-<div id="hsv-color" class="section level2 unnumbered hasAnchor">
-<h2>HSV Color<a href="image_processing.html#hsv-color" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The HSV color space (Hue, Saturation, Value) is another alternative, often used in computer vision and graphics. It separates the idea of color (hue) from how vivid it is (saturation) and how bright it is (value), which makes it easier to isolate or modify specific color properties.</p>
-</div>
-<div id="image-luminance-and-contrast" class="section level2 unnumbered hasAnchor">
-<h2>Image Luminance and Contrast<a href="image_processing.html#image-luminance-and-contrast" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In image processing, it’s often important to separate the structure of an image from its lighting conditions. Two key properties that influence how we perceive and analyze images are luminance, which reflects overall brightness, and contrast, which describes the differences in brightness across the image.</p>
-</div>
-<div id="luminance" class="section level2 unnumbered hasAnchor">
-<h2>Luminance<a href="image_processing.html#luminance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Luminance refers to the brightness level of an image and is determined by how much white or black is mixed into the image. Maximum luminance is pure white, and minimum luminance is pure black. One often wants to know the mean luminance of an image. For a grayscale image, one can get this value by simply averaging the pixel values. For color images, the process depends on the color space you are using. For CIELAB space, one can compute the mean value of the luminance channel. For RGB, one would take a weighted average of the three color channels. This weighting accounts for how the human eye perceives brightness differently across these channels (the human eye is most sensitive to green light). In all cases, a luminance histogram can be created to assess the distribution of luminance values.</p>
-<p><img src="imagesVCL/luminance.png" /></p>
-<p>(VCL, 2025)</p>
-</div>
-<div id="contrast" class="section level2 unnumbered hasAnchor">
-<h2>Contrast<a href="image_processing.html#contrast" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Contrast is how much luminance levels vary across an image. High-contrast images have strong differences between light and dark areas, making edges and details more distinct, while low-contrast images appear flat or washed out. Contrast plays a major role in how easily we can perceive shapes, textures, and boundaries within a scene. In image processing, adjusting contrast can help enhance important features, improve visibility in poor lighting, or prepare an image for further analysis like edge detection or object recognition. Common techniques include contrast stretching, histogram equalization, and normalization, all of which aim to redistribute pixel intensities to make details stand out more clearly. Photo manipulation methods, such as Instagram filters, make use of these techniques to make more attractive images.</p>
-<p><img src="imagesVCL/contrast.png" /></p>
-<p>(VCL, 2025)</p>
-</div>
-<div id="normalizing-luminance-and-contrast" class="section level2 unnumbered hasAnchor">
-<h2>Normalizing Luminance and Contrast<a href="image_processing.html#normalizing-luminance-and-contrast" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In cognitive neuroscience, we often want to control for luminance and contrast because early visual system responses are sensitive to these values. One common approach is to adjust each image so that it has the same mean luminance and contrast. Mean luminance is typically set to be the mid-gray level (i.e., 128 on the 0-255 scale). Contrast can be computed in several ways, but root mean square (RMS) contrast is the most common choice. RMS contrast is simply the standard deviation of pixel intensity values. Therefore, a standardized set of images will always have the same mean luminance and RMS contrast.</p>
-<p>Histogram matching is another way to do this: here, we adjust the pixel values of one image so that its histogram matches that of a reference image. This technique is useful for normalizing images from different sources or conditions, like lighting.</p>
-<p>Here is an example:</p>
-<p><img src="imagesVCL/Textbook_images-7.png" />
-(<a href="mailto:e.koukakis@gmail.com" class="email">e.koukakis@gmail.com</a>, 2023; OWP et al., 2022)</p>
-<p>The series of images above represents a visual of what the histogram matching process looks like. The cat on the left is the original image. The jungle scene in the middle is the reference image with a different luminance and contrast scheme. The cat on the right is the matched image and contains the same luminance and contrast values as the reference image.</p>
-<p><img src="imagesVCL/Histogram_equalization.png" />
-(Capper, 2020)</p>
-<p>This figure demonstrates histogram equalization, a technique used to enhance image contrast. Panel (a) shows the original grayscale image with low contrast, while panel (b) shows the same image after equalization, revealing greater detail. Panels (c) and (d) show the histograms before and after processing, illustrating how pixel intensities are redistributed to span a wider range of brightness levels.</p>
-</div>
-<div id="pixel-coordinates" class="section level2 unnumbered hasAnchor">
-<h2>Pixel Coordinates<a href="image_processing.html#pixel-coordinates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As we’ve discussed, images can generally be treated as matrices. There is one critical difference between a standard matrix and an image, however, and this is where the computer considers the origin (i.e., point 0,0). General matrices use Cartesian coordinates whereby the origin would either be in the lower left quadrant of the matrix, or at the matrix’s center. By contrast, some image indices are ordered from top to bottom and from left to right, making the origin at the top left point of the image.</p>
-</div>
-<div id="image-resolution-and-resizing" class="section level2 unnumbered hasAnchor">
-<h2>Image Resolution and Resizing<a href="image_processing.html#image-resolution-and-resizing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Image resolution refers to the number of pixels in an image, and this determines how detailed the image can be. The more pixels, the higher the resolution, which results in more detail. To increase the resolution of an image, you add more pixels. However, this is not possible to do after a photograph is taken, despite what crime shows would lead us to believe. If you want to reduce the number of pixels, you can do this by either cropping or resizing the image. A crop is a section of the image. For example, taking the first 100 pixels from the height and width of an image, starting from the origin, would give us the image’s top-left corner. By contrast, resizing the image keeps all of the image’s content, but places it in a smaller canvas. Because this process involves estimating what pixel values would be if the image were smaller, care must be taken to ensure that a resized image is not stretched in this process.</p>
-</div>
-<div id="further-reading-13" class="section level2 unnumbered hasAnchor">
-<h2>Further Reading<a href="image_processing.html#further-reading-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We recommend the following sources for more information on this topic:</p>
-<p><a href="https://ocw.mit.edu/courses/6-801-machine-vision-fall-2020/">Machine Vision</a> MIT OpenCourseware. Note: this is a bit more advanced, but the content is excellent.</p>
-</div>
-<div id="practice-questions-13" class="section level2 unnumbered hasAnchor">
-<h2>Practice Questions<a href="image_processing.html#practice-questions-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="answers" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">16</span> Answers<a href="answers.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="chapter-1" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 1<a href="answers.html#chapter-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li><p>A vision scientist is conducting a natural image statistics study, aiming to measure the luminance distributions and fine texture of real-world images. After collecting a series of high-quality photographs, he saves them as JPEGs. Explain why this could compromise the study.</p></li>
-<li><p>Why do vision scientists often normalize luminance and contrast in images that are used in their experiment?</p></li>
-<li><p>Describe two ways to reduce the number of pixels in an image.</p></li>
+<li><p>A file is a single item containing data. A folder is a container in a graphical user interface that stores files. A directory is a technical map often typed into a terminal to point to a specific file or folder.</p></li>
+<li><p>cd /home/bvcl/Desktop/greetings/hello.docx</p></li>
+</ol>
+</div>
+<div id="chapter-2" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 2<a href="answers.html#chapter-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>The terminal allows users to interact with and control a computer through typed commands instead of clicking through menus and windows.</p></li>
+<li><p>It is more efficient to use the terminal when working with large files and directories, accessing remote systems, and automating commands.</p></li>
+<li><p>The <code>ls</code> command will display all files in the Documents folder. <code>ls *.jpg</code> will list only the JPG files.</p></li>
+<li><p>Sammy should use the <code>mkdir mind_reading</code> command. It will create a new empty folder with the name “mind_reading” from the current directory.</p></li>
+<li><p>Joey should use the command: cp participant001.txt /home/username/Desktop</p></li>
+<li><p>You can quit Terminal by clicking the red close button in the top-left corner of the window, or by clicking “Terminal” in the menu bar and selecting “Quit Terminal”.</p></li>
+<li><p>Commands cd or cd ~ return you to the home directory.</p></li>
+<li><p>The ls command shows files and folders inside your current directory.</p></li>
+<li><p>cd Downloads moves you to the folder named “Downloads” in the directory you’re in. cd ~/Downloads moves you to the “Downloads” folder in the home directory, regardless of your current directory.</p></li>
+<li><p>It specifically highlights rm -rf to caution against making a mistake with this command. Files and directories deleted with rm - rf cannot easily be recovered, so a mistake can result in permanently losing important data.</p></li>
+</ol>
+</div>
+<div id="chapter-3" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 3<a href="answers.html#chapter-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>C. The first computer is the head node, and the second computer is a compute node.</p></li>
+<li><p>origin represents the start point of the file/directory you want to synchronize/copy and destination represents the end point of where the file/directory will be placed. The order matters because rsync is unidirectional and start/end-point sensitive. Placing them in the wrong order can lead to data loss and unintended overwrites.</p></li>
+<li><p>B. rsync, because it avoids re-copying unchanged data and is more efficient for large or interrupted transfers</p></li>
+<li><p>Using a compute cluster is useful when a task requires more computational power, memory, or processing time than a single computer can provide.</p></li>
+</ol>
+</div>
+<div id="chapter-4" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 4<a href="answers.html#chapter-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>It’s helpful to work through the commands one at a time. By default, we start at the top of the file (i.e., line 1). The first “j” command goes down one line. When we repeat the command, we go down another line. We are now on line 3. The “dd” command deletes the line we are on (line 3). The “G” command takes us to the bottom of the file. Therefore, we are at the bottom of the file, and the original line 3 was deleted.</p></li>
+<li><p>They need to move from insert mode to command mode by pressing esc and then pressing colon (:). The key sequence :wq will exit Vim.</p></li>
+<li><p>This is a case where it makes sense to use find and replace. The line :%s/awful/awesome/g would get the job done. It might be useful to use :%s/awful/awesome/gc so that he can confirm that each change is what he wants.</p></li>
+<li><p>The four modes are Normal, Insert, Command, and Visual. Normal mode is the default mode used for navigation and editing. Insert mode is used for typing and editing a text file. Command mode is used to run commands. Lastly, the Visual mode is used to select text for desired actions.</p></li>
+<li><p>Given that Normal mode is the default “control mode” in Vim, all other modes are entered from normal mode. The purpose of this is to prevent any confusion between typing text and executing commands.</p></li>
+<li><p>The command “:w” saves the file but does not exit. The command “:wq” saves the file and exits Vim. The command “:q!” exits without saving any changes.</p></li>
+</ol>
+</div>
+<div id="chapter-5" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 5<a href="answers.html#chapter-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Pip can only install packages that are from the Python Package Index. All other packages must be installed using Conda. Pip also installs packages globally on the computer system, whereas conda installs them locally on the environment.</p></li>
+<li><p>A. conda activate example_name</p></li>
+<li><p>B. conda update package_name</p></li>
+<li><p>conda create -n myenv python=3.11
+conda activate myenv
+conda install numpy matplotlib</p></li>
+</ol>
+</div>
+<div id="chapter-6" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 6<a href="answers.html#chapter-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>A for loop. The teacher can program the for loop to go through each item in the array (each student’s age) and do a plus one operation for every value.</p></li>
+<li><p>The answer is 1.</p></li>
+<li><p>Jason has multiple options. Here are two:</p>
+<ol style="list-style-type: lower-alpha">
+<li>He can override his current list and create a new one using the same name “favorite cars”:</li>
+<li>He can use array indexing to change specific cars: favorite_cars[5] = “Mercedes-Benz S-Class”</li>
+</ol></li>
+</ol>
+</div>
+<div id="chapter-7" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 7<a href="answers.html#chapter-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Neglecting to commit after making changes could be disruptive in a few ways. First, collaborators cannot see code that hasn’t been committed, making collaboration much more difficult. Second, if a bug arises, there is no way to check various iterations of the code within those three weeks to isolate changes that may have caused the bug. Every time you commit, multiple pieces of metadata are stored: the author of the commit, the timestamp, a descriptive message, and a snapshot of all staged file changes at that point in time.</p></li>
+<li><p>Git init creates a new, empty Git repository in a local directory. It is used when starting a project from scratch. git clone creates a local copy of an existing repository, including its full history, branches, and files. It is used when joining an existing project.</p></li>
+<li><p>HEAD refers to the current branch or commit you are working on. Before executing a merge, it is important to verify that HEAD is pointing to the branch you want to merge changes into. If HEAD is pointing to the wrong branch, the merge will be applied to the wrong place.</p></li>
+</ol>
+</div>
+<div id="chapter-8" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 8<a href="answers.html#chapter-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>A pivot table is a way to summarize data and make it more digestible. The four fields that can be used are row, column, values and filters.</li>
+</ol>
+<p>2A. You could use a pivot table to visualize this information. First, you would need to highlight the values in the original data table, then hover over the insert tab and under “Tables” click “Recommend PivotTable.” Click and drag “Person” into the row section and then click and drag “Approx time needed” into the values section. To switch from count of approx time needed to the average approx time needed, click the circle with the “i” and select “average”</p>
+<p><img src="imagesVCL/chap8_q2A.png" />
+2B. First, you would need to highlight the values in the original data table, then hover over the insert tab and under “Tables” click “Recommend PivotTable.” Click and drag “Sub-task” into the row section and then click and drag “Approx time needed” into the values section.
+<img src="imagesVCL/chap8_q2b.png" /></p>
+<p>2C. Looking at the longest approximate time of any task is the same as finding the maximum value in the “Approx time needed” column. You can find this maximum by sorting the table by that column or by using the max function (=max(D2:D16).</p>
+</div>
+<div id="chapter-9" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 9<a href="answers.html#chapter-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Line noise comes from the electricity signal in a room that the EEG amplifier picks up on. Because line noise is highly predictable in frequency, it can easily be filtered out. In the United States, electricity oscillates at 60hz per second, so we can apply a notch filter at that frequency. It is important to remove line noise because the signal is picked up by the EEG and it can obscure much smaller neural signals.</p></li>
+<li><p>The best way to mitigate muscle artifacts in our data is to ensure that we aren’t recording them. We can ask participants to remain as relaxed, comfortable, and still as possible and we can show them that even something like clenching their jaw can significantly impact recording.</p></li>
+<li><p>An event-related potential is an electrical signal generated by the brain in response to a specific stimulus. When looking at ERPs, we can look at stimulus-locked averages or response-locked average:
+Stimulus-locked averages are time-locked to the presentation of the stimulus. The epoch typically begins a few hundred milliseconds before the stimulus is presented and ends a few hundred milliseconds after the stimulus is presented.
+Response-Locked Potential is time-locked to when the brain demonstrates a response to the stimulus presented to the participant.</p></li>
+</ol>
+</div>
+<div id="chapter-10" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 10<a href="answers.html#chapter-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Signal Detection Theory helps us separate actual perceptual ability or sensitivity from decision strategy or response bias.</p></li>
+<li><p>d′ is better because it measures how well someone can actually distinguish signal from noise, instead of just how often they were right overall. Percent correct can be misleading because it is affected by guessing habits and response bias, while d′ focuses more on true sensitivity.</p></li>
+<li><p>Sensitivity refers to how well a person can distinguish between a real signal and noise. Response bias refers to a person’s tendency to respond in a particular way, such as being more likely to say “yes, I detected it,” or being more cautious and only saying “yes” when they are very certain.</p></li>
+<li><p>A lenient decision criterion makes someone more likely to say “yes,” which increases hits, but also increases false alarms. A strict decision criterion makes someone more likely to say “no,” which lowers false alarms but increases misses. So, the criterion changes what kind of mistakes happen more often.</p></li>
+<li><p>That would be a miss, also called a false negative, because the signal was really there, but you failed to detect it.</p></li>
+<li><p>A false negative means missing a real effect, so researchers might wrongly conclude that nothing is happening when there actually is an effect. A false positive means claiming there is an effect when there really is not one, which can lead to incorrect conclusions, wasted follow-up research, and misleading findings.</p></li>
+</ol>
+</div>
+<div id="chapter-11" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 11<a href="answers.html#chapter-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Decomposing an EEG signal into individual frequencies is an effective way to identify noise that is distinct from brain response signals. These noise frequencies can then be filtered out. This decomposition also lets us analyze specific frequency ranges associated with different cognitive processes. And, separating frequency allows us to examine important characteristics of the signal, including amplitude, frequency, and phase.</p></li>
+<li><p>The time domain is a way of representing how a signal changes over time, whereas the frequency domain shows how much of each frequency is present in a signal over a given time window.</p></li>
+<li><p>We would say 2Hz because hertz is already a measure of how many times something oscillates per second.</p></li>
+<li><p>The amplitude spectrum and phase spectrum. Amplitude tells us about signal strength and phase spectrum is about the timing relationships of those oscillations relative to a reference.</p></li>
+<li><p>Amplitude affects how strong or bright patterns in the image appear, while phase determines where those patterns are located. Changing amplitude mainly affects contrast, but changing phase can change the actual shape of what you see and is more likely to impact image recognizability.</p></li>
+</ol>
+</div>
+<div id="chapter-12" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 12<a href="answers.html#chapter-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>A common example of a right-skewed distribution is a distribution of global earthquake magnitude and frequency. Smaller earthquakes are much more common than large earthquakes.</p></li>
+<li><p>It’s useful to look at the interquartile range when you want a measure that is less prone to outliers. IQR finds the range for the middle 50% of the data</p></li>
+<li><p>C. While a statistically significant result tells us that a result is unlikely to be due to chance, it does not tell us the magnitude of that effect. For those insights, we should look at effect size.</p></li>
+</ol>
+</div>
+<div id="chapter-13" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 13<a href="answers.html#chapter-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Unsupervised learning is trained on unlabeled data, allowing it to independently identify structure within a dataset. Examples include grouping similar inputs into clusters or reducing data to its underlying dimensions. Supervised learning involves training on labeled data, where the correct output is known for each input. This includes both classification and regression.</p></li>
+<li><p>SVM: We try to find the hyperplane that best separates the data into their classes. The goal is to maximize the margins between the two classes.
+Linear Regression: In linear regression, we try to minimize the cumulative squared difference between all the estimated yi and their actual yi. We call this minimizing the sum of squared residuals.</p></li>
+<li><p>As you increase the polynomial degree, the regression curve is fit closer to the training data so bias decreases, but variance increases and the curve may not generalize to the test set.</p></li>
+<li><p>One possible explanation is that there is a class imbalance in the training data and there are more examples of non-seizure data than seizure data so the classifier defaults to a negative.</p></li>
+</ol>
+</div>
+<div id="chapter-14" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 14<a href="answers.html#chapter-14" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>JPEG is a lossy compression format that discards image information the algorithm predicts will be hard for the human eye to notice. This could include discarding high-frequency information including fine detail and sharp edges. Given that the scientist was hoping to measure this, he should not use a lossy compression technique.</p></li>
+<li><p>In cognitive neuroscience, we often want to control for luminance and contrast because early visual system responses are sensitive to these values. By normalizing luminance and contrast across all images, scientists make sure that any measured differences in brain activity or behavior are not just due to low-level image properties.</p></li>
+<li><p>Cropping: Take a section of the image and only the pixels in that section.
+Resizing: Keep all of the image content, but place it in a smaller canvas.</p></li>
+</ol>
+</div>
+<div id="chapter-15" class="section level3 unnumbered hasAnchor">
+<h3>Chapter 15<a href="answers.html#chapter-15" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>High spatial frequencies:
+<img src="imagesVCL/chap15_q1b.png" />
+Low spatial frequencies:
+<img src="imagesVCL/chap15_q1.png" /></p></li>
+<li><p>Phase-randomized images preserve the amplitude spectrum of the original images but randomize the phase spectrum, so that the image appears to be just noise, but maintains the same proportions of spatial frequencies as the original.</p></li>
 </ol>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Aronson, Sage, Maria Adkins, and Michelle Greene. 2025. <span>“Divergent <span>Roles</span> of <span>Visual Structure</span> and <span>Conceptual Meaning</span> in <span>Scene Detection</span> and <span>Categorization</span>.”</span> OSF. <a href="https://doi.org/10.31234/osf.io/zxy6s_v1">https://doi.org/10.31234/osf.io/zxy6s_v1</a>.
+</div>
+<div class="csl-entry">
+Nasser, Roger, and James Hutson. 2025. <span>“Multimodal <span>Mentoring</span> to <span>Support Student Resilience</span> and <span>Wellbeing</span> in <span>STEM Education</span>.”</span> <em>Mentoring for Wellbeing in Higher Education</em>, January.
+</div>
+<div class="csl-entry">
+van Driel, Joram, Christian N. L. Olivers, and Johannes J. Fahrenfort. 2021. <span>“High-Pass Filtering Artifacts in Multivariate Classification of Neural Time Series Data.”</span> <em>Journal of Neuroscience Methods</em> 352 (March): 109080. <a href="https://doi.org/10.1016/j.jneumeth.2021.109080">https://doi.org/10.1016/j.jneumeth.2021.109080</a>.
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -590,8 +655,8 @@ In image processing, the type of image file matters. A RAW file, like those prod
           </div>
         </div>
       </div>
-<a href="machine_learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="advanced_image_rep.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="advanced_image_rep.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
